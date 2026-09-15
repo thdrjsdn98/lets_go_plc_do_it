@@ -14,7 +14,7 @@ var STORAGE_PREFIX = 'plc_example1_';
 function PK(key) { return STORAGE_PREFIX + key; }
 
 var currentSubPage = 0;
-var totalSubPages = 1;
+var totalSubPages = 8;
 var bookmarks = JSON.parse(localStorage.getItem(PK('user_bookmarks')) || '[]');
 var completes = JSON.parse(localStorage.getItem(PK('user_completes')) || '[]');
 var currentFontSize = parseInt(localStorage.getItem(PK('user_font_size')) || '14', 10);
@@ -29,7 +29,8 @@ var lastSearchQuery = "";
 var studyQuotes = [
     { text: "직접 프로그램을 짜고 시뮬레이션을 돌려봐야 실력이 는다.", ref: "PLC 학습 습관" },
     { text: "모르는 명령어는 F1 도움말로 바로 찾아보는 습관을 들이자.", ref: "학습 팁" },
-    { text: "작은 예제부터 직접 따라 만들어보는 것이 매뉴얼을 읽는 것보다 빠르다.", ref: "학습 루틴" }
+    { text: "작은 예제부터 직접 따라 만들어보는 것이 매뉴얼을 읽는 것보다 빠르다.", ref: "학습 루틴" },
+    { text: "단원을 다 보고 확인문제로 바로 점검하면 기억에 오래 남는다.", ref: "학습 루틴" }
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -128,7 +129,7 @@ function checkDailyNotify() {
     var lastNotifyDate = localStorage.getItem(PK('last_notify_date'));
     if (lastNotifyDate !== today) {
         localStorage.setItem(PK('last_notify_date'), today);
-        new Notification('지멘스 PLC - PLC 예제① 자기유지·인터록 🛠️', {
+        new Notification('지멘스 PLC 기초강좌 - PLC 예제① 자기유지·인터록 🛠️', {
             body: '오늘 아직 공부 안 하셨죠? 지금 잠깐이라도 시작해볼까요?'
         });
     }
@@ -501,7 +502,7 @@ function updateNavButtons() {
 
 /* ===================== 퀴즈 채점 ===================== */
 var unitTitles = {
-    1: "실전 예제① 자기유지회로·인터록"
+    1: "01. 자기유지회로 기본", 2: "02. 자기유지회로 응용 - 다중 정지버튼", 3: "03. 인터록(Interlock) 회로", 4: "04. 우선순위 회로 (선입력/후입력 우선)", 5: "05. 지연 기동·지연 정지 회로", 6: "06. 비상정지(E-STOP) 회로", 7: "07. 실습 - 모터 정역회전 제어 종합", 8: "08. 자동/수동 전환회로"
 };
 
 function unitOfQid(qId) {

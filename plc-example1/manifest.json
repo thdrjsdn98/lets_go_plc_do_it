@@ -1,7 +1,7 @@
 {
-  "name": "지멘스 PLC - 예제① 자기유지·인터록",
-  "short_name": "PLC 예제① 자기유지",
-  "description": "지멘스 PLC 기초강좌 - 실전 예제① 자기유지회로·인터록",
+  "name": "지멘스 PLC 기초강좌 - PLC 예제① 자기유지·인터록",
+  "short_name": "PLC 예제① 자기유지·인터록",
+  "description": "지멘스 PLC 기초강좌 - PLC 예제① 자기유지·인터록 (8단원)",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

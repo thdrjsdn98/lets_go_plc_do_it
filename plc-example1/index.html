@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>지멘스 PLC - 예제① 자기유지·인터록</title>
+    <title>지멘스 PLC 기초강좌 - PLC 예제① 자기유지·인터록</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#2563eb">
@@ -13,7 +13,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="PLC 예제① 자기유지">
+    <meta name="apple-mobile-web-app-title" content="PLC 예제① 자기유지·인터록">
 </head>
 <body>
 
@@ -125,7 +125,7 @@
                 </button>
                 <div class="tab-dropdown-list" id="tab-dropdown-list">
                     <button class="tab-btn active" onclick="openTab(event, 'tab-cover')">표지</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 학습</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 단원학습 (8단원)</button>
                     <button class="tab-btn" onclick="openTab(event, 'tab-exam')">🎲 랜덤 모의고사</button>
                     <button class="tab-btn" onclick="openTab(event, 'tab-wrong')">📕 오답노트</button>
                 </div>
@@ -139,17 +139,19 @@
                 <div class="cover-subtitle">⑤ 예제① - 자기유지회로·인터록</div>
                 <div class="cover-divider"></div>
                 <div class="cover-info">
-                    <p>주제: 실전 예제① 자기유지회로·인터록</p>
-                    <p>확인문제: 2문제</p>
-                    <p>버전: V1.0.0 (최초 배포)</p>
+                    <p>범위: 8단원</p>
+                    <p>확인문제: 단원별 2문제 · 총 16문제</p>
+                    <p>버전: V2.0.0 (8단원 확장판)</p>
                 </div>
             </div>
             <div class="box">
                 <b>📖 이 앱 사용법</b>
                 <ul style="margin: 10px 0 0 0; padding-left: 18px; line-height: 1.7;">
-                    <li><b>학습</b> 탭에서 이론·예제를 읽고 바로 아래 확인문제를 풀어보세요.</li>
+                    <li><b>단원학습</b> 탭에서 이론·예제를 읽고 바로 아래 확인문제를 풀어보세요.</li>
                     <li>상단 <b>⚙️ 학습 도구</b>에서 <b>암기 모드</b>를 켜면 핵심어가 가려집니다.</li>
+                    <li><b>초성 퀴즈</b> 모드는 핵심 용어를 초성(ㄱㄴㄷ)으로 바꿔서 스스로 떠올려보게 합니다.</li>
                     <li>틀린 문제는 자동으로 <b>오답노트</b> 탭에 쌓입니다.</li>
+                    <li>모든 단원을 학습했다면 <b>랜덤 모의고사</b>로 섞어서 다시 풀어보세요.</li>
                     <li>진도·오답노트는 이 브라우저에만 저장되니, 기기를 바꾸기 전 <b>백업</b>을 꼭 받아두세요.</li>
                 </ul>
             </div>
@@ -158,17 +160,73 @@
             </div>
         </div>
 
-        <!-- 학습 탭 -->
+        <!-- 단원학습 탭 -->
         <div id="tab-study" class="tab-content">
             <h1>지멘스 PLC 기초강좌 - <br>📘 PLC 예제① 자기유지·인터록</h1>
+            <div style="text-align: right; font-size: 0.8em; color: var(--text-sub); margin-top: 4px; margin-bottom: 12px;">
+                <span>8단원 · 확인문제 16문제</span>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+                <button class="font-btn" onclick="filterBookmarks()" style="font-size: 0.82em;">⭐ 북마크 모아보기</button>
+            </div>
 
             <div id="sub-page-menu">
                 <div class="sub-nav-grid" id="main-menu-grid">
                         <div class="sub-nav-card" onclick="showSubPage(1)">
-                            <span>🔁 실전 예제① 자기유지회로·인터록</span>
+                            <span>01. 자기유지회로 기본</span>
                             <div class="card-status-box">
                                 <span class="card-done-badge" id="card-done-1" style="display:none;">✅ 완료</span>
                                 <span id="card-star-1"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(2)">
+                            <span>02. 자기유지회로 응용 - 다중 정지버튼</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-2" style="display:none;">✅ 완료</span>
+                                <span id="card-star-2"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(3)">
+                            <span>03. 인터록(Interlock) 회로</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-3" style="display:none;">✅ 완료</span>
+                                <span id="card-star-3"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(4)">
+                            <span>04. 우선순위 회로 (선입력/후입력 우선)</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-4" style="display:none;">✅ 완료</span>
+                                <span id="card-star-4"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(5)">
+                            <span>05. 지연 기동·지연 정지 회로</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-5" style="display:none;">✅ 완료</span>
+                                <span id="card-star-5"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(6)">
+                            <span>06. 비상정지(E-STOP) 회로</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-6" style="display:none;">✅ 완료</span>
+                                <span id="card-star-6"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(7)">
+                            <span>07. 실습 - 모터 정역회전 제어 종합</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-7" style="display:none;">✅ 완료</span>
+                                <span id="card-star-7"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(8)">
+                            <span>08. 자동/수동 전환회로</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-8" style="display:none;">✅ 완료</span>
+                                <span id="card-star-8"></span>
                             </div>
                         </div>
                 </div>
@@ -177,25 +235,21 @@
                 <div id="sub-page-1" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">1 / 1 PAGE</div>
-                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 목록</button>
+                            <div class="page-indicator">1 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
                             <label class="complete-check-label"><input type="checkbox" id="check-page-1" onchange="toggleComplete(1)"> 학습 완료</label>
                             <button class="bookmark-btn" id="star-btn-1" onclick="toggleBookmark(1)">☆</button>
                         </div>
                     </div>
-                    <h2>실전 예제① 자기유지회로·인터록</h2>
-<div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">📌 이 주제에서 만들어 볼 예제</p>
-                    <div style="margin:0; line-height:1.7;">가장 기본이 되는 <span class='blue'>자기유지회로</span>와, 정회전/역회전처럼 서로 동시에 켜지면 안 되는 출력을 막는 <span class='blue'>인터록 회로</span> 두 가지를 직접 구성해본다.</div>
-                </div>
+                    <h2>01. 자기유지회로 기본</h2>
 <div class="highlight-box">
                     <p style="font-weight:700; margin:0 0 6px 0;">1. 자기유지회로란?</p>
-                    <div style="margin:0; line-height:1.7;">기동버튼(I0.0)을 눌렀다 떼면 보통 출력은 바로 꺼진다. 그런데 버튼을 떼도 <span class='red'>스스로 통전 상태를 유지</span>하도록 만든 것이 자기유지회로다. 방법은 간단하다 — <span class='blue'>기동버튼(I0.0)과 병렬로, 출력 코일 자신의 A접점(Q0.0)을 추가</span>해서, 한 번 출력이 켜지면 그 접점을 통해 스스로 전류 경로를 유지하게 만드는 것이다.</div>
+                    <div style="margin:0; line-height:1.7;">기동버튼(I0.0)을 눌렀다 떼면 보통 출력은 바로 꺼진다. 버튼을 떼도 <span class='red'>스스로 통전 상태를 유지</span>하도록 만든 것이 자기유지회로다. <span class='blue'>기동버튼과 병렬로, 출력 코일 자신의 A접점(Q0.0)</span>을 추가하면 된다.</div>
                 </div>
 <div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">2. 자기유지회로 래더 예제</p>
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 래더 예제</p>
                     <div style="margin:0; line-height:1.7;"><div style="text-align:center; margin:12px 0;"><svg viewBox="0 0 340 170" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:340px; height:auto;">
 <line x1="20" y1="10" x2="20" y2="150" stroke="#1e293b" stroke-width="3"/>
 <line x1="300" y1="10" x2="300" y2="150" stroke="#1e293b" stroke-width="3"/>
@@ -223,48 +277,40 @@
 <circle cx="270" cy="40" r="14" fill="none" stroke="#1e293b" stroke-width="2"/>
 <text x="270" y="22" font-size="11" fill="#1e293b" text-anchor="middle">Q0.0</text>
 </svg>
-<div style="font-size:0.8em; color:var(--text-sub);">기동(I0.0) 또는 자기유지접점(Q0.0)이 통전되고, 정지(I0.1)가 눌리지 않은 상태에서 출력 코일 Q0.0이 ON — 대표적인 자기유지회로 구조</div>
+<div style="font-size:0.8em; color:var(--text-sub);">기동(I0.0) 또는 자기유지접점(Q0.0)이 통전되고, 정지(I0.1)가 눌리지 않은 상태에서 출력 코일 Q0.0이 ON</div>
 </div></div>
                 </div>
 <div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">3. 회로 동작 순서</p>
-                    <div style="margin:0; line-height:1.7;">① I0.0(기동)을 누르면 Q0.0 ON → ② I0.0에서 손을 떼도 Q0.0의 A접점(자기유지접점)이 이미 통전 중이므로 회로가 유지 → ③ I0.1(정지, B접점)을 누르면 경로가 끊어져 Q0.0 OFF.</div>
-                </div>
-<div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">4. 인터록(Interlock) 회로란?</p>
-                    <div style="margin:0; line-height:1.7;">모터의 정회전(Q0.0)과 역회전(Q0.1)처럼 <span class='red'>절대 동시에 켜지면 안 되는 두 출력</span>이 있을 때, 서로 상대방 코일의 <span class='blue'>B접점을 자기 회로에 직렬로</span> 넣어두는 방법이다.</div>
-                </div>
-<div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">5. 안전상 유의사항</p>
-                    <div style="margin:0; line-height:1.7;">래더 안에서의 인터록(전기적 인터록)만으로 안심하지 말고, 실제 현장에서는 정역회전 전자접촉기(MC) 사이에 <span class='red'>기계적 인터록</span>도 함께 적용하는 것이 일반적인 안전 설계 원칙이다.</div>
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 동작 순서</p>
+                    <div style="margin:0; line-height:1.7;">① I0.0(기동)을 누르면 Q0.0 ON → ② 손을 떼도 Q0.0의 A접점(자기유지접점)이 통전 중이므로 유지 → ③ I0.1(정지, B접점)을 누르면 경로가 끊어져 Q0.0 OFF.</div>
                 </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
                     </div>
                     <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
                     <div id="unit-quiz-1" data-scoreboard="true">
 <div class="box quiz-box" id="box-u1-1" data-qid="u1-1">
                     <button class="font-btn" onclick="resetAnswer('u1-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
-                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 자기유지회로에서 기동버튼(I0.0)과 병렬로 연결해, 버튼을 떼어도 출력이 계속 유지되게 만드는 접점을 무엇이라 하는가? (한글) <span class="blue_nb" style="font-size:0.8em;">(단답형)</span></p>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 자기유지회로에서 병렬로 추가하는, 출력 자신의 접점을 무엇이라 하는가? (한글) <span class="blue_nb" style="font-size:0.8em;">(단답형)</span></p>
                     <div style="display:flex; gap:6px; margin:12px 0;">
                         <input type="text" id="input-u1-1" class="mini-text-input" placeholder="정답 입력" style="max-width:220px;">
                         <button class="font-btn" onclick="checkAnswerByInput('u1-1', document.getElementById('input-u1-1'), ['자기유지접점', '자기유지 접점'])">확인</button>
                     </div>
                     <div id="q-result-u1-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
-                    <div id="q-expl-u1-1" class="note" style="display:none;">💡 해설: 출력 코일 자신의 A접점을 기동버튼과 병렬로 넣어 스스로 전류 경로를 유지시키는 것을 자기유지접점이라 합니다.</div>
+                    <div id="q-expl-u1-1" class="note" style="display:none;">💡 해설: 출력 코일 자신의 A접점을 기동버튼과 병렬로 넣어 스스로 회로를 유지시키는 것을 자기유지접점이라 합니다.</div>
                 </div>
 <div class="box quiz-box" id="box-u1-2" data-qid="u1-2">
                     <button class="font-btn" onclick="resetAnswer('u1-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
-                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 정회전/역회전처럼 동시에 켜지면 안 되는 두 출력이 서로 상대방 코일의 B접점을 직렬로 넣어 막는 회로 구성 방식은?</p>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 자기유지회로에서 정지버튼에 주로 사용하는 접점 종류는?</p>
                     <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, '인터록')">인터록</button>
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, '인터록')">자기유지</button>
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, '인터록')">디바운스</button>
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, '인터록')">시퀀스 제어</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, 'B접점')">B접점</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, 'B접점')">A접점</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, 'B접점')">SET</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, 'B접점')">RESET</button>
                     </div>
                     <div id="q-result-u1-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
-                    <div id="q-expl-u1-2" class="note" style="display:none;">💡 해설: 서로 상대방 출력의 B접점을 직렬로 넣어 동시 투입을 막는 방식을 인터록(Interlock)이라 합니다.</div>
+                    <div id="q-expl-u1-2" class="note" style="display:none;">💡 해설: 정지버튼은 눌렸을 때 회로를 끊어야 하므로 일반적으로 B접점(NC)을 사용합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -274,25 +320,468 @@
 
                     <div class="page-memo-section">
                         <p class="page-memo-title">📝 나만의 메모</p>
-                        <textarea id="memo-input-1" class="page-memo-textarea" placeholder="헷갈리는 부분을 적어보세요." onblur="savePageMemo(1)"></textarea>
+                        <textarea id="memo-input-1" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(1)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-2" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">2 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-2" onchange="toggleComplete(2)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-2" onclick="toggleBookmark(2)">☆</button>
+                        </div>
+                    </div>
+                    <h2>02. 자기유지회로 응용 - 다중 정지버튼</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 여러 위치에 정지버튼 설치하기</p>
+                    <div style="margin:0; line-height:1.7;">현장에서는 안전을 위해 여러 지점에 정지버튼을 설치하는 경우가 많다. 이때 정지버튼들은 <span class='red'>모두 직렬로 연결</span>하여, 어느 하나라도 눌리면 즉시 회로가 끊어지도록 구성한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 반대로 기동버튼은?</p>
+                    <div style="margin:0; line-height:1.7;">여러 위치에서 기동시킬 수 있게 하려면 기동버튼들을 <span class='blue'>서로 병렬로</span> 연결하여, 그 중 하나만 눌러도 기동되도록 구성한다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-2">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-2" data-scoreboard="true">
+<div class="box quiz-box" id="box-u2-1" data-qid="u2-1">
+                    <button class="font-btn" onclick="resetAnswer('u2-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 여러 위치의 정지버튼을 배선할 때 일반적인 연결 방식은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-1', this, '모두 직렬로 연결')">모두 직렬로 연결</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-1', this, '모두 직렬로 연결')">모두 병렬로 연결</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-1', this, '모두 직렬로 연결')">아무렇게나 연결</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-1', this, '모두 직렬로 연결')">하나만 사용</button>
+                    </div>
+                    <div id="q-result-u2-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-1" class="note" style="display:none;">💡 해설: 정지버튼을 여러 개 직렬로 연결하면 어느 하나만 눌려도 회로가 차단됩니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u2-2" data-qid="u2-2">
+                    <button class="font-btn" onclick="resetAnswer('u2-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 정지버튼을 여러 개 직렬 연결하는 이유는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-2', this, '어느 하나만 눌려도 정지되도록')">어느 하나만 눌려도 정지되도록</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-2', this, '어느 하나만 눌려도 정지되도록')">전류를 늘리기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-2', this, '어느 하나만 눌려도 정지되도록')">저항을 낮추기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-2', this, '어느 하나만 눌려도 정지되도록')">미관상 이유</button>
+                    </div>
+                    <div id="q-result-u2-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-2" class="note" style="display:none;">💡 해설: 직렬 연결은 어느 하나의 접점만 끊어져도 전체 회로가 차단되는 특성을 이용한 것입니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-2')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-2')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-2" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(2)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-3" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">3 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-3" onchange="toggleComplete(3)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-3" onclick="toggleBookmark(3)">☆</button>
+                        </div>
+                    </div>
+                    <h2>03. 인터록(Interlock) 회로</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 인터록이란?</p>
+                    <div style="margin:0; line-height:1.7;">모터의 정회전(Q0.0)과 역회전(Q0.1)처럼 <span class='red'>절대 동시에 켜지면 안 되는 두 출력</span>이 있을 때, 서로 상대방 코일의 <span class='blue'>B접점을 자기 회로에 직렬로</span> 넣어 동시 투입을 막는 방법이다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 안전상 유의사항</p>
+                    <div style="margin:0; line-height:1.7;">래더 안에서의 전기적 인터록만 믿지 말고, 실제 현장에서는 정역회전 전자접촉기(MC) 사이에 <span class='red'>기계적 인터록</span>도 함께 적용하는 것이 일반적인 안전 설계 원칙이다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-3">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-3" data-scoreboard="true">
+<div class="box quiz-box" id="box-u3-1" data-qid="u3-1">
+                    <button class="font-btn" onclick="resetAnswer('u3-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 정회전(Q0.0)과 역회전(Q0.1)이 동시에 켜지는 것을 막기 위해 각 코일 앞에 넣는 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-1', this, '상대방 출력의 B접점')">상대방 출력의 B접점</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-1', this, '상대방 출력의 B접점')">상대방 출력의 A접점</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-1', this, '상대방 출력의 B접점')">타이머</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-1', this, '상대방 출력의 B접점')">카운터</button>
+                    </div>
+                    <div id="q-result-u3-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-1" class="note" style="display:none;">💡 해설: 서로 상대방 출력의 B접점을 직렬로 넣으면 한쪽이 켜져 있는 동안 다른 쪽 경로가 끊어집니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u3-2" data-qid="u3-2">
+                    <button class="font-btn" onclick="resetAnswer('u3-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 인터록과 함께 현장에서 추가로 적용하는 물리적 안전장치는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-2', this, '기계적 인터록')">기계적 인터록</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-2', this, '기계적 인터록')">무시해도 됨</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-2', this, '기계적 인터록')">소프트웨어만으로 충분</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-2', this, '기계적 인터록')">표지판만 부착</button>
+                    </div>
+                    <div id="q-result-u3-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-2" class="note" style="display:none;">💡 해설: 전기적 인터록뿐 아니라 기계적 인터록도 함께 적용하는 것이 안전 설계의 일반적인 원칙입니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-3')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-3')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-3" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(3)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-4" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">4 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-4" onchange="toggleComplete(4)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-4" onclick="toggleBookmark(4)">☆</button>
+                        </div>
+                    </div>
+                    <h2>04. 우선순위 회로 (선입력/후입력 우선)</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 선입력우선회로</p>
+                    <div style="margin:0; line-height:1.7;">두 버튼 중 <span class='blue'>먼저 눌린 것만 유효</span>하게 만드는 회로다. 각 출력 코일 앞에 상대방 출력의 B접점을 넣어, 이미 한쪽이 켜져 있으면 나중에 눌린 버튼이 무시되도록 구성한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 후입력우선회로</p>
+                    <div style="margin:0; line-height:1.7;">반대로 <span class='red'>나중에 눌린 버튼이 이전 상태를 덮어쓰도록</span> 만드는 회로로, 상대방 출력을 강제로 RESET 시키는 로직을 추가해 구현한다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-4">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-4" data-scoreboard="true">
+<div class="box quiz-box" id="box-u4-1" data-qid="u4-1">
+                    <button class="font-btn" onclick="resetAnswer('u4-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 두 버튼 중 먼저 눌린 것만 유효하게 만드는 회로를 무엇이라 하는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-1', this, '선입력우선회로')">선입력우선회로</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-1', this, '선입력우선회로')">후입력우선회로</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-1', this, '선입력우선회로')">자기유지회로</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-1', this, '선입력우선회로')">인터록회로(단독)</button>
+                    </div>
+                    <div id="q-result-u4-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-1" class="note" style="display:none;">💡 해설: 선입력우선회로는 먼저 눌린 신호만 유효하게 만드는 회로입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u4-2" data-qid="u4-2">
+                    <button class="font-btn" onclick="resetAnswer('u4-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 후입력우선회로는 어떤 특징을 갖는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-2', this, '나중에 눌린 버튼이 이전 상태를 덮어씀')">나중에 눌린 버튼이 이전 상태를 덮어씀</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-2', this, '나중에 눌린 버튼이 이전 상태를 덮어씀')">먼저 눌린 버튼만 유효</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-2', this, '나중에 눌린 버튼이 이전 상태를 덮어씀')">아무 동작도 하지 않음</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-2', this, '나중에 눌린 버튼이 이전 상태를 덮어씀')">항상 정지 상태 유지</button>
+                    </div>
+                    <div id="q-result-u4-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-2" class="note" style="display:none;">💡 해설: 후입력우선회로는 나중에 들어온 신호가 이전 상태를 덮어쓰도록 설계됩니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-4')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-4')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-4" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(4)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-5" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">5 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-5" onchange="toggleComplete(5)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-5" onclick="toggleBookmark(5)">☆</button>
+                        </div>
+                    </div>
+                    <h2>05. 지연 기동·지연 정지 회로</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 지연 기동 (TON 활용)</p>
+                    <div style="margin:0; line-height:1.7;">버튼을 누른 뒤 일정 시간이 지나야 실제로 기동되게 하고 싶을 때 <span class='blue'>TON(On-Delay)</span> 타이머를 사용한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 지연 정지 (TOF 활용)</p>
+                    <div style="margin:0; line-height:1.7;">모터가 꺼진 후에도 환기팬을 일정 시간 더 돌리고 싶은 경우처럼, 신호가 꺼진 뒤에도 일정 시간 출력을 유지하고 싶을 때는 <span class='red'>TOF(Off-Delay)</span> 타이머를 사용한다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-5">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-5" data-scoreboard="true">
+<div class="box quiz-box" id="box-u5-1" data-qid="u5-1">
+                    <button class="font-btn" onclick="resetAnswer('u5-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 모터가 꺼진 후에도 환기팬을 일정 시간 더 돌리고 싶을 때 적합한 타이머는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-1', this, 'TOF')">TOF</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-1', this, 'TOF')">TON</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-1', this, 'TOF')">TP</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-1', this, 'TOF')">CTU</button>
+                    </div>
+                    <div id="q-result-u5-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-1" class="note" style="display:none;">💡 해설: TOF(Off-Delay)는 입력이 꺼진 뒤에도 설정 시간만큼 출력을 유지시키는 데 적합합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u5-2" data-qid="u5-2">
+                    <button class="font-btn" onclick="resetAnswer('u5-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 버튼을 누른 뒤 일정 시간이 지나야 실제로 기동되게 하고 싶을 때 적합한 타이머는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-2', this, 'TON')">TON</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-2', this, 'TON')">TOF</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-2', this, 'TON')">TP</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-2', this, 'TON')">CTD</button>
+                    </div>
+                    <div id="q-result-u5-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-2" class="note" style="display:none;">💡 해설: TON(On-Delay)은 입력이 켜진 뒤 설정 시간이 지나야 출력이 켜지도록 하는 데 적합합니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-5')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-5')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-5" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(5)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-6" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">6 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-6" onchange="toggleComplete(6)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-6" onclick="toggleBookmark(6)">☆</button>
+                        </div>
+                    </div>
+                    <h2>06. 비상정지(E-STOP) 회로</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. B접점을 쓰는 이유 (Fail-safe)</p>
+                    <div style="margin:0; line-height:1.7;">비상정지(E-STOP) 스위치는 일반적으로 <span class='red'>B접점(NC)</span>으로 설계한다. 이렇게 하면 배선이 단선되거나 커넥터가 빠지는 고장이 나도 회로가 자동으로 정지 상태가 되어(Fail-safe) 더 안전하다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 리셋(복귀) 절차</p>
+                    <div style="margin:0; line-height:1.7;">비상정지가 작동된 뒤에는 원인을 해결하고 <span class='blue'>수동으로 리셋(복귀) 조작</span>을 해야만 다시 정상 운전으로 돌아갈 수 있도록 설계하는 것이 일반적이다(자동 복귀는 안전상 지양).</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-6">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-6" data-scoreboard="true">
+<div class="box quiz-box" id="box-u6-1" data-qid="u6-1">
+                    <button class="font-btn" onclick="resetAnswer('u6-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 비상정지(E-STOP) 스위치가 일반적으로 B접점(NC)으로 설계되는 이유는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-1', this, '배선이 끊어져도 안전하게 정지되도록(Fail-safe)')">배선이 끊어져도 안전하게 정지되도록(Fail-safe)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-1', this, '배선이 끊어져도 안전하게 정지되도록(Fail-safe)')">비용이 싸서</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-1', this, '배선이 끊어져도 안전하게 정지되도록(Fail-safe)')">색이 예뻐서</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-1', this, '배선이 끊어져도 안전하게 정지되도록(Fail-safe)')">특별한 이유 없음</button>
+                    </div>
+                    <div id="q-result-u6-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-1" class="note" style="display:none;">💡 해설: B접점으로 설계하면 단선 등의 고장이 발생해도 안전한 방향(정지)으로 동작합니다(Fail-safe).</div>
+                </div>
+<div class="box quiz-box" id="box-u6-2" data-qid="u6-2">
+                    <button class="font-btn" onclick="resetAnswer('u6-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 비상정지가 작동된 후 다시 정상 운전으로 복귀하려면 일반적으로 필요한 조작은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-2', this, '리셋(복귀) 조작')">리셋(복귀) 조작</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-2', this, '리셋(복귀) 조작')">자동으로 복귀됨</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-2', this, '리셋(복귀) 조작')">전원을 새로 설치</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-2', this, '리셋(복귀) 조작')">조작이 필요 없음</button>
+                    </div>
+                    <div id="q-result-u6-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-2" class="note" style="display:none;">💡 해설: 안전상 비상정지 이후에는 수동으로 리셋(복귀) 조작을 해야 정상 운전으로 돌아가도록 설계하는 것이 일반적입니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-6')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-6')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-6" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(6)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-7" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">7 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-7" onchange="toggleComplete(7)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-7" onclick="toggleBookmark(7)">☆</button>
+                        </div>
+                    </div>
+                    <h2>07. 실습 - 모터 정역회전 제어 종합</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 입출력 정의</p>
+                    <div style="margin:0; line-height:1.7;">정회전버튼(I0.0), 역회전버튼(I0.1), 정지버튼(I0.2, B접점), 정회전출력(Q0.0), 역회전출력(Q0.1)로 구성한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 로직 결합</p>
+                    <div style="margin:0; line-height:1.7;">각 회전 방향마다 <span class='blue'>자기유지</span>(자신의 A접점 병렬)와 <span class='red'>인터록</span>(상대방 출력의 B접점 직렬)을 함께 적용하고, 정지버튼(I0.2)은 <span class='mint'>양쪽 회로 모두에 직렬로</span> 연결해 어느 방향이든 즉시 정지되게 한다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-7">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-7" data-scoreboard="true">
+<div class="box quiz-box" id="box-u7-1" data-qid="u7-1">
+                    <button class="font-btn" onclick="resetAnswer('u7-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 정역회전 모터 제어에서 자기유지와 인터록을 함께 쓰는 이유는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-1', this, '출력유지와 동시투입방지를 모두 만족하기 위해')">출력유지와 동시투입방지를 모두 만족하기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-1', this, '출력유지와 동시투입방지를 모두 만족하기 위해')">속도를 높이기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-1', this, '출력유지와 동시투입방지를 모두 만족하기 위해')">배선을 줄이기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-1', this, '출력유지와 동시투입방지를 모두 만족하기 위해')">특별한 이유 없음</button>
+                    </div>
+                    <div id="q-result-u7-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-1" class="note" style="display:none;">💡 해설: 자기유지로 버튼을 떼도 출력이 유지되게 하고, 인터록으로 정역회전이 동시에 켜지지 않도록 함께 적용합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u7-2" data-qid="u7-2">
+                    <button class="font-btn" onclick="resetAnswer('u7-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 정지버튼(I0.2)은 정회전/역회전 두 코일 회로 각각에 대해 어떻게 연결하는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-2', this, '양쪽 회로 모두에 직렬로 연결')">양쪽 회로 모두에 직렬로 연결</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-2', this, '양쪽 회로 모두에 직렬로 연결')">한쪽에만 연결</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-2', this, '양쪽 회로 모두에 직렬로 연결')">병렬로 연결</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-2', this, '양쪽 회로 모두에 직렬로 연결')">연결하지 않음</button>
+                    </div>
+                    <div id="q-result-u7-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-2" class="note" style="display:none;">💡 해설: 정지버튼은 정회전, 역회전 두 회로 모두에 직렬로 연결해 어느 방향이든 즉시 정지시킬 수 있게 합니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-7')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-7')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-7" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(7)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-8" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">8 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-8" onchange="toggleComplete(8)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-8" onclick="toggleBookmark(8)">☆</button>
+                        </div>
+                    </div>
+                    <h2>08. 자동/수동 전환회로</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 자동/수동 전환의 필요성</p>
+                    <div style="margin:0; line-height:1.7;">설비 점검이나 초기 세팅시에는 PLC 로직 대신 사람이 직접 버튼으로 제어하고 싶은 경우가 있다. 이를 위해 <span class='blue'>자동/수동 셀렉터 스위치</span>를 두고 모드에 따라 제어 경로를 분리한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 인터록 적용</p>
+                    <div style="margin:0; line-height:1.7;">셀렉터 스위치의 상태는 입력접점(예: I0.5)으로 읽어들이며, <span class='red'>자동 모드일 때는 수동 조작 버튼의 영향을 차단</span>하고, 수동 모드일 때는 PLC 자동 로직의 출력을 차단하도록 서로 인터록을 건다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-8">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-8" data-scoreboard="true">
+<div class="box quiz-box" id="box-u8-1" data-qid="u8-1">
+                    <button class="font-btn" onclick="resetAnswer('u8-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 자동/수동 전환 스위치가 자동 위치에 있을 때 일반적으로 비활성화되는 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-1', this, '수동 조작 버튼의 영향')">수동 조작 버튼의 영향</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-1', this, '수동 조작 버튼의 영향')">센서 신호</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-1', this, '수동 조작 버튼의 영향')">비상정지</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-1', this, '수동 조작 버튼의 영향')">전원공급</button>
+                    </div>
+                    <div id="q-result-u8-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-1" class="note" style="display:none;">💡 해설: 자동 모드에서는 수동 조작 버튼이 출력에 영향을 주지 않도록 차단하는 것이 일반적입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u8-2" data-qid="u8-2">
+                    <button class="font-btn" onclick="resetAnswer('u8-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 자동/수동 전환에서 셀렉터스위치의 상태를 읽어들이는 대표적 방식은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-2', this, '입력접점(%I)으로 상태를 읽음')">입력접점(%I)으로 상태를 읽음</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-2', this, '입력접점(%I)으로 상태를 읽음')">항상 자동으로 감지됨</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-2', this, '입력접점(%I)으로 상태를 읽음')">읽을 필요 없음</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-2', this, '입력접점(%I)으로 상태를 읽음')">별도의 통신장치 필수</button>
+                    </div>
+                    <div id="q-result-u8-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-2" class="note" style="display:none;">💡 해설: 셀렉터스위치의 상태는 일반적인 입력접점(%I)을 통해 PLC가 읽어들입니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-8')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-8')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-8" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(8)"></textarea>
                     </div>
 
                 </div>
 
             <div id="page-nav-bar" class="page-nav-bar" style="display:none;">
                 <button id="btn-prev" class="page-nav-btn" onclick="prevSubPage()">◀ 이전</button>
-                <button class="page-nav-btn main-btn" onclick="showSubMenu()">📋 목록</button>
+                <button class="page-nav-btn main-btn" onclick="showSubMenu()">📋 단원 목록</button>
                 <button id="btn-next" class="page-nav-btn" onclick="nextSubPage()">다음 ▶</button>
             </div>
         </div>
 
         <!-- 랜덤 모의고사 탭 -->
         <div id="tab-exam" class="tab-content">
-            <h1>지멘스 PLC 기초강좌 - <br>🎲 확인문제 모아풀기</h1>
+            <h1>지멘스 PLC 기초강좌 - <br>🎲 랜덤 모의고사</h1>
             <div id="exam-select" class="box" style="text-align:center;">
-                <p style="font-weight:700; margin-top:0;">2문제를 랜덤 순서로 풀어보세요.</p>
+                <p style="font-weight:700; margin-top:0;">몇 문제를 랜덤으로 뽑을까요?</p>
+                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 16문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
                 <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
-                    <button class="font-btn" onclick="startRandomExam(2)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">2문제(전체)</button>
+                    <button class="font-btn" onclick="startRandomExam(8)" style="padding:10px 18px;">8문제</button>
+                    <button class="font-btn" onclick="startRandomExam(16)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">16문제(전체)</button>
                 </div>
             </div>
 
