@@ -1,7 +1,7 @@
 {
-  "name": "지멘스 PLC - 하드웨어·통신",
-  "short_name": "PLC 하드웨어·통신",
-  "description": "지멘스 PLC 기초강좌 - 하드웨어 구성과 통신 설정",
+  "name": "지멘스 PLC 기초강좌 - PLC 핵심내용① 하드웨어·통신",
+  "short_name": "PLC 핵심내용① 하드웨어·통신",
+  "description": "지멘스 PLC 기초강좌 - PLC 핵심내용① 하드웨어·통신 (8단원)",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
