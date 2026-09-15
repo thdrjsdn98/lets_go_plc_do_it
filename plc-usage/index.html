@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>지멘스 PLC - 사용법</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="icon" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="PLC 사용법">
+</head>
+<body>
+
+    <div class="container" id="app-viewport">
+
+        <!-- 뒤로가기 종료 확인 팝업 -->
+        <div id="exit-confirm-overlay" class="exit-confirm-overlay" style="display:none;">
+            <div class="exit-confirm-box">
+                <p class="exit-confirm-title">오늘 공부 정말 여기까지 하실 건가요?</p>
+                <div class="exit-confirm-btns">
+                    <button class="font-btn" onclick="cancelExitApp()">아니, 조만간 올게</button>
+                    <button class="font-btn" style="background-color:#ef4444; color:#ffffff; border-color:#ef4444;" onclick="confirmExitApp()">응, 여기까지가 한계야</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 상단 학습 도구 상자 -->
+        <div class="control-bar-group">
+            <div class="panel-toggle-bar" onclick="toggleTopPanel()">
+                <span class="panel-toggle-title"><span>⚙️ 학습 도구</span></span>
+                <span class="panel-toggle-btn" id="panel-toggle-btn-text">▼ 메뉴 펼치기</span>
+            </div>
+
+            <div id="collapsible-control-content" class="collapsed">
+                <div class="tool-divider-solid"></div>
+
+                <div class="tool-flat-section">
+                    <div class="font-control-row">
+                        <span class="tool-label">🔤 글자 크기</span>
+                        <div class="segmented-font-group">
+                            <button class="seg-font-btn" onclick="changeFontSize(-1)">가-</button>
+                            <button class="seg-font-btn" onclick="resetFontSize()">기본</button>
+                            <button class="seg-font-btn" onclick="changeFontSize(1)">가+</button>
+                        </div>
+                    </div>
+                    <div class="mode-btn-grid" style="margin-top: 4px;">
+                        <button class="mode-item-btn" id="memorize-toggle-btn" onclick="toggleMemorizeMode()">🙈 암기 OFF</button>
+                        <button class="mode-item-btn" id="chosung-toggle-btn" onclick="toggleChosungMode()">💡 초성 퀴즈</button>
+                        <button class="mode-item-btn" id="darkmode-toggle-btn" onclick="toggleDarkMode()">🌙 야간</button>
+                    </div>
+                    <button class="backup-action-btn" id="tab-menu-style-btn" onclick="toggleTabMenuStyle()" style="width:100%; margin-top:8px;">▾ 탭 메뉴: 드롭다운형</button>
+                    <button class="backup-action-btn" id="notify-toggle-btn" onclick="toggleDailyNotify()" style="width:100%; margin-top:8px;">🔔 매일 알림 켜기</button>
+                </div>
+
+                <div class="tool-divider-dashed"></div>
+
+                <div class="tool-flat-section">
+                    <span class="tool-label">💾 내 학습 데이터 보호</span>
+                    <div class="backup-btn-grid">
+                        <button class="backup-action-btn" onclick="exportUserData()">📥 메모·진도 백업</button>
+                        <button class="backup-action-btn" onclick="document.getElementById('import-file-input').click()">📤 백업 복원</button>
+                        <input type="file" id="import-file-input" style="display:none;" accept=".json" onchange="importUserData(event)">
+                    </div>
+                    <button class="backup-action-btn" onclick="resetAppData()" style="width:100%; margin-top:8px; background-color:#fee2e2; color:#991b1b; border-color:#fecaca;">🗑️ 이 앱 데이터 전체 초기화</button>
+                </div>
+
+                <div class="tool-flat-section">
+                    <span class="tool-label">🗓️ 학습 목표일 설정</span>
+                    <div style="display:flex; gap:6px; margin-top:6px;">
+                        <input type="date" id="exam-date-input" class="mini-text-input" style="flex:1;">
+                        <button class="font-btn" onclick="setExamDate()">설정</button>
+                    </div>
+                    <p style="font-size:0.75em; color:var(--text-sub); margin:6px 0 0 0;">※ 스스로 정한 학습 완료 목표일을 기록해두는 용도입니다.</p>
+                </div>
+
+                <div class="dday-quote-bar">
+                    <div class="dday-capsule" id="exam-dday-badge">시험일 미설정</div>
+                    <div class="daily-quote-text" id="daily-quote-box">문구 로딩 중...</div>
+                </div>
+
+                <div class="progress-box">
+                    <div class="progress-header">
+                        <span>📊 단원 학습 진도율</span>
+                        <span id="progress-text">0 / 17 (0%)</span>
+                    </div>
+                    <div class="progress-bar-track">
+                        <div class="progress-bar-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+
+                <div class="timer-row" id="timer-control-bar" style="display: none;">
+                    <span class="tool-label">⏱️ 표시시간</span>
+                    <div class="segmented-font-group">
+                        <button class="seg-font-btn active" id="timer-btn-3" onclick="setTimerSec(3)">3초</button>
+                        <button class="seg-font-btn" id="timer-btn-5" onclick="setTimerSec(5)">5초</button>
+                        <button class="seg-font-btn" id="timer-btn-0" onclick="setTimerSec(0)">누를때만</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-bar-group">
+            <div class="search-box-container">
+                <input type="text" id="search-input" class="search-input" placeholder="🔍 궁금한 용어 검색" oninput="handleSearch()">
+                <button class="search-clear-btn" id="search-clear-btn" onclick="clearSearch()">✕</button>
+                <div id="search-results" class="search-results-list"></div>
+            </div>
+        </div>
+
+        <a href="../index.html" style="display:flex; align-items:center; justify-content:center; gap:6px; text-decoration:none; background-color: var(--card-bg); color: var(--text-color); border:1px solid var(--border-color); border-radius: var(--radius-md); padding:10px; margin-bottom:10px; font-weight:800; font-size:0.85em;">🏠 과목 선택으로</a>
+
+        <div class="tab-menu-wrapper">
+            <div class="tab-dropdown" id="tab-dropdown-container">
+                <button class="tab-dropdown-toggle" onclick="toggleTabDropdown()" style="display: flex; justify-content: center; align-items: center; width: 100%; position: relative; background-color: var(--primary-light); color: var(--primary); border: 1px solid rgba(37, 99, 235, 0.2); padding: 12px 16px; border-radius: var(--radius-md); font-weight: 800; font-size: 0.9em; cursor: pointer; min-height: 44px;">
+                    <span style="display: inline-flex; align-items: center; gap: 6px;">
+                        <span id="tab-dropdown-label">표지</span>
+                        <span id="tab-dropdown-arrow">▼</span>
+                    </span>
+                </button>
+                <div class="tab-dropdown-list" id="tab-dropdown-list">
+                    <button class="tab-btn active" onclick="openTab(event, 'tab-cover')">표지</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 학습</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-exam')">🎲 랜덤 모의고사</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-wrong')">📕 오답노트</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 표지 탭 -->
+        <div id="tab-cover" class="tab-content active">
+            <div class="cover-page">
+                <div class="cover-title">지멘스 PLC 기초강좌</div>
+                <div class="cover-subtitle">① 사용법 - TIA Portal 시작하기와 화면 구성</div>
+                <div class="cover-divider"></div>
+                <div class="cover-info">
+                    <p>주제: TIA Portal이란? 시작하기와 화면 구성</p>
+                    <p>확인문제: 2문제</p>
+                    <p>버전: V1.0.0 (최초 배포)</p>
+                </div>
+            </div>
+            <div class="box">
+                <b>📖 이 앱 사용법</b>
+                <ul style="margin: 10px 0 0 0; padding-left: 18px; line-height: 1.7;">
+                    <li><b>학습</b> 탭에서 이론·예제를 읽고 바로 아래 확인문제를 풀어보세요.</li>
+                    <li>상단 <b>⚙️ 학습 도구</b>에서 <b>암기 모드</b>를 켜면 핵심어가 가려집니다.</li>
+                    <li>틀린 문제는 자동으로 <b>오답노트</b> 탭에 쌓입니다.</li>
+                    <li>진도·오답노트는 이 브라우저에만 저장되니, 기기를 바꾸기 전 <b>백업</b>을 꼭 받아두세요.</li>
+                </ul>
+            </div>
+            <div class="box" style="font-size:0.85em; color:var(--text-sub);">
+                ⚠️ 이 자료는 학습 보조용 요약이며, 지멘스 공식 매뉴얼을 대체하지 않습니다. 단축키는 소프트웨어 버전에 따라 달라질 수 있습니다.
+            </div>
+        </div>
+
+        <!-- 학습 탭 -->
+        <div id="tab-study" class="tab-content">
+            <h1>지멘스 PLC 기초강좌 - <br>📘 PLC 사용법</h1>
+
+            <div id="sub-page-menu">
+                <div class="sub-nav-grid" id="main-menu-grid">
+                        <div class="sub-nav-card" onclick="showSubPage(1)">
+                            <span>🧭 TIA Portal이란? 시작하기와 화면 구성</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-1" style="display:none;">✅ 완료</span>
+                                <span id="card-star-1"></span>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+                <div id="sub-page-1" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">1 / 1 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-1" onchange="toggleComplete(1)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-1" onclick="toggleBookmark(1)">☆</button>
+                        </div>
+                    </div>
+                    <h2>TIA Portal이란? 시작하기와 화면 구성</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">📌 이 주제의 핵심 용어</p>
+                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>용어</th><th>의미</th></tr><tr><td>TIA Portal</td><td>PLC·HMI·드라이브를 하나의 SW에서 다루는 지멘스의 통합 엔지니어링 플랫폼</td></tr><tr><td>STEP 7 Classic</td><td>과거부터 쓰이던 SIMATIC Manager 기반의 구버전 개발환경 (주로 S7-300/400용)</td></tr><tr><td>CPU</td><td>PLC의 두뇌 역할을 하는 중앙처리장치 모듈 (예: CPU 1214C)</td></tr><tr><td>OB1</td><td>PLC가 전원이 켜진 뒤 반복 실행하는 메인 프로그램(Organization Block)</td></tr></table></div></div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. TIA Portal이란?</p>
+                    <div style="margin:0; line-height:1.7;">지멘스의 <span class='blue'>통합 엔지니어링 소프트웨어</span>로, S7-1200·S7-1500 PLC, ET200 원격 I/O, HMI 터치패널, SINAMICS 드라이브 등을 <span class='red'>하나의 프로젝트</span> 안에서 함께 설정·프로그래밍할 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. S7-300/400과 STEP 7 Classic</p>
+                    <div style="margin:0; line-height:1.7;">구형 CPU인 <span class='blue'>S7-300 / S7-400</span> 계열은 원래 <span class='mint'>SIMATIC Manager(STEP 7 Classic, V5.x)</span>라는 별도 프로그램으로 개발하던 제품군이다. 신규 프로젝트는 보통 <span class='red'>S7-1200/1500은 TIA Portal, S7-300/400은 STEP 7 Classic</span>이라는 구도로 나뉜다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. Portal 뷰 vs 프로젝트 뷰</p>
+                    <div style="margin:0; line-height:1.7;"><b>Portal 뷰</b>: 새 프로젝트 만들기, 디바이스 구성, 프로그래밍 등 큰 작업 메뉴를 마법사처럼 아이콘으로 골라 들어가는 초기 화면.<br><b>프로젝트 뷰</b>: 실제로 하드웨어를 배치하고 래더 프로그램을 작성하는 본격적인 작업 화면.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 프로젝트 뷰의 화면 구성</p>
+                    <div style="margin:0; line-height:1.7;"><b>① 프로젝트 트리</b>(좌측): CPU, 프로그램 블록, 태그표 등 프로젝트의 모든 구성요소.<br><b>② 작업 영역</b>(중앙): 하드웨어 구성 화면이나 래더/FBD 에디터.<br><b>③ 인스펙터 창</b>(우측 하단): 선택한 개체의 속성, 컴파일 정보, 온라인 진단.<br><b>④ 태스크 카드</b>(우측): 명령어 목록, 라이브러리, 하드웨어 카탈로그.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. 기본 작업 순서</p>
+                    <div style="margin:0; line-height:1.7;">① <span class='blue'>새 프로젝트 만들기</span> → ② <span class='blue'>디바이스 추가</span>(CPU 주문번호 선택) → ③ <span class='blue'>하드웨어 구성</span> → ④ <span class='blue'>프로그램 작성</span>(OB1에 래더 로직 입력) → ⑤ <span class='blue'>컴파일 → 다운로드 → 온라인 모니터링</span>.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-1" data-scoreboard="true">
+<div class="box quiz-box" id="box-u1-1" data-qid="u1-1">
+                    <button class="font-btn" onclick="resetAnswer('u1-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. TIA Portal에서 새 프로젝트 생성, 디바이스 추가 등 큰 메뉴를 아이콘 형태로 고르는 초기 화면을 무엇이라 하는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, 'Portal 뷰')">Portal 뷰</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, 'Portal 뷰')">프로젝트 뷰</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, 'Portal 뷰')">인스펙터 창</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, 'Portal 뷰')">태스크 카드</button>
+                    </div>
+                    <div id="q-result-u1-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u1-1" class="note" style="display:none;">💡 해설: Portal 뷰는 새 프로젝트·디바이스 구성 등 큰 작업을 마법사 형태로 선택하는 초기 화면이며, 실제 프로그래밍은 프로젝트 뷰에서 이루어집니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u1-2" data-qid="u1-2">
+                    <button class="font-btn" onclick="resetAnswer('u1-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. S7-1200, S7-1500, HMI, 드라이브를 하나의 소프트웨어에서 통합적으로 다루는 지멘스의 엔지니어링 플랫폼 이름은? (영문으로) <span class="blue_nb" style="font-size:0.8em;">(단답형)</span></p>
+                    <div style="display:flex; gap:6px; margin:12px 0;">
+                        <input type="text" id="input-u1-2" class="mini-text-input" placeholder="정답 입력" style="max-width:220px;">
+                        <button class="font-btn" onclick="checkAnswerByInput('u1-2', document.getElementById('input-u1-2'), ['TIA Portal', 'TIA portal', 'tia portal'])">확인</button>
+                    </div>
+                    <div id="q-result-u1-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u1-2" class="note" style="display:none;">💡 해설: TIA는 'Totally Integrated Automation'의 약자로, TIA Portal은 PLC·HMI·드라이브를 하나의 SW에서 통합 엔지니어링하는 플랫폼입니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-1')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-1')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-1" class="page-memo-textarea" placeholder="헷갈리는 부분을 적어보세요." onblur="savePageMemo(1)"></textarea>
+                    </div>
+
+                </div>
+
+            <div id="page-nav-bar" class="page-nav-bar" style="display:none;">
+                <button id="btn-prev" class="page-nav-btn" onclick="prevSubPage()">◀ 이전</button>
+                <button class="page-nav-btn main-btn" onclick="showSubMenu()">📋 목록</button>
+                <button id="btn-next" class="page-nav-btn" onclick="nextSubPage()">다음 ▶</button>
+            </div>
+        </div>
+
+        <!-- 랜덤 모의고사 탭 -->
+        <div id="tab-exam" class="tab-content">
+            <h1>지멘스 PLC 기초강좌 - <br>🎲 확인문제 모아풀기</h1>
+            <div id="exam-select" class="box" style="text-align:center;">
+                <p style="font-weight:700; margin-top:0;">2문제를 랜덤 순서로 풀어보세요.</p>
+                <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
+                    <button class="font-btn" onclick="startRandomExam(2)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">2문제(전체)</button>
+                </div>
+            </div>
+
+            <div id="exam-quiz-area" style="display:none;">
+                <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:10px;">
+                    <button class="font-btn" onclick="shuffleSection('exam-questions-wrap')" style="font-size: 0.8em; background-color: #8b5cf6; color: #fff;">🔀 순서 섞기</button>
+                    <button class="font-btn" onclick="resetAllInContainer('exam-questions-wrap')" style="font-size: 0.8em; background-color: #ef4444; color: #ffffff;">🔄 전체 초기화</button>
+                    <button class="font-btn" onclick="backToRandomSelect()" style="font-size: 0.8em;">🎲 다시 뽑기</button>
+                </div>
+                <div class="score-board"><span id="score-exam-questions-wrap">점수: 0 / 100점 (정답 0문제)</span></div>
+                <div id="exam-questions-wrap" data-scoreboard="true"></div>
+                <div style="text-align:center; margin-top:20px;"><button class="page-nav-btn main-btn" onclick="openTab(null, 'tab-study')">📘 단원학습으로</button></div>
+            </div>
+        </div>
+
+        <!-- 오답노트 탭 -->
+        <div id="tab-wrong" class="tab-content">
+            <h1>지멘스 PLC 기초강좌 - <br>📕 나만의 자동 오답노트</h1>
+            <div class="box" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 6px; padding: 12px 14px;">
+                <div style="font-size: 0.9em; color: var(--text-color);">
+                    💡 단원별 확인문제, 랜덤모의고사에서 <b>틀린 문제가 자동으로 이곳에 기록</b>됩니다.
+                </div>
+                <button class="font-btn" onclick="clearAllWrongNotes()" style="font-size: 0.8em; background-color: #ef4444; color: #ffffff; padding: 5px 10px;">🗑️ 오답노트 전체 비우기</button>
+            </div>
+            <div id="wrong-unit-summary"></div>
+            <div id="wrong-notes-list"></div>
+        </div>
+    </div>
+
+    <button id="top-btn" class="top-btn" onclick="scrollToTop()" style="display:none;">▲</button>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
