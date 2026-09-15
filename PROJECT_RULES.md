@@ -10,12 +10,12 @@
 | 폴더 | 주제 | sw.js의 CACHE_NAME 접두어 |
 |---|---|---|
 | `/` (루트) | 주제 선택 허브 | `plc-hub-cache-vX` |
-| `plc-usage/` | ① PLC 사용법 (TIA Portal 시작하기·화면 구성) | `plc-usage-cache-vX` |
-| `plc-shortcuts/` | ② PLC 단축키 | `plc-shortcuts-cache-vX` |
-| `plc-hardware/` | ③ 핵심내용① 하드웨어·통신 설정 | `plc-hardware-cache-vX` |
-| `plc-ladder/` | ④ 핵심내용② 래더(LAD) 기초 명령어 | `plc-ladder-cache-vX` |
-| `plc-example1/` | ⑤ 예제① 자기유지회로·인터록 | `plc-example1-cache-vX` |
-| `plc-example2/` | ⑥ 예제② 타이머·카운터 응용 | `plc-example2-cache-vX` |
+| `plc-usage/` | ① PLC 사용법 (TIA Portal 시작하기·화면 구성) - 8단원 · 16문제 | `plc-usage-cache-vX` |
+| `plc-shortcuts/` | ② PLC 단축키 - 8단원 · 16문제 | `plc-shortcuts-cache-vX` |
+| `plc-hardware/` | ③ 핵심내용① 하드웨어·통신 설정 - 8단원 · 16문제 | `plc-hardware-cache-vX` |
+| `plc-ladder/` | ④ 핵심내용② 래더(LAD) 기초 명령어 - 8단원 · 16문제 | `plc-ladder-cache-vX` |
+| `plc-example1/` | ⑤ 예제① 자기유지회로·인터록 - 8단원 · 16문제 | `plc-example1-cache-vX` |
+| `plc-example2/` | ⑥ 예제② 타이머·카운터 응용 - 8단원 · 16문제 | `plc-example2-cache-vX` |
 
 ### ✅ 해결된 이슈 (참고용 기록)
 - ~~루트 `sw.js` 캐시 이름이 `circuit-theory/`와 겹치던 문제~~ → `electric-hub-cache-v1`로 분리 완료.
