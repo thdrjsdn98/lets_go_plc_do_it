@@ -14,7 +14,7 @@ var STORAGE_PREFIX = 'plc_example2_';
 function PK(key) { return STORAGE_PREFIX + key; }
 
 var currentSubPage = 0;
-var totalSubPages = 1;
+var totalSubPages = 8;
 var bookmarks = JSON.parse(localStorage.getItem(PK('user_bookmarks')) || '[]');
 var completes = JSON.parse(localStorage.getItem(PK('user_completes')) || '[]');
 var currentFontSize = parseInt(localStorage.getItem(PK('user_font_size')) || '14', 10);
@@ -29,7 +29,8 @@ var lastSearchQuery = "";
 var studyQuotes = [
     { text: "직접 프로그램을 짜고 시뮬레이션을 돌려봐야 실력이 는다.", ref: "PLC 학습 습관" },
     { text: "모르는 명령어는 F1 도움말로 바로 찾아보는 습관을 들이자.", ref: "학습 팁" },
-    { text: "작은 예제부터 직접 따라 만들어보는 것이 매뉴얼을 읽는 것보다 빠르다.", ref: "학습 루틴" }
+    { text: "작은 예제부터 직접 따라 만들어보는 것이 매뉴얼을 읽는 것보다 빠르다.", ref: "학습 루틴" },
+    { text: "단원을 다 보고 확인문제로 바로 점검하면 기억에 오래 남는다.", ref: "학습 루틴" }
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -128,7 +129,7 @@ function checkDailyNotify() {
     var lastNotifyDate = localStorage.getItem(PK('last_notify_date'));
     if (lastNotifyDate !== today) {
         localStorage.setItem(PK('last_notify_date'), today);
-        new Notification('지멘스 PLC - PLC 예제② 타이머·카운터 🛠️', {
+        new Notification('지멘스 PLC 기초강좌 - PLC 예제② 타이머·카운터 🛠️', {
             body: '오늘 아직 공부 안 하셨죠? 지금 잠깐이라도 시작해볼까요?'
         });
     }
@@ -501,7 +502,7 @@ function updateNavButtons() {
 
 /* ===================== 퀴즈 채점 ===================== */
 var unitTitles = {
-    1: "실전 예제② 타이머·카운터 응용"
+    1: "01. 온딜레이 타이머 기본 예제", 2: "02. 오프딜레이 타이머 예제", 3: "03. 점멸(깜빡이) 회로", 4: "04. 생산 개수 카운터", 5: "05. 컨베이어 순차 기동/정지", 6: "06. 반복 동작(사이클) 타이머 응용", 7: "07. 카운터+타이머 결합 예제 (포장기)", 8: "08. 종합 실습 - 신호등 제어"
 };
 
 function unitOfQid(qId) {

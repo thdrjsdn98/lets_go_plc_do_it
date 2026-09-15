@@ -1,7 +1,7 @@
 {
-  "name": "지멘스 PLC - 예제② 타이머·카운터",
-  "short_name": "PLC 예제② 타이머",
-  "description": "지멘스 PLC 기초강좌 - 실전 예제② 타이머·카운터 응용",
+  "name": "지멘스 PLC 기초강좌 - PLC 예제② 타이머·카운터",
+  "short_name": "PLC 예제② 타이머·카운터",
+  "description": "지멘스 PLC 기초강좌 - PLC 예제② 타이머·카운터 (8단원)",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
