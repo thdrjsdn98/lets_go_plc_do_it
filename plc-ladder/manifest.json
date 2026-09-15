@@ -1,7 +1,7 @@
 {
-  "name": "지멘스 PLC - 래더 명령어",
-  "short_name": "PLC 래더 명령어",
-  "description": "지멘스 PLC 기초강좌 - 래더(LAD) 기초 명령어",
+  "name": "지멘스 PLC 기초강좌 - PLC 핵심내용② 래더 명령어",
+  "short_name": "PLC 핵심내용② 래더 명령어",
+  "description": "지멘스 PLC 기초강좌 - PLC 핵심내용② 래더 명령어 (8단원)",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

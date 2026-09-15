@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>지멘스 PLC - 래더 명령어</title>
+    <title>지멘스 PLC 기초강좌 - PLC 핵심내용② 래더 명령어</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#2563eb">
@@ -13,7 +13,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="PLC 래더 명령어">
+    <meta name="apple-mobile-web-app-title" content="PLC 핵심내용② 래더 명령어">
 </head>
 <body>
 
@@ -125,7 +125,7 @@
                 </button>
                 <div class="tab-dropdown-list" id="tab-dropdown-list">
                     <button class="tab-btn active" onclick="openTab(event, 'tab-cover')">표지</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 학습</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 단원학습 (8단원)</button>
                     <button class="tab-btn" onclick="openTab(event, 'tab-exam')">🎲 랜덤 모의고사</button>
                     <button class="tab-btn" onclick="openTab(event, 'tab-wrong')">📕 오답노트</button>
                 </div>
@@ -139,17 +139,19 @@
                 <div class="cover-subtitle">④ 핵심내용② - 래더(LAD) 기초 명령어</div>
                 <div class="cover-divider"></div>
                 <div class="cover-info">
-                    <p>주제: 래더(LAD) 기초 명령어</p>
-                    <p>확인문제: 2문제</p>
-                    <p>버전: V1.0.0 (최초 배포)</p>
+                    <p>범위: 8단원</p>
+                    <p>확인문제: 단원별 2문제 · 총 16문제</p>
+                    <p>버전: V2.0.0 (8단원 확장판)</p>
                 </div>
             </div>
             <div class="box">
                 <b>📖 이 앱 사용법</b>
                 <ul style="margin: 10px 0 0 0; padding-left: 18px; line-height: 1.7;">
-                    <li><b>학습</b> 탭에서 이론·예제를 읽고 바로 아래 확인문제를 풀어보세요.</li>
+                    <li><b>단원학습</b> 탭에서 이론·예제를 읽고 바로 아래 확인문제를 풀어보세요.</li>
                     <li>상단 <b>⚙️ 학습 도구</b>에서 <b>암기 모드</b>를 켜면 핵심어가 가려집니다.</li>
+                    <li><b>초성 퀴즈</b> 모드는 핵심 용어를 초성(ㄱㄴㄷ)으로 바꿔서 스스로 떠올려보게 합니다.</li>
                     <li>틀린 문제는 자동으로 <b>오답노트</b> 탭에 쌓입니다.</li>
+                    <li>모든 단원을 학습했다면 <b>랜덤 모의고사</b>로 섞어서 다시 풀어보세요.</li>
                     <li>진도·오답노트는 이 브라우저에만 저장되니, 기기를 바꾸기 전 <b>백업</b>을 꼭 받아두세요.</li>
                 </ul>
             </div>
@@ -158,17 +160,73 @@
             </div>
         </div>
 
-        <!-- 학습 탭 -->
+        <!-- 단원학습 탭 -->
         <div id="tab-study" class="tab-content">
             <h1>지멘스 PLC 기초강좌 - <br>📘 PLC 핵심내용② 래더 명령어</h1>
+            <div style="text-align: right; font-size: 0.8em; color: var(--text-sub); margin-top: 4px; margin-bottom: 12px;">
+                <span>8단원 · 확인문제 16문제</span>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+                <button class="font-btn" onclick="filterBookmarks()" style="font-size: 0.82em;">⭐ 북마크 모아보기</button>
+            </div>
 
             <div id="sub-page-menu">
                 <div class="sub-nav-grid" id="main-menu-grid">
                         <div class="sub-nav-card" onclick="showSubPage(1)">
-                            <span>🪜 래더(LAD) 기초 명령어</span>
+                            <span>01. 접점 - A접점 / B접점</span>
                             <div class="card-status-box">
                                 <span class="card-done-badge" id="card-done-1" style="display:none;">✅ 완료</span>
                                 <span id="card-star-1"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(2)">
+                            <span>02. 코일과 SET / RESET</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-2" style="display:none;">✅ 완료</span>
+                                <span id="card-star-2"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(3)">
+                            <span>03. 타이머 - TON / TOF / TP</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-3" style="display:none;">✅ 완료</span>
+                                <span id="card-star-3"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(4)">
+                            <span>04. 카운터 - CTU / CTD / CTUD</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-4" style="display:none;">✅ 완료</span>
+                                <span id="card-star-4"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(5)">
+                            <span>05. 비교 명령 (CMP)</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-5" style="display:none;">✅ 완료</span>
+                                <span id="card-star-5"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(6)">
+                            <span>06. 이동·연산 명령 (MOVE, ADD 등)</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-6" style="display:none;">✅ 완료</span>
+                                <span id="card-star-6"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(7)">
+                            <span>07. 데이터 타입 (Bool/Byte/Int/DInt/Real)</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-7" style="display:none;">✅ 완료</span>
+                                <span id="card-star-7"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(8)">
+                            <span>08. 프로그램 구조 (OB1/FC/FB/DB 활용)</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-8" style="display:none;">✅ 완료</span>
+                                <span id="card-star-8"></span>
                             </div>
                         </div>
                 </div>
@@ -177,68 +235,56 @@
                 <div id="sub-page-1" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">1 / 1 PAGE</div>
-                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 목록</button>
+                            <div class="page-indicator">1 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
                             <label class="complete-check-label"><input type="checkbox" id="check-page-1" onchange="toggleComplete(1)"> 학습 완료</label>
                             <button class="bookmark-btn" id="star-btn-1" onclick="toggleBookmark(1)">☆</button>
                         </div>
                     </div>
-                    <h2>래더(LAD) 기초 명령어</h2>
+                    <h2>01. 접점 - A접점 / B접점</h2>
 <div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">📌 이 주제의 핵심 용어</p>
-                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>명령어</th><th>의미</th></tr><tr><td>A접점(NO)</td><td>평상시 열림, 조건이 참이면 닫혀(통전) 신호를 전달</td></tr><tr><td>B접점(NC)</td><td>평상시 닫힘, 조건이 참이면 열려(차단) 신호를 끊음</td></tr><tr><td>코일 ( = )</td><td>조건이 참인 동안만 출력을 ON</td></tr><tr><td>SET(S) / RESET(R)</td><td>한 번 켜면(또는 끄면) 반대 명령이 올 때까지 상태 유지</td></tr><tr><td>TON / TOF / TP</td><td>온딜레이 / 오프딜레이 / 펄스 타이머</td></tr><tr><td>CTU / CTD / CTUD</td><td>업카운터 / 다운카운터 / 업다운카운터</td></tr></table></div></div>
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. A접점(Normally Open)</p>
+                    <div style="margin:0; line-height:1.7;">평소엔 끊어져 있다가 해당 비트가 <span class='blue'>1이 되면 통전</span>되는 접점이다. 기동버튼처럼 '눌렀을 때 신호를 보내고 싶은' 경우에 사용한다.</div>
                 </div>
 <div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">1. 접점 - A접점 / B접점</p>
-                    <div style="margin:0; line-height:1.7;">래더의 가장 기본 단위는 접점이다. <span class='blue'>A접점(Normally Open)</span>은 평소엔 끊어져 있다가 해당 비트가 1이 되면 통전되고, <span class='red'>B접점(Normally Closed)</span>은 평소엔 통전되어 있다가 해당 비트가 1이 되면 끊어진다.</div>
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. B접점(Normally Closed)</p>
+                    <div style="margin:0; line-height:1.7;">평소엔 통전되어 있다가 해당 비트가 <span class='red'>1이 되면 끊어지는</span> 접점이다. 정지버튼처럼 '눌렀을 때 회로를 끊고 싶은' 경우에 자주 사용한다.</div>
                 </div>
 <div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">2. 코일과 SET/RESET</p>
-                    <div style="margin:0; line-height:1.7;">일반 코일(=)은 앞의 조건이 참인 <span class='blue'>그 스캔 동안만</span> 출력이 ON되고 조건이 꺼지면 즉시 OFF된다. 반면 <span class='red'>SET(S)</span> 코일은 한 번 조건이 참이 되면 이후 조건이 꺼져도 출력이 계속 ON 상태를 유지하며, <span class='red'>RESET(R)</span> 명령이 실행되어야 비로소 OFF된다.</div>
-                </div>
-<div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">3. 타이머 - TON / TOF / TP</p>
-                    <div style="margin:0; line-height:1.7;"><b>TON(On-Delay)</b>: 입력이 ON된 후 설정 시간이 지나야 출력이 ON. <b>TOF(Off-Delay)</b>: 입력이 OFF된 후 설정 시간이 지나야 출력이 OFF. <b>TP(Pulse)</b>: 입력이 ON되는 순간 설정 시간만큼만 출력이 ON.</div>
-                </div>
-<div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">4. 카운터 - CTU / CTD / CTUD</p>
-                    <div style="margin:0; line-height:1.7;"><b>CTU(Up Counter)</b>: CU 입력이 켜질 때마다 카운트 값이 1씩 증가, 설정값(PV) 도달 시 출력 ON. <b>CTD(Down Counter)</b>: CD 입력마다 1씩 감소, 0이 되면 출력 ON. <b>CTUD</b>: 증가·감소를 모두 지원.</div>
-                </div>
-<div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">5. 비교·이동 명령</p>
-                    <div style="margin:0; line-height:1.7;"><b>CMP(비교)</b>: 두 값을 ==, &gt;, &lt; 등으로 비교. <b>MOVE</b>: 한 주소의 값을 다른 주소로 복사. 데이터 타입은 <span class='blue'>Bool(0/1)</span>, <span class='blue'>Int/DInt(정수)</span>, <span class='blue'>Real(실수)</span> 정도만 우선 구분해도 충분하다.</div>
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 선택 기준</p>
+                    <div style="margin:0; line-height:1.7;">'이 신호가 켜지면 통전시키고 싶다' → A접점, '이 신호가 켜지면 차단하고 싶다' → B접점, 이 기준만 기억해도 대부분의 상황에서 올바르게 고를 수 있다.</div>
                 </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
                     </div>
                     <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
                     <div id="unit-quiz-1" data-scoreboard="true">
 <div class="box quiz-box" id="box-u1-1" data-qid="u1-1">
                     <button class="font-btn" onclick="resetAnswer('u1-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
-                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 입력 조건이 ON된 뒤 설정 시간이 지나야 출력이 ON되는 타이머는?</p>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 평소 열려있다가 조건이 참이 되면 닫히는(통전되는) 접점은?</p>
                     <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, 'TON')">TON</button>
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, 'TON')">TOF</button>
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, 'TON')">TP</button>
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, 'TON')">CTU</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, 'A접점')">A접점</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, 'A접점')">B접점</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, 'A접점')">코일</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, 'A접점')">타이머</button>
                     </div>
                     <div id="q-result-u1-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
-                    <div id="q-expl-u1-1" class="note" style="display:none;">💡 해설: TON(On-Delay Timer)은 입력이 켜진 뒤 설정 시간만큼 지연되어 출력이 켜지는 온딜레이 타이머입니다.</div>
+                    <div id="q-expl-u1-1" class="note" style="display:none;">💡 해설: A접점(Normally Open)은 평소 열려 있다가 조건이 참이 되면 통전됩니다.</div>
                 </div>
 <div class="box quiz-box" id="box-u1-2" data-qid="u1-2">
                     <button class="font-btn" onclick="resetAnswer('u1-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
-                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 한 번 ON되면 RESET(R) 명령이 실행되기 전까지 계속 ON 상태를 유지하는 출력 명령은?</p>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 정지버튼처럼 '눌리면 회로를 끊고 싶은' 경우 주로 사용하는 접점은?</p>
                     <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, 'SET(S)')">일반 코일( = )</button>
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, 'SET(S)')">SET(S)</button>
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, 'SET(S)')">MOVE</button>
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, 'SET(S)')">CMP</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, 'B접점')">B접점</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, 'B접점')">A접점</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, 'B접점')">SET</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, 'B접점')">RESET</button>
                     </div>
                     <div id="q-result-u1-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
-                    <div id="q-expl-u1-2" class="note" style="display:none;">💡 해설: SET(S) 코일은 조건이 한 번 참이 되면 이후 조건이 꺼져도 RESET(R)이 실행되기 전까지 출력을 계속 ON으로 유지합니다.</div>
+                    <div id="q-expl-u1-2" class="note" style="display:none;">💡 해설: B접점(Normally Closed)은 평소 통전 상태이다가 조건이 참이 되면 회로를 끊는 데 사용됩니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -248,25 +294,468 @@
 
                     <div class="page-memo-section">
                         <p class="page-memo-title">📝 나만의 메모</p>
-                        <textarea id="memo-input-1" class="page-memo-textarea" placeholder="헷갈리는 부분을 적어보세요." onblur="savePageMemo(1)"></textarea>
+                        <textarea id="memo-input-1" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(1)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-2" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">2 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-2" onchange="toggleComplete(2)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-2" onclick="toggleBookmark(2)">☆</button>
+                        </div>
+                    </div>
+                    <h2>02. 코일과 SET / RESET</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 일반 코일 ( = )</p>
+                    <div style="margin:0; line-height:1.7;">앞의 조건이 참인 <span class='blue'>그 스캔 동안만</span> 출력이 ON되고, 조건이 꺼지면 즉시 OFF된다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. SET(S) / RESET(R)</p>
+                    <div style="margin:0; line-height:1.7;"><span class='red'>SET(S)</span> 코일은 한 번 조건이 참이 되면 이후 조건이 꺼져도 출력이 계속 ON을 유지하며, <span class='red'>RESET(R)</span> 명령이 실행되어야 비로소 OFF된다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 실행 순서의 중요성</p>
+                    <div style="margin:0; line-height:1.7;">SET과 RESET 조건이 같은 스캔에서 동시에 참이 되면, 일반적으로 <span class='blue'>프로그램상 나중에(아래쪽에) 배치된 명령이 최종 결과를 결정</span>한다. 그래서 정지(RESET) 로직을 기동(SET) 로직보다 아래에 두는 것이 안전하다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-2">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-2" data-scoreboard="true">
+<div class="box quiz-box" id="box-u2-1" data-qid="u2-1">
+                    <button class="font-btn" onclick="resetAnswer('u2-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 조건이 꺼지면 즉시 출력도 꺼지는 일반 코일 기호는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-1', this, '( = )')">( = )</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-1', this, '( = )')">SET(S)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-1', this, '( = )')">RESET(R)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-1', this, '( = )')">CTU</button>
+                    </div>
+                    <div id="q-result-u2-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-1" class="note" style="display:none;">💡 해설: 일반 코일(=)은 조건이 참인 동안만 출력이 ON되고 조건이 꺼지면 즉시 OFF됩니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u2-2" data-qid="u2-2">
+                    <button class="font-btn" onclick="resetAnswer('u2-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. SET과 RESET 코일이 같은 스캔에서 동시에 실행 조건이 되면, 최종 상태를 결정하는 요소는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-2', this, '프로그램상 나중에(아래에) 실행되는 명령')">프로그램상 나중에(아래에) 실행되는 명령</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-2', this, '프로그램상 나중에(아래에) 실행되는 명령')">항상 SET이 우선</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-2', this, '프로그램상 나중에(아래에) 실행되는 명령')">항상 RESET이 우선</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-2', this, '프로그램상 나중에(아래에) 실행되는 명령')">무작위로 결정됨</button>
+                    </div>
+                    <div id="q-result-u2-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-2" class="note" style="display:none;">💡 해설: 일반적으로 프로그램에서 나중에(아래쪽에) 배치된 SET/RESET 명령이 최종 상태를 결정합니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-2')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-2')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-2" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(2)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-3" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">3 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-3" onchange="toggleComplete(3)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-3" onclick="toggleBookmark(3)">☆</button>
+                        </div>
+                    </div>
+                    <h2>03. 타이머 - TON / TOF / TP</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">📌 핵심 요약</p>
+                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>타이머</th><th>동작</th></tr><tr><td>TON (On-Delay)</td><td>입력 ON 후 설정시간 경과해야 출력 ON</td></tr><tr><td>TOF (Off-Delay)</td><td>입력 OFF 후 설정시간 경과해야 출력 OFF (입력 켜지면 출력은 즉시 ON)</td></tr><tr><td>TP (Pulse)</td><td>입력 ON되는 순간 설정시간만큼만 출력 ON, 이후 자동 OFF</td></tr></table></div></div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-3">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-3" data-scoreboard="true">
+<div class="box quiz-box" id="box-u3-1" data-qid="u3-1">
+                    <button class="font-btn" onclick="resetAnswer('u3-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 입력이 꺼진 후 설정시간이 지나야 출력이 꺼지는 타이머는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-1', this, 'TOF')">TOF</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-1', this, 'TOF')">TON</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-1', this, 'TOF')">TP</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-1', this, 'TOF')">CTU</button>
+                    </div>
+                    <div id="q-result-u3-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-1" class="note" style="display:none;">💡 해설: TOF(Off-Delay Timer)는 입력이 꺼진 뒤 설정시간이 지나야 출력이 꺼집니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u3-2" data-qid="u3-2">
+                    <button class="font-btn" onclick="resetAnswer('u3-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 입력이 켜지는 순간 설정시간만큼만 출력이 켜지고 자동으로 꺼지는 타이머는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-2', this, 'TP')">TP</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-2', this, 'TP')">TON</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-2', this, 'TP')">TOF</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-2', this, 'TP')">CTD</button>
+                    </div>
+                    <div id="q-result-u3-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-2" class="note" style="display:none;">💡 해설: TP(Pulse Timer)는 입력이 켜지는 순간부터 설정시간만큼만 출력이 켜지고 이후 자동으로 꺼집니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-3')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-3')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-3" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(3)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-4" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">4 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-4" onchange="toggleComplete(4)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-4" onclick="toggleBookmark(4)">☆</button>
+                        </div>
+                    </div>
+                    <h2>04. 카운터 - CTU / CTD / CTUD</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">📌 핵심 요약</p>
+                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>카운터</th><th>동작</th></tr><tr><td>CTU (Up Counter)</td><td>CU 입력마다 1씩 증가, 설정값(PV) 도달시 출력 ON</td></tr><tr><td>CTD (Down Counter)</td><td>CD 입력마다 1씩 감소, 0이 되면 출력 ON</td></tr><tr><td>CTUD</td><td>증가·감소를 모두 지원하는 업다운 카운터</td></tr></table></div>세 가지 모두 R(리셋) 입력으로 현재값을 초기화한다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-4">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-4" data-scoreboard="true">
+<div class="box quiz-box" id="box-u4-1" data-qid="u4-1">
+                    <button class="font-btn" onclick="resetAnswer('u4-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 카운트 값이 설정값에서부터 감소하여 0이 되면 출력이 ON되는 카운터는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-1', this, 'CTD')">CTD</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-1', this, 'CTD')">CTU</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-1', this, 'CTD')">CTUD</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-1', this, 'CTD')">TON</button>
+                    </div>
+                    <div id="q-result-u4-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-1" class="note" style="display:none;">💡 해설: CTD(Down Counter)는 CD 입력마다 값이 감소하여 0이 되면 출력이 ON됩니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u4-2" data-qid="u4-2">
+                    <button class="font-btn" onclick="resetAnswer('u4-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 증가와 감소를 모두 지원하는 카운터는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-2', this, 'CTUD')">CTUD</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-2', this, 'CTUD')">CTU</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-2', this, 'CTUD')">CTD</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-2', this, 'CTUD')">TP</button>
+                    </div>
+                    <div id="q-result-u4-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-2" class="note" style="display:none;">💡 해설: CTUD는 업(증가)과 다운(감소)을 모두 지원하는 업다운 카운터입니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-4')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-4')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-4" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(4)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-5" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">5 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-5" onchange="toggleComplete(5)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-5" onclick="toggleBookmark(5)">☆</button>
+                        </div>
+                    </div>
+                    <h2>05. 비교 명령 (CMP)</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 비교 연산자</p>
+                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>연산자</th><th>의미</th></tr><tr><td>==</td><td>같다</td></tr><tr><td>&lt;&gt;</td><td>다르다</td></tr><tr><td>&gt;, &lt;</td><td>크다, 작다</td></tr><tr><td>&gt;=, &lt;=</td><td>크거나 같다, 작거나 같다</td></tr></table></div>두 값을 비교해 참/거짓 접점처럼 사용할 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 주의사항</p>
+                    <div style="margin:0; line-height:1.7;">비교하려는 두 값의 <span class='red'>데이터 타입이 일치</span>해야 한다(예: Int와 Real을 그대로 비교하면 오류가 날 수 있음).</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-5">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-5" data-scoreboard="true">
+<div class="box quiz-box" id="box-u5-1" data-qid="u5-1">
+                    <button class="font-btn" onclick="resetAnswer('u5-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 두 값이 서로 다른지 비교하는 연산자는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-1', this, '<>')"><></button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-1', this, '<>')">==</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-1', this, '<>')">>=</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-1', this, '<>')"><=</button>
+                    </div>
+                    <div id="q-result-u5-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-1" class="note" style="display:none;">💡 해설: <>는 두 값이 서로 다른지를 비교하는 연산자입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u5-2" data-qid="u5-2">
+                    <button class="font-btn" onclick="resetAnswer('u5-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 비교 명령을 사용할 때 반드시 확인해야 하는 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-2', this, '두 값의 데이터 타입 일치 여부')">두 값의 데이터 타입 일치 여부</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-2', this, '두 값의 데이터 타입 일치 여부')">색상</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-2', this, '두 값의 데이터 타입 일치 여부')">폰트 크기</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-2', this, '두 값의 데이터 타입 일치 여부')">케이블 길이</button>
+                    </div>
+                    <div id="q-result-u5-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-2" class="note" style="display:none;">💡 해설: 비교하려는 두 값의 데이터 타입이 일치해야 정상적으로 비교됩니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-5')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-5')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-5" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(5)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-6" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">6 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-6" onchange="toggleComplete(6)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-6" onclick="toggleBookmark(6)">☆</button>
+                        </div>
+                    </div>
+                    <h2>06. 이동·연산 명령 (MOVE, ADD 등)</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. MOVE</p>
+                    <div style="margin:0; line-height:1.7;">한 주소의 값을 다른 주소로 <span class='blue'>그대로 복사</span>하는 명령이다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 사칙연산 명령</p>
+                    <div style="margin:0; line-height:1.7;"><span class='red'>ADD(덧셈)</span>, SUB(뺄셈), MUL(곱셈), DIV(나눗셈) 명령으로 두 값을 계산해 결과를 다른 주소에 저장할 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 데이터 타입 일치</p>
+                    <div style="margin:0; line-height:1.7;">연산에 사용하는 값들도 서로 <span class='blue'>같은 데이터 타입</span>이어야 하며, 다르면 타입 변환 명령(CONVERT)을 먼저 거쳐야 한다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-6">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-6" data-scoreboard="true">
+<div class="box quiz-box" id="box-u6-1" data-qid="u6-1">
+                    <button class="font-btn" onclick="resetAnswer('u6-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 한 주소의 값을 다른 주소로 복사하는 명령은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-1', this, 'MOVE')">MOVE</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-1', this, 'MOVE')">CMP</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-1', this, 'MOVE')">SET</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-1', this, 'MOVE')">RESET</button>
+                    </div>
+                    <div id="q-result-u6-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-1" class="note" style="display:none;">💡 해설: MOVE 명령은 한 주소의 값을 다른 주소로 그대로 복사합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u6-2" data-qid="u6-2">
+                    <button class="font-btn" onclick="resetAnswer('u6-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 두 값을 더하는 연산 명령은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-2', this, 'ADD')">ADD</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-2', this, 'ADD')">SUB</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-2', this, 'ADD')">MUL</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-2', this, 'ADD')">DIV</button>
+                    </div>
+                    <div id="q-result-u6-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-2" class="note" style="display:none;">💡 해설: ADD는 두 값을 더하는 사칙연산 명령입니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-6')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-6')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-6" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(6)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-7" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">7 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-7" onchange="toggleComplete(7)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-7" onclick="toggleBookmark(7)">☆</button>
+                        </div>
+                    </div>
+                    <h2>07. 데이터 타입 (Bool/Byte/Int/DInt/Real)</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">📌 핵심 요약</p>
+                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>타입</th><th>설명</th></tr><tr><td>Bool</td><td>0 또는 1(참/거짓) 1비트</td></tr><tr><td>Byte</td><td>8비트</td></tr><tr><td>Int</td><td>16비트 정수</td></tr><tr><td>DInt</td><td>32비트 정수</td></tr><tr><td>Real</td><td>32비트 실수(소수점 포함)</td></tr></table></div></div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-7">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-7" data-scoreboard="true">
+<div class="box quiz-box" id="box-u7-1" data-qid="u7-1">
+                    <button class="font-btn" onclick="resetAnswer('u7-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 0 또는 1 두 가지 값만 가지는 가장 기본적인 데이터 타입은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-1', this, 'Bool')">Bool</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-1', this, 'Bool')">Int</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-1', this, 'Bool')">Real</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-1', this, 'Bool')">Byte</button>
+                    </div>
+                    <div id="q-result-u7-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-1" class="note" style="display:none;">💡 해설: Bool은 0(거짓) 또는 1(참) 두 가지 값만 가지는 가장 기본적인 데이터 타입입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u7-2" data-qid="u7-2">
+                    <button class="font-btn" onclick="resetAnswer('u7-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 소수점이 있는 값을 저장할 때 사용하는 데이터 타입은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-2', this, 'Real')">Real</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-2', this, 'Real')">Bool</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-2', this, 'Real')">Byte</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-2', this, 'Real')">Int</button>
+                    </div>
+                    <div id="q-result-u7-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-2" class="note" style="display:none;">💡 해설: Real은 소수점을 포함한 실수 값을 저장하는 데이터 타입입니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-7')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-7')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-7" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(7)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-8" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">8 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-8" onchange="toggleComplete(8)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-8" onclick="toggleBookmark(8)">☆</button>
+                        </div>
+                    </div>
+                    <h2>08. 프로그램 구조 (OB1/FC/FB/DB 활용)</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 왜 블록을 나누는가</p>
+                    <div style="margin:0; line-height:1.7;">하나의 거대한 OB1 대신 기능별로 <span class='blue'>여러 개의 FC/FB로 나누어</span> 프로그램을 구성하면 가독성이 좋아지고, 비슷한 로직을 다른 프로젝트에서도 재사용하기 쉬워진다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 호출 구조</p>
+                    <div style="margin:0; line-height:1.7;">보통 OB1에서 필요한 FC/FB들을 순서대로 <span class='red'>호출(Call)</span>하는 형태로 프로그램을 구성한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 인스턴스 DB</p>
+                    <div style="margin:0; line-height:1.7;">FB를 호출할 때는 그 상태를 저장할 <span class='mint'>인스턴스 DB</span>를 함께 지정해야 하며, 이 DB 덕분에 FB는 다음 스캔에서도 이전 상태(예: 타이머 경과시간)를 기억할 수 있다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-8">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-8" data-scoreboard="true">
+<div class="box quiz-box" id="box-u8-1" data-qid="u8-1">
+                    <button class="font-btn" onclick="resetAnswer('u8-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 여러 개의 FC/FB로 나누어 프로그램을 구성하는 주된 이유는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-1', this, '가독성과 재사용성 향상')">가독성과 재사용성 향상</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-1', this, '가독성과 재사용성 향상')">속도가 항상 빨라짐</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-1', this, '가독성과 재사용성 향상')">메모리가 무한대가 됨</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-1', this, '가독성과 재사용성 향상')">특별한 이유 없음</button>
+                    </div>
+                    <div id="q-result-u8-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-1" class="note" style="display:none;">💡 해설: 기능별로 블록을 나누면 프로그램의 가독성이 좋아지고 다른 프로젝트에서도 재사용하기 쉬워집니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u8-2" data-qid="u8-2">
+                    <button class="font-btn" onclick="resetAnswer('u8-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. FB를 호출할 때 그 상태(값)를 저장하기 위해 함께 사용하는 블록은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-2', this, '인스턴스 DB')">인스턴스 DB</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-2', this, '인스턴스 DB')">글로벌 DB만 가능</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-2', this, '인스턴스 DB')">OB</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-2', this, '인스턴스 DB')">FC</button>
+                    </div>
+                    <div id="q-result-u8-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-2" class="note" style="display:none;">💡 해설: FB 호출시 인스턴스 DB를 함께 지정하여 다음 스캔에서도 상태를 기억할 수 있습니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-8')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-8')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-8" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(8)"></textarea>
                     </div>
 
                 </div>
 
             <div id="page-nav-bar" class="page-nav-bar" style="display:none;">
                 <button id="btn-prev" class="page-nav-btn" onclick="prevSubPage()">◀ 이전</button>
-                <button class="page-nav-btn main-btn" onclick="showSubMenu()">📋 목록</button>
+                <button class="page-nav-btn main-btn" onclick="showSubMenu()">📋 단원 목록</button>
                 <button id="btn-next" class="page-nav-btn" onclick="nextSubPage()">다음 ▶</button>
             </div>
         </div>
 
         <!-- 랜덤 모의고사 탭 -->
         <div id="tab-exam" class="tab-content">
-            <h1>지멘스 PLC 기초강좌 - <br>🎲 확인문제 모아풀기</h1>
+            <h1>지멘스 PLC 기초강좌 - <br>🎲 랜덤 모의고사</h1>
             <div id="exam-select" class="box" style="text-align:center;">
-                <p style="font-weight:700; margin-top:0;">2문제를 랜덤 순서로 풀어보세요.</p>
+                <p style="font-weight:700; margin-top:0;">몇 문제를 랜덤으로 뽑을까요?</p>
+                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 16문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
                 <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
-                    <button class="font-btn" onclick="startRandomExam(2)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">2문제(전체)</button>
+                    <button class="font-btn" onclick="startRandomExam(8)" style="padding:10px 18px;">8문제</button>
+                    <button class="font-btn" onclick="startRandomExam(16)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">16문제(전체)</button>
                 </div>
             </div>
 
