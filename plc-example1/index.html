@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>지멘스 PLC - 예제① 자기유지·인터록</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="icon" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="PLC 예제① 자기유지">
+</head>
+<body>
+
+    <div class="container" id="app-viewport">
+
+        <!-- 뒤로가기 종료 확인 팝업 -->
+        <div id="exit-confirm-overlay" class="exit-confirm-overlay" style="display:none;">
+            <div class="exit-confirm-box">
+                <p class="exit-confirm-title">오늘 공부 정말 여기까지 하실 건가요?</p>
+                <div class="exit-confirm-btns">
+                    <button class="font-btn" onclick="cancelExitApp()">아니, 조만간 올게</button>
+                    <button class="font-btn" style="background-color:#ef4444; color:#ffffff; border-color:#ef4444;" onclick="confirmExitApp()">응, 여기까지가 한계야</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 상단 학습 도구 상자 -->
+        <div class="control-bar-group">
+            <div class="panel-toggle-bar" onclick="toggleTopPanel()">
+                <span class="panel-toggle-title"><span>⚙️ 학습 도구</span></span>
+                <span class="panel-toggle-btn" id="panel-toggle-btn-text">▼ 메뉴 펼치기</span>
+            </div>
+
+            <div id="collapsible-control-content" class="collapsed">
+                <div class="tool-divider-solid"></div>
+
+                <div class="tool-flat-section">
+                    <div class="font-control-row">
+                        <span class="tool-label">🔤 글자 크기</span>
+                        <div class="segmented-font-group">
+                            <button class="seg-font-btn" onclick="changeFontSize(-1)">가-</button>
+                            <button class="seg-font-btn" onclick="resetFontSize()">기본</button>
+                            <button class="seg-font-btn" onclick="changeFontSize(1)">가+</button>
+                        </div>
+                    </div>
+                    <div class="mode-btn-grid" style="margin-top: 4px;">
+                        <button class="mode-item-btn" id="memorize-toggle-btn" onclick="toggleMemorizeMode()">🙈 암기 OFF</button>
+                        <button class="mode-item-btn" id="chosung-toggle-btn" onclick="toggleChosungMode()">💡 초성 퀴즈</button>
+                        <button class="mode-item-btn" id="darkmode-toggle-btn" onclick="toggleDarkMode()">🌙 야간</button>
+                    </div>
+                    <button class="backup-action-btn" id="tab-menu-style-btn" onclick="toggleTabMenuStyle()" style="width:100%; margin-top:8px;">▾ 탭 메뉴: 드롭다운형</button>
+                    <button class="backup-action-btn" id="notify-toggle-btn" onclick="toggleDailyNotify()" style="width:100%; margin-top:8px;">🔔 매일 알림 켜기</button>
+                </div>
+
+                <div class="tool-divider-dashed"></div>
+
+                <div class="tool-flat-section">
+                    <span class="tool-label">💾 내 학습 데이터 보호</span>
+                    <div class="backup-btn-grid">
+                        <button class="backup-action-btn" onclick="exportUserData()">📥 메모·진도 백업</button>
+                        <button class="backup-action-btn" onclick="document.getElementById('import-file-input').click()">📤 백업 복원</button>
+                        <input type="file" id="import-file-input" style="display:none;" accept=".json" onchange="importUserData(event)">
+                    </div>
+                    <button class="backup-action-btn" onclick="resetAppData()" style="width:100%; margin-top:8px; background-color:#fee2e2; color:#991b1b; border-color:#fecaca;">🗑️ 이 앱 데이터 전체 초기화</button>
+                </div>
+
+                <div class="tool-flat-section">
+                    <span class="tool-label">🗓️ 학습 목표일 설정</span>
+                    <div style="display:flex; gap:6px; margin-top:6px;">
+                        <input type="date" id="exam-date-input" class="mini-text-input" style="flex:1;">
+                        <button class="font-btn" onclick="setExamDate()">설정</button>
+                    </div>
+                    <p style="font-size:0.75em; color:var(--text-sub); margin:6px 0 0 0;">※ 스스로 정한 학습 완료 목표일을 기록해두는 용도입니다.</p>
+                </div>
+
+                <div class="dday-quote-bar">
+                    <div class="dday-capsule" id="exam-dday-badge">시험일 미설정</div>
+                    <div class="daily-quote-text" id="daily-quote-box">문구 로딩 중...</div>
+                </div>
+
+                <div class="progress-box">
+                    <div class="progress-header">
+                        <span>📊 단원 학습 진도율</span>
+                        <span id="progress-text">0 / 17 (0%)</span>
+                    </div>
+                    <div class="progress-bar-track">
+                        <div class="progress-bar-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+
+                <div class="timer-row" id="timer-control-bar" style="display: none;">
+                    <span class="tool-label">⏱️ 표시시간</span>
+                    <div class="segmented-font-group">
+                        <button class="seg-font-btn active" id="timer-btn-3" onclick="setTimerSec(3)">3초</button>
+                        <button class="seg-font-btn" id="timer-btn-5" onclick="setTimerSec(5)">5초</button>
+                        <button class="seg-font-btn" id="timer-btn-0" onclick="setTimerSec(0)">누를때만</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-bar-group">
+            <div class="search-box-container">
+                <input type="text" id="search-input" class="search-input" placeholder="🔍 궁금한 용어 검색" oninput="handleSearch()">
+                <button class="search-clear-btn" id="search-clear-btn" onclick="clearSearch()">✕</button>
+                <div id="search-results" class="search-results-list"></div>
+            </div>
+        </div>
+
+        <a href="../index.html" style="display:flex; align-items:center; justify-content:center; gap:6px; text-decoration:none; background-color: var(--card-bg); color: var(--text-color); border:1px solid var(--border-color); border-radius: var(--radius-md); padding:10px; margin-bottom:10px; font-weight:800; font-size:0.85em;">🏠 과목 선택으로</a>
+
+        <div class="tab-menu-wrapper">
+            <div class="tab-dropdown" id="tab-dropdown-container">
+                <button class="tab-dropdown-toggle" onclick="toggleTabDropdown()" style="display: flex; justify-content: center; align-items: center; width: 100%; position: relative; background-color: var(--primary-light); color: var(--primary); border: 1px solid rgba(37, 99, 235, 0.2); padding: 12px 16px; border-radius: var(--radius-md); font-weight: 800; font-size: 0.9em; cursor: pointer; min-height: 44px;">
+                    <span style="display: inline-flex; align-items: center; gap: 6px;">
+                        <span id="tab-dropdown-label">표지</span>
+                        <span id="tab-dropdown-arrow">▼</span>
+                    </span>
+                </button>
+                <div class="tab-dropdown-list" id="tab-dropdown-list">
+                    <button class="tab-btn active" onclick="openTab(event, 'tab-cover')">표지</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 학습</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-exam')">🎲 랜덤 모의고사</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-wrong')">📕 오답노트</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 표지 탭 -->
+        <div id="tab-cover" class="tab-content active">
+            <div class="cover-page">
+                <div class="cover-title">지멘스 PLC 기초강좌</div>
+                <div class="cover-subtitle">⑤ 예제① - 자기유지회로·인터록</div>
+                <div class="cover-divider"></div>
+                <div class="cover-info">
+                    <p>주제: 실전 예제① 자기유지회로·인터록</p>
+                    <p>확인문제: 2문제</p>
+                    <p>버전: V1.0.0 (최초 배포)</p>
+                </div>
+            </div>
+            <div class="box">
+                <b>📖 이 앱 사용법</b>
+                <ul style="margin: 10px 0 0 0; padding-left: 18px; line-height: 1.7;">
+                    <li><b>학습</b> 탭에서 이론·예제를 읽고 바로 아래 확인문제를 풀어보세요.</li>
+                    <li>상단 <b>⚙️ 학습 도구</b>에서 <b>암기 모드</b>를 켜면 핵심어가 가려집니다.</li>
+                    <li>틀린 문제는 자동으로 <b>오답노트</b> 탭에 쌓입니다.</li>
+                    <li>진도·오답노트는 이 브라우저에만 저장되니, 기기를 바꾸기 전 <b>백업</b>을 꼭 받아두세요.</li>
+                </ul>
+            </div>
+            <div class="box" style="font-size:0.85em; color:var(--text-sub);">
+                ⚠️ 이 자료는 학습 보조용 요약이며, 지멘스 공식 매뉴얼을 대체하지 않습니다. 단축키는 소프트웨어 버전에 따라 달라질 수 있습니다.
+            </div>
+        </div>
+
+        <!-- 학습 탭 -->
+        <div id="tab-study" class="tab-content">
+            <h1>지멘스 PLC 기초강좌 - <br>📘 PLC 예제① 자기유지·인터록</h1>
+
+            <div id="sub-page-menu">
+                <div class="sub-nav-grid" id="main-menu-grid">
+                        <div class="sub-nav-card" onclick="showSubPage(1)">
+                            <span>🔁 실전 예제① 자기유지회로·인터록</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-1" style="display:none;">✅ 완료</span>
+                                <span id="card-star-1"></span>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+                <div id="sub-page-1" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">1 / 1 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-1" onchange="toggleComplete(1)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-1" onclick="toggleBookmark(1)">☆</button>
+                        </div>
+                    </div>
+                    <h2>실전 예제① 자기유지회로·인터록</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">📌 이 주제에서 만들어 볼 예제</p>
+                    <div style="margin:0; line-height:1.7;">가장 기본이 되는 <span class='blue'>자기유지회로</span>와, 정회전/역회전처럼 서로 동시에 켜지면 안 되는 출력을 막는 <span class='blue'>인터록 회로</span> 두 가지를 직접 구성해본다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 자기유지회로란?</p>
+                    <div style="margin:0; line-height:1.7;">기동버튼(I0.0)을 눌렀다 떼면 보통 출력은 바로 꺼진다. 그런데 버튼을 떼도 <span class='red'>스스로 통전 상태를 유지</span>하도록 만든 것이 자기유지회로다. 방법은 간단하다 — <span class='blue'>기동버튼(I0.0)과 병렬로, 출력 코일 자신의 A접점(Q0.0)을 추가</span>해서, 한 번 출력이 켜지면 그 접점을 통해 스스로 전류 경로를 유지하게 만드는 것이다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 자기유지회로 래더 예제</p>
+                    <div style="margin:0; line-height:1.7;"><div style="text-align:center; margin:12px 0;"><svg viewBox="0 0 340 170" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:340px; height:auto;">
+<line x1="20" y1="10" x2="20" y2="150" stroke="#1e293b" stroke-width="3"/>
+<line x1="300" y1="10" x2="300" y2="150" stroke="#1e293b" stroke-width="3"/>
+<line x1="20" y1="40" x2="90" y2="40" stroke="#1e293b" stroke-width="2"/>
+<line x1="130" y1="40" x2="230" y2="40" stroke="#1e293b" stroke-width="2"/>
+<line x1="270" y1="40" x2="300" y2="40" stroke="#1e293b" stroke-width="2"/>
+<line x1="90" y1="30" x2="90" y2="50" stroke="#2563eb" stroke-width="2"/>
+<line x1="110" y1="30" x2="110" y2="50" stroke="#2563eb" stroke-width="2"/>
+<text x="80" y="24" font-size="11" fill="#2563eb">I0.0</text>
+<text x="70" y="65" font-size="10" fill="#64748b">기동버튼(A접점)</text>
+<line x1="20" y1="80" x2="90" y2="80" stroke="#1e293b" stroke-width="2"/>
+<line x1="130" y1="80" x2="230" y2="80" stroke="#1e293b" stroke-width="2"/>
+<line x1="90" y1="70" x2="90" y2="90" stroke="#16a34a" stroke-width="2"/>
+<line x1="110" y1="70" x2="110" y2="90" stroke="#16a34a" stroke-width="2"/>
+<text x="80" y="64" font-size="11" fill="#16a34a">Q0.0</text>
+<text x="55" y="105" font-size="10" fill="#64748b">자기유지접점(A접점)</text>
+<line x1="90" y1="40" x2="90" y2="80" stroke="#1e293b" stroke-width="2"/>
+<line x1="110" y1="40" x2="110" y2="80" stroke="#1e293b" stroke-width="2"/>
+<line x1="230" y1="30" x2="230" y2="90" stroke="#1e293b" stroke-width="2"/>
+<line x1="230" y1="40" x2="230" y2="80" stroke="#1e293b" stroke-width="2"/>
+<line x1="230" y1="40" x2="270" y2="40" stroke="#1e293b" stroke-width="2"/>
+<line x1="245" y1="55" x2="255" y2="25" stroke="#ef4444" stroke-width="2"/>
+<text x="235" y="20" font-size="11" fill="#ef4444">I0.1</text>
+<text x="215" y="105" font-size="10" fill="#64748b">정지버튼(B접점)</text>
+<circle cx="270" cy="40" r="14" fill="none" stroke="#1e293b" stroke-width="2"/>
+<text x="270" y="22" font-size="11" fill="#1e293b" text-anchor="middle">Q0.0</text>
+</svg>
+<div style="font-size:0.8em; color:var(--text-sub);">기동(I0.0) 또는 자기유지접점(Q0.0)이 통전되고, 정지(I0.1)가 눌리지 않은 상태에서 출력 코일 Q0.0이 ON — 대표적인 자기유지회로 구조</div>
+</div></div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 회로 동작 순서</p>
+                    <div style="margin:0; line-height:1.7;">① I0.0(기동)을 누르면 Q0.0 ON → ② I0.0에서 손을 떼도 Q0.0의 A접점(자기유지접점)이 이미 통전 중이므로 회로가 유지 → ③ I0.1(정지, B접점)을 누르면 경로가 끊어져 Q0.0 OFF.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 인터록(Interlock) 회로란?</p>
+                    <div style="margin:0; line-height:1.7;">모터의 정회전(Q0.0)과 역회전(Q0.1)처럼 <span class='red'>절대 동시에 켜지면 안 되는 두 출력</span>이 있을 때, 서로 상대방 코일의 <span class='blue'>B접점을 자기 회로에 직렬로</span> 넣어두는 방법이다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. 안전상 유의사항</p>
+                    <div style="margin:0; line-height:1.7;">래더 안에서의 인터록(전기적 인터록)만으로 안심하지 말고, 실제 현장에서는 정역회전 전자접촉기(MC) 사이에 <span class='red'>기계적 인터록</span>도 함께 적용하는 것이 일반적인 안전 설계 원칙이다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-1" data-scoreboard="true">
+<div class="box quiz-box" id="box-u1-1" data-qid="u1-1">
+                    <button class="font-btn" onclick="resetAnswer('u1-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 자기유지회로에서 기동버튼(I0.0)과 병렬로 연결해, 버튼을 떼어도 출력이 계속 유지되게 만드는 접점을 무엇이라 하는가? (한글) <span class="blue_nb" style="font-size:0.8em;">(단답형)</span></p>
+                    <div style="display:flex; gap:6px; margin:12px 0;">
+                        <input type="text" id="input-u1-1" class="mini-text-input" placeholder="정답 입력" style="max-width:220px;">
+                        <button class="font-btn" onclick="checkAnswerByInput('u1-1', document.getElementById('input-u1-1'), ['자기유지접점', '자기유지 접점'])">확인</button>
+                    </div>
+                    <div id="q-result-u1-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u1-1" class="note" style="display:none;">💡 해설: 출력 코일 자신의 A접점을 기동버튼과 병렬로 넣어 스스로 전류 경로를 유지시키는 것을 자기유지접점이라 합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u1-2" data-qid="u1-2">
+                    <button class="font-btn" onclick="resetAnswer('u1-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 정회전/역회전처럼 동시에 켜지면 안 되는 두 출력이 서로 상대방 코일의 B접점을 직렬로 넣어 막는 회로 구성 방식은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, '인터록')">인터록</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, '인터록')">자기유지</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, '인터록')">디바운스</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, '인터록')">시퀀스 제어</button>
+                    </div>
+                    <div id="q-result-u1-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u1-2" class="note" style="display:none;">💡 해설: 서로 상대방 출력의 B접점을 직렬로 넣어 동시 투입을 막는 방식을 인터록(Interlock)이라 합니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-1')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-1')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-1" class="page-memo-textarea" placeholder="헷갈리는 부분을 적어보세요." onblur="savePageMemo(1)"></textarea>
+                    </div>
+
+                </div>
+
+            <div id="page-nav-bar" class="page-nav-bar" style="display:none;">
+                <button id="btn-prev" class="page-nav-btn" onclick="prevSubPage()">◀ 이전</button>
+                <button class="page-nav-btn main-btn" onclick="showSubMenu()">📋 목록</button>
+                <button id="btn-next" class="page-nav-btn" onclick="nextSubPage()">다음 ▶</button>
+            </div>
+        </div>
+
+        <!-- 랜덤 모의고사 탭 -->
+        <div id="tab-exam" class="tab-content">
+            <h1>지멘스 PLC 기초강좌 - <br>🎲 확인문제 모아풀기</h1>
+            <div id="exam-select" class="box" style="text-align:center;">
+                <p style="font-weight:700; margin-top:0;">2문제를 랜덤 순서로 풀어보세요.</p>
+                <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
+                    <button class="font-btn" onclick="startRandomExam(2)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">2문제(전체)</button>
+                </div>
+            </div>
+
+            <div id="exam-quiz-area" style="display:none;">
+                <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:10px;">
+                    <button class="font-btn" onclick="shuffleSection('exam-questions-wrap')" style="font-size: 0.8em; background-color: #8b5cf6; color: #fff;">🔀 순서 섞기</button>
+                    <button class="font-btn" onclick="resetAllInContainer('exam-questions-wrap')" style="font-size: 0.8em; background-color: #ef4444; color: #ffffff;">🔄 전체 초기화</button>
+                    <button class="font-btn" onclick="backToRandomSelect()" style="font-size: 0.8em;">🎲 다시 뽑기</button>
+                </div>
+                <div class="score-board"><span id="score-exam-questions-wrap">점수: 0 / 100점 (정답 0문제)</span></div>
+                <div id="exam-questions-wrap" data-scoreboard="true"></div>
+                <div style="text-align:center; margin-top:20px;"><button class="page-nav-btn main-btn" onclick="openTab(null, 'tab-study')">📘 단원학습으로</button></div>
+            </div>
+        </div>
+
+        <!-- 오답노트 탭 -->
+        <div id="tab-wrong" class="tab-content">
+            <h1>지멘스 PLC 기초강좌 - <br>📕 나만의 자동 오답노트</h1>
+            <div class="box" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 6px; padding: 12px 14px;">
+                <div style="font-size: 0.9em; color: var(--text-color);">
+                    💡 단원별 확인문제, 랜덤모의고사에서 <b>틀린 문제가 자동으로 이곳에 기록</b>됩니다.
+                </div>
+                <button class="font-btn" onclick="clearAllWrongNotes()" style="font-size: 0.8em; background-color: #ef4444; color: #ffffff; padding: 5px 10px;">🗑️ 오답노트 전체 비우기</button>
+            </div>
+            <div id="wrong-unit-summary"></div>
+            <div id="wrong-notes-list"></div>
+        </div>
+    </div>
+
+    <button id="top-btn" class="top-btn" onclick="scrollToTop()" style="display:none;">▲</button>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
