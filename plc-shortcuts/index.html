@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>지멘스 PLC - 단축키</title>
+    <title>지멘스 PLC 기초강좌 - PLC 단축키</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#2563eb">
@@ -125,7 +125,7 @@
                 </button>
                 <div class="tab-dropdown-list" id="tab-dropdown-list">
                     <button class="tab-btn active" onclick="openTab(event, 'tab-cover')">표지</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 학습</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 단원학습 (8단원)</button>
                     <button class="tab-btn" onclick="openTab(event, 'tab-exam')">🎲 랜덤 모의고사</button>
                     <button class="tab-btn" onclick="openTab(event, 'tab-wrong')">📕 오답노트</button>
                 </div>
@@ -139,17 +139,19 @@
                 <div class="cover-subtitle">② 단축키 - 공통 단축키와 TIA Portal 확인법</div>
                 <div class="cover-divider"></div>
                 <div class="cover-info">
-                    <p>주제: 필수 단축키와 화면 설정</p>
-                    <p>확인문제: 2문제</p>
-                    <p>버전: V1.0.0 (최초 배포)</p>
+                    <p>범위: 8단원</p>
+                    <p>확인문제: 단원별 2문제 · 총 16문제</p>
+                    <p>버전: V2.0.0 (8단원 확장판)</p>
                 </div>
             </div>
             <div class="box">
                 <b>📖 이 앱 사용법</b>
                 <ul style="margin: 10px 0 0 0; padding-left: 18px; line-height: 1.7;">
-                    <li><b>학습</b> 탭에서 이론·예제를 읽고 바로 아래 확인문제를 풀어보세요.</li>
+                    <li><b>단원학습</b> 탭에서 이론·예제를 읽고 바로 아래 확인문제를 풀어보세요.</li>
                     <li>상단 <b>⚙️ 학습 도구</b>에서 <b>암기 모드</b>를 켜면 핵심어가 가려집니다.</li>
+                    <li><b>초성 퀴즈</b> 모드는 핵심 용어를 초성(ㄱㄴㄷ)으로 바꿔서 스스로 떠올려보게 합니다.</li>
                     <li>틀린 문제는 자동으로 <b>오답노트</b> 탭에 쌓입니다.</li>
+                    <li>모든 단원을 학습했다면 <b>랜덤 모의고사</b>로 섞어서 다시 풀어보세요.</li>
                     <li>진도·오답노트는 이 브라우저에만 저장되니, 기기를 바꾸기 전 <b>백업</b>을 꼭 받아두세요.</li>
                 </ul>
             </div>
@@ -158,17 +160,73 @@
             </div>
         </div>
 
-        <!-- 학습 탭 -->
+        <!-- 단원학습 탭 -->
         <div id="tab-study" class="tab-content">
             <h1>지멘스 PLC 기초강좌 - <br>📘 PLC 단축키</h1>
+            <div style="text-align: right; font-size: 0.8em; color: var(--text-sub); margin-top: 4px; margin-bottom: 12px;">
+                <span>8단원 · 확인문제 16문제</span>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+                <button class="font-btn" onclick="filterBookmarks()" style="font-size: 0.82em;">⭐ 북마크 모아보기</button>
+            </div>
 
             <div id="sub-page-menu">
                 <div class="sub-nav-grid" id="main-menu-grid">
                         <div class="sub-nav-card" onclick="showSubPage(1)">
-                            <span>⌨️ 필수 단축키와 화면 설정</span>
+                            <span>01. 왜 단축키 학습이 까다로운가</span>
                             <div class="card-status-box">
                                 <span class="card-done-badge" id="card-done-1" style="display:none;">✅ 완료</span>
                                 <span id="card-star-1"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(2)">
+                            <span>02. 파일·프로젝트 관련 공통 단축키</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-2" style="display:none;">✅ 완료</span>
+                                <span id="card-star-2"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(3)">
+                            <span>03. 편집 관련 단축키</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-3" style="display:none;">✅ 완료</span>
+                                <span id="card-star-3"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(4)">
+                            <span>04. 찾기·바꾸기와 상호참조</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-4" style="display:none;">✅ 완료</span>
+                                <span id="card-star-4"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(5)">
+                            <span>05. 보기(뷰) 관련 조작</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-5" style="display:none;">✅ 완료</span>
+                                <span id="card-star-5"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(6)">
+                            <span>06. 컴파일·다운로드 관련 조작</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-6" style="display:none;">✅ 완료</span>
+                                <span id="card-star-6"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(7)">
+                            <span>07. 단축키 커스터마이징</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-7" style="display:none;">✅ 완료</span>
+                                <span id="card-star-7"></span>
+                            </div>
+                        </div>
+                        <div class="sub-nav-card" onclick="showSubPage(8)">
+                            <span>08. STEP 7 Classic과의 차이 + 생산성 팁</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-8" style="display:none;">✅ 완료</span>
+                                <span id="card-star-8"></span>
                             </div>
                         </div>
                 </div>
@@ -177,64 +235,52 @@
                 <div id="sub-page-1" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">1 / 1 PAGE</div>
-                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 목록</button>
+                            <div class="page-indicator">1 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
                             <label class="complete-check-label"><input type="checkbox" id="check-page-1" onchange="toggleComplete(1)"> 학습 완료</label>
                             <button class="bookmark-btn" id="star-btn-1" onclick="toggleBookmark(1)">☆</button>
                         </div>
                     </div>
-                    <h2>필수 단축키와 화면 설정</h2>
+                    <h2>01. 왜 단축키 학습이 까다로운가</h2>
 <div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">📌 이 주제에서 다루는 내용</p>
-                    <div style="margin:0; line-height:1.7;">TIA Portal은 버전이 올라가면서 <span class='red'>단축키가 여러 번 바뀐 이력이 있는 소프트웨어</span>다. 그래서 ①어떤 프로그램에서도 통하는 공통 윈도우 단축키, ②TIA Portal 안에서 직접 확인·수정하는 방법 두 가지를 함께 익힌다.</div>
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 자주 바뀌는 기본 단축키</p>
+                    <div style="margin:0; line-height:1.7;">지멘스 사용자 포럼에는 TIA Portal의 <span class='red'>기본 단축키가 버전이 올라갈 때마다 여러 차례 바뀌었다</span>는 불만이 실제로 여러 차례 제기되어 왔다. 그래서 특정 옛날 버전 기준의 단축키표를 그대로 외우는 것은 위험할 수 있다.</div>
                 </div>
 <div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">1. 공통 윈도우 단축키 (TIA Portal · STEP 7 Classic 공통)</p>
-                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>단축키</th><th>기능</th></tr><tr><td>Ctrl + S</td><td>프로젝트 저장</td></tr><tr><td>Ctrl + Z / Ctrl + Y</td><td>실행 취소 / 다시 실행</td></tr><tr><td>Ctrl + C / Ctrl + V / Ctrl + X</td><td>복사 / 붙여넣기 / 잘라내기</td></tr><tr><td>Delete</td><td>선택한 요소(접점·코일·네트워크) 삭제</td></tr><tr><td>Ctrl + F</td><td>현재 화면(태그·프로그램)에서 찾기</td></tr><tr><td>F1</td><td>커서 위치 관련 도움말 열기</td></tr></table></div>이 정도는 버전이 바뀌어도 대부분 그대로 유지되는 편이라 가장 먼저 손에 익혀두면 좋다.</div>
-                </div>
-<div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">2. TIA Portal 단축키를 '내 눈으로' 확인하는 방법 (가장 확실한 방법)</p>
-                    <div style="margin:0; line-height:1.7;">지멘스는 버전업마다 단축키를 자주 조정해왔기 때문에, 인터넷의 특정 버전 단축키표를 그대로 외우기보다는 <span class='red'>내가 쓰는 버전에서 직접 확인</span>하는 습관이 훨씬 안전하다.<br>메뉴에서 <span class='blue'>Options(옵션) → Settings(설정) → General(일반) → Keyboard shortcuts(키보드 단축키)</span> 경로로 들어가면, 현재 설치된 버전에 적용된 모든 명령어별 단축키를 검색·확인하고, 원하는 조합으로 직접 재할당할 수도 있다.</div>
-                </div>
-<div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">3. 실무에서 자주 언급되는 조작들</p>
-                    <div style="margin:0; line-height:1.7;">아이콘 위에 마우스를 잠깐 올려두면(호버) 툴팁에 해당 기능의 단축키가 함께 표시되는 경우가 많으므로, 자주 쓰는 컴파일·다운로드·모니터링 아이콘부터 툴팁을 확인해보자. 또한 사용자들 사이에서 상호참조(Cross reference) 창을 여는 데 <span class='blue'>Shift + F11</span>이 널리 쓰인다고 알려져 있다(버전에 따라 다를 수 있으니 2번 방법으로 재확인 권장).</div>
-                </div>
-<div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">4. STEP 7 Classic(SIMATIC Manager)과의 차이</p>
-                    <div style="margin:0; line-height:1.7;">STEP 7 Classic은 SIMATIC Manager라는 별도 창에서 프로젝트를 관리하고, LAD/STL/FBD 편집기가 각각 별도의 창으로 열린다는 점이 TIA Portal과 가장 큰 차이다. 공통 단축키는 통하지만, 컴파일·다운로드 관련 단축키는 두 프로그램이 서로 다르게 지정된 경우가 많다.</div>
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 이 강좌의 접근 방법</p>
+                    <div style="margin:0; line-height:1.7;">이 강좌에서는 ① 버전이 바뀌어도 잘 유지되는 <span class='blue'>공통 윈도우 단축키</span>를 우선 익히고, ② TIA Portal 안에서 <span class='blue'>내가 쓰는 버전 기준으로 직접 확인하는 방법</span>을 배우는 순서로 진행한다.</div>
                 </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
                     </div>
                     <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
                     <div id="unit-quiz-1" data-scoreboard="true">
 <div class="box quiz-box" id="box-u1-1" data-qid="u1-1">
                     <button class="font-btn" onclick="resetAnswer('u1-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
-                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. TIA Portal을 포함해 대부분의 윈도우 프로그램에서 공통으로 '실행 취소'에 쓰이는 단축키는?</p>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. TIA Portal 단축키에 대한 설명으로 옳은 것은?</p>
                     <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, 'Ctrl + Z')">Ctrl + Z</button>
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, 'Ctrl + Z')">Ctrl + Y</button>
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, 'Ctrl + Z')">Ctrl + S</button>
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, 'Ctrl + Z')">Ctrl + P</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, '버전마다 여러 번 바뀐 이력이 있다')">버전마다 여러 번 바뀐 이력이 있다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, '버전마다 여러 번 바뀐 이력이 있다')">한번 정해지면 절대 안 바뀐다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, '버전마다 여러 번 바뀐 이력이 있다')">모든 버전이 완전히 동일하다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-1', this, '버전마다 여러 번 바뀐 이력이 있다')">단축키 자체가 없다</button>
                     </div>
                     <div id="q-result-u1-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
-                    <div id="q-expl-u1-1" class="note" style="display:none;">💡 해설: Ctrl+Z는 실행 취소, Ctrl+Y는 다시 실행에 해당하는 범용 윈도우 단축키입니다.</div>
+                    <div id="q-expl-u1-1" class="note" style="display:none;">💡 해설: 지멘스 사용자 포럼에는 TIA Portal 단축키가 버전업마다 여러 번 바뀌었다는 불만이 실제로 여러 차례 제기되었습니다.</div>
                 </div>
 <div class="box quiz-box" id="box-u1-2" data-qid="u1-2">
                     <button class="font-btn" onclick="resetAnswer('u1-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
-                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 현재 설치된 TIA Portal 버전의 정확한 단축키 목록을 확인하거나 직접 바꾸려면 어느 메뉴로 들어가야 하는가?</p>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 단축키를 안전하게 확인하는 가장 좋은 방법은?</p>
                     <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, 'Options → Settings → General → Keyboard shortcuts')">Options → Settings → General → Keyboard shortcuts</button>
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, 'Options → Settings → General → Keyboard shortcuts')">Online → Diagnostics</button>
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, 'Options → Settings → General → Keyboard shortcuts')">Project → Compile</button>
-<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, 'Options → Settings → General → Keyboard shortcuts')">View → Info window</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, '실제 설치 버전에서 Options→Settings로 확인')">실제 설치 버전에서 Options→Settings로 확인</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, '실제 설치 버전에서 Options→Settings로 확인')">인터넷의 특정 옛날 버전표를 그대로 암기</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, '실제 설치 버전에서 Options→Settings로 확인')">매뉴얼 없이 추측</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-2', this, '실제 설치 버전에서 Options→Settings로 확인')">확인할 필요 없음</button>
                     </div>
                     <div id="q-result-u1-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
-                    <div id="q-expl-u1-2" class="note" style="display:none;">💡 해설: 지멘스는 버전마다 기본 단축키를 여러 번 바꿔왔기 때문에, Options-Settings-General-Keyboard shortcuts 메뉴에서 현재 버전 기준으로 직접 확인하는 것이 가장 정확합니다.</div>
+                    <div id="q-expl-u1-2" class="note" style="display:none;">💡 해설: 버전마다 단축키가 다를 수 있으므로, 실제 설치된 버전의 설정 화면에서 직접 확인하는 것이 가장 정확합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -244,25 +290,470 @@
 
                     <div class="page-memo-section">
                         <p class="page-memo-title">📝 나만의 메모</p>
-                        <textarea id="memo-input-1" class="page-memo-textarea" placeholder="헷갈리는 부분을 적어보세요." onblur="savePageMemo(1)"></textarea>
+                        <textarea id="memo-input-1" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(1)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-2" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">2 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-2" onchange="toggleComplete(2)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-2" onclick="toggleBookmark(2)">☆</button>
+                        </div>
+                    </div>
+                    <h2>02. 파일·프로젝트 관련 공통 단축키</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 저장 관련</p>
+                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>단축키</th><th>기능</th></tr><tr><td>Ctrl + S</td><td>현재 프로젝트 저장</td></tr><tr><td>Ctrl + P</td><td>인쇄 대화상자 열기</td></tr></table></div>대부분의 윈도우 프로그램과 동일하게 동작하는 공통 단축키다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 습관화 팁</p>
+                    <div style="margin:0; line-height:1.7;">작업 중간중간 <span class='blue'>Ctrl+S</span>를 누르는 습관만 들여도, 정전이나 프로그램 오류로 인한 작업 손실을 크게 줄일 수 있다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-2">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-2" data-scoreboard="true">
+<div class="box quiz-box" id="box-u2-1" data-qid="u2-1">
+                    <button class="font-btn" onclick="resetAnswer('u2-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 프로젝트/파일 저장에 쓰이는 공통 단축키는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-1', this, 'Ctrl + S')">Ctrl + S</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-1', this, 'Ctrl + S')">Ctrl + O</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-1', this, 'Ctrl + S')">Ctrl + N</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-1', this, 'Ctrl + S')">Ctrl + P</button>
+                    </div>
+                    <div id="q-result-u2-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-1" class="note" style="display:none;">💡 해설: Ctrl+S는 대부분의 윈도우 프로그램과 마찬가지로 저장에 사용됩니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u2-2" data-qid="u2-2">
+                    <button class="font-btn" onclick="resetAnswer('u2-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 인쇄 대화상자를 여는 데 널리 쓰이는 공통 단축키는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-2', this, 'Ctrl + P')">Ctrl + P</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-2', this, 'Ctrl + P')">Ctrl + S</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-2', this, 'Ctrl + P')">Ctrl + F</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-2', this, 'Ctrl + P')">Ctrl + Z</button>
+                    </div>
+                    <div id="q-result-u2-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-2" class="note" style="display:none;">💡 해설: Ctrl+P는 대부분의 윈도우 프로그램에서 인쇄 대화상자를 여는 공통 단축키입니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-2')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-2')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-2" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(2)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-3" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">3 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-3" onchange="toggleComplete(3)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-3" onclick="toggleBookmark(3)">☆</button>
+                        </div>
+                    </div>
+                    <h2>03. 편집 관련 단축키</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 실행취소/복사/붙여넣기</p>
+                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>단축키</th><th>기능</th></tr><tr><td>Ctrl + Z / Ctrl + Y</td><td>실행 취소 / 다시 실행</td></tr><tr><td>Ctrl + C / Ctrl + V / Ctrl + X</td><td>복사 / 붙여넣기 / 잘라내기</td></tr><tr><td>Delete</td><td>선택한 접점·코일·네트워크 삭제</td></tr><tr><td>Ctrl + A</td><td>현재 화면의 전체 선택</td></tr></table></div></div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 실무 활용 팁</p>
+                    <div style="margin:0; line-height:1.7;">비슷한 네트워크(rung)를 여러 개 만들어야 할 때, 하나를 완성한 뒤 <span class='blue'>복사→붙여넣기</span>로 틀을 재사용하고 주소만 바꾸면 작업 속도가 크게 빨라진다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-3">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-3" data-scoreboard="true">
+<div class="box quiz-box" id="box-u3-1" data-qid="u3-1">
+                    <button class="font-btn" onclick="resetAnswer('u3-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 실행취소의 반대(다시 실행)에 쓰이는 단축키는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-1', this, 'Ctrl + Y')">Ctrl + Y</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-1', this, 'Ctrl + Y')">Ctrl + Z</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-1', this, 'Ctrl + Y')">Ctrl + S</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-1', this, 'Ctrl + Y')">Ctrl + X</button>
+                    </div>
+                    <div id="q-result-u3-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-1" class="note" style="display:none;">💡 해설: Ctrl+Z는 실행 취소, Ctrl+Y는 다시 실행에 해당합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u3-2" data-qid="u3-2">
+                    <button class="font-btn" onclick="resetAnswer('u3-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 현재 화면의 모든 항목을 선택하는 공통 단축키는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-2', this, 'Ctrl + A')">Ctrl + A</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-2', this, 'Ctrl + A')">Ctrl + D</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-2', this, 'Ctrl + A')">Ctrl + E</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-2', this, 'Ctrl + A')">Ctrl + B</button>
+                    </div>
+                    <div id="q-result-u3-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-2" class="note" style="display:none;">💡 해설: Ctrl+A는 대부분의 윈도우 프로그램에서 전체 선택에 사용되는 공통 단축키입니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-3')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-3')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-3" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(3)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-4" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">4 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-4" onchange="toggleComplete(4)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-4" onclick="toggleBookmark(4)">☆</button>
+                        </div>
+                    </div>
+                    <h2>04. 찾기·바꾸기와 상호참조</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 찾기</p>
+                    <div style="margin:0; line-height:1.7;"><span class='blue'>Ctrl + F</span>는 현재 화면(태그표, 프로그램 등)에서 원하는 텍스트나 주소를 찾을 때 쓰이는 공통 단축키다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 상호참조(Cross reference)</p>
+                    <div style="margin:0; line-height:1.7;">특정 태그나 블록이 프로그램 전체 어디서 쓰이는지 한눈에 보여주는 <span class='red'>상호참조</span> 창을 여는 데, 사용자들 사이에서 <span class='blue'>Shift + F11</span>이 널리 쓰인다고 알려져 있다(버전에 따라 다를 수 있으므로 실제 설치 버전에서 재확인 권장).</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-4">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-4" data-scoreboard="true">
+<div class="box quiz-box" id="box-u4-1" data-qid="u4-1">
+                    <button class="font-btn" onclick="resetAnswer('u4-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 현재 화면에서 특정 태그·텍스트를 찾을 때 쓰는 공통 단축키는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-1', this, 'Ctrl + F')">Ctrl + F</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-1', this, 'Ctrl + F')">Ctrl + G</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-1', this, 'Ctrl + F')">Ctrl + K</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-1', this, 'Ctrl + F')">Ctrl + L</button>
+                    </div>
+                    <div id="q-result-u4-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-1" class="note" style="display:none;">💡 해설: Ctrl+F는 대부분의 윈도우 프로그램에서 찾기에 사용되는 공통 단축키입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u4-2" data-qid="u4-2">
+                    <button class="font-btn" onclick="resetAnswer('u4-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 사용자들 사이에서 상호참조(Cross reference) 창을 여는 데 널리 쓰인다고 알려진 단축키는? <span class="blue_nb" style="font-size:0.8em;">(단답형)</span></p>
+                    <div style="display:flex; gap:6px; margin:12px 0;">
+                        <input type="text" id="input-u4-2" class="mini-text-input" placeholder="정답 입력" style="max-width:220px;">
+                        <button class="font-btn" onclick="checkAnswerByInput('u4-2', document.getElementById('input-u4-2'), ['Shift+F11', 'Shift + F11'])">확인</button>
+                    </div>
+                    <div id="q-result-u4-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-2" class="note" style="display:none;">💡 해설: 지멘스 포럼 등에서 Shift+F11이 상호참조 창을 여는 단축키로 자주 언급됩니다(버전별 재확인 권장).</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-4')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-4')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-4" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(4)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-5" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">5 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-5" onchange="toggleComplete(5)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-5" onclick="toggleBookmark(5)">☆</button>
+                        </div>
+                    </div>
+                    <h2>05. 보기(뷰) 관련 조작</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 확대/축소</p>
+                    <div style="margin:0; line-height:1.7;">대부분의 윈도우 프로그램처럼 <span class='blue'>Ctrl + 마우스 휠</span>로 작업영역을 확대·축소할 수 있는 경우가 많다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 창 전환</p>
+                    <div style="margin:0; line-height:1.7;">여러 개의 도킹된 창(뷰)을 순서대로 전환할 때, 윈도우 프로그램 전반에서 <span class='blue'>Ctrl + Tab</span>이 널리 쓰인다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-5">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-5" data-scoreboard="true">
+<div class="box quiz-box" id="box-u5-1" data-qid="u5-1">
+                    <button class="font-btn" onclick="resetAnswer('u5-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 대부분의 윈도우 프로그램에서 화면을 확대/축소할 때 자주 쓰이는 조합은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-1', this, 'Ctrl + 마우스 휠')">Ctrl + 마우스 휠</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-1', this, 'Ctrl + 마우스 휠')">Alt + 마우스 휠</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-1', this, 'Ctrl + 마우스 휠')">Shift + 마우스 휠</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-1', this, 'Ctrl + 마우스 휠')">마우스 휠 단독</button>
+                    </div>
+                    <div id="q-result-u5-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-1" class="note" style="display:none;">💡 해설: Ctrl + 마우스 휠은 다수의 윈도우 프로그램에서 화면 확대/축소에 널리 쓰이는 조합입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u5-2" data-qid="u5-2">
+                    <button class="font-btn" onclick="resetAnswer('u5-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 여러 개의 열린 창(도킹된 뷰)을 순서대로 전환할 때 널리 쓰이는 윈도우 공통 단축키는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-2', this, 'Ctrl + Tab')">Ctrl + Tab</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-2', this, 'Ctrl + Tab')">Ctrl + Shift</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-2', this, 'Ctrl + Tab')">Alt + F4</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-2', this, 'Ctrl + Tab')">Ctrl + W</button>
+                    </div>
+                    <div id="q-result-u5-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-2" class="note" style="display:none;">💡 해설: Ctrl + Tab은 여러 창/탭을 순서대로 전환하는 데 널리 쓰이는 윈도우 공통 단축키입니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-5')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-5')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-5" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(5)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-6" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">6 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-6" onchange="toggleComplete(6)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-6" onclick="toggleBookmark(6)">☆</button>
+                        </div>
+                    </div>
+                    <h2>06. 컴파일·다운로드 관련 조작</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 우클릭 메뉴 활용</p>
+                    <div style="margin:0; line-height:1.7;">컴파일·다운로드처럼 버전에 따라 단축키가 자주 바뀌는 기능은, 단축키를 외우기보다 <span class='blue'>프로젝트 트리에서 디바이스를 우클릭</span>해 나오는 메뉴(Compile/Download)를 사용하는 것이 가장 안전하다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 툴팁으로 확인하기</p>
+                    <div style="margin:0; line-height:1.7;">툴바 아이콘 위에 마우스를 잠깐 올려두면(호버) <span class='red'>툴팁(Tooltip)</span>에 기능 이름과 함께 현재 버전에서의 단축키가 표시되는 경우가 많다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-6">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-6" data-scoreboard="true">
+<div class="box quiz-box" id="box-u6-1" data-qid="u6-1">
+                    <button class="font-btn" onclick="resetAnswer('u6-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 컴파일·다운로드처럼 버전마다 단축키가 바뀔 수 있는 기능을 안전하게 실행하는 방법은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-1', this, '프로젝트 트리에서 디바이스 우클릭 메뉴 사용')">프로젝트 트리에서 디바이스 우클릭 메뉴 사용</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-1', this, '프로젝트 트리에서 디바이스 우클릭 메뉴 사용')">아무 키나 눌러본다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-1', this, '프로젝트 트리에서 디바이스 우클릭 메뉴 사용')">무조건 F5를 누른다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-1', this, '프로젝트 트리에서 디바이스 우클릭 메뉴 사용')">프로그램을 재설치한다</button>
+                    </div>
+                    <div id="q-result-u6-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-1" class="note" style="display:none;">💡 해설: 단축키 대신 우클릭 메뉴를 사용하면 버전에 관계없이 안전하게 같은 기능을 실행할 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u6-2" data-qid="u6-2">
+                    <button class="font-btn" onclick="resetAnswer('u6-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 툴바 아이콘에 마우스를 잠깐 올려두면 나타나는, 단축키 정보가 포함된 요소는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-2', this, '툴팁(Tooltip)')">툴팁(Tooltip)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-2', this, '툴팁(Tooltip)')">워터마크</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-2', this, '툴팁(Tooltip)')">배너</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-2', this, '툴팁(Tooltip)')">팝업 광고</button>
+                    </div>
+                    <div id="q-result-u6-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-2" class="note" style="display:none;">💡 해설: 툴팁(Tooltip)에는 기능 설명과 함께 해당 버전의 단축키 정보가 표시되는 경우가 많습니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-6')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-6')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-6" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(6)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-7" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">7 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-7" onchange="toggleComplete(7)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-7" onclick="toggleBookmark(7)">☆</button>
+                        </div>
+                    </div>
+                    <h2>07. 단축키 커스터마이징</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 설정 경로</p>
+                    <div style="margin:0; line-height:1.7;">메뉴에서 <span class='blue'>Options(옵션) → Settings(설정) → General(일반) → Keyboard shortcuts(키보드 단축키)</span>로 들어가면, 현재 설치된 버전의 모든 명령어별 단축키를 검색·확인할 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 직접 재할당하기</p>
+                    <div style="margin:0; line-height:1.7;">원하는 기능을 검색해 찾은 뒤, 내가 자주 쓰는 키 조합으로 <span class='red'>직접 재할당</span>할 수 있다. 이때 다른 기능과 중복되지 않는지 함께 확인하는 것이 중요하다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 실전 팁</p>
+                    <div style="margin:0; line-height:1.7;">모든 단축키를 다 외우려 하지 말고, 내가 하루에도 여러 번 쓰는 3~4개(예: 저장, 찾기, 컴파일 관련 메뉴)부터 먼저 손에 익히는 것을 추천한다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-7">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-7" data-scoreboard="true">
+<div class="box quiz-box" id="box-u7-1" data-qid="u7-1">
+                    <button class="font-btn" onclick="resetAnswer('u7-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. TIA Portal에서 직접 단축키를 지정/변경할 수 있는 메뉴 경로는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-1', this, 'Options → Settings → General → Keyboard shortcuts')">Options → Settings → General → Keyboard shortcuts</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-1', this, 'Options → Settings → General → Keyboard shortcuts')">Online → Diagnostics</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-1', this, 'Options → Settings → General → Keyboard shortcuts')">Project → Compile</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-1', this, 'Options → Settings → General → Keyboard shortcuts')">Tools → Calculate</button>
+                    </div>
+                    <div id="q-result-u7-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-1" class="note" style="display:none;">💡 해설: 이 경로에서 현재 버전의 단축키를 검색·확인하고 직접 재할당할 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u7-2" data-qid="u7-2">
+                    <button class="font-btn" onclick="resetAnswer('u7-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 단축키를 새로 등록할 때 함께 확인해야 할 것으로 가장 적절한 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-2', this, '다른 기능과 중복되지 않는지')">다른 기능과 중복되지 않는지</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-2', this, '다른 기능과 중복되지 않는지')">색상이 예쁜지</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-2', this, '다른 기능과 중복되지 않는지')">아이콘 모양</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-2', this, '다른 기능과 중복되지 않는지')">키보드 브랜드</button>
+                    </div>
+                    <div id="q-result-u7-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-2" class="note" style="display:none;">💡 해설: 새 단축키가 이미 다른 기능에 쓰이고 있지는 않은지 확인해야 오작동을 피할 수 있습니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-7')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-7')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-7" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(7)"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="sub-page-8" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">8 / 8 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-8" onchange="toggleComplete(8)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-8" onclick="toggleBookmark(8)">☆</button>
+                        </div>
+                    </div>
+                    <h2>08. STEP 7 Classic과의 차이 + 생산성 팁</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. SIMATIC Manager 구조</p>
+                    <div style="margin:0; line-height:1.7;">STEP 7 Classic은 <span class='blue'>SIMATIC Manager</span>라는 별도 창에서 프로젝트를 관리하고, LAD/STL/FBD 편집기가 각각 <span class='red'>별도의 창(프로그램)</span>으로 열린다는 점이 TIA Portal(하나의 창 안에서 모든 뷰 전환)과 가장 큰 차이다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 즐겨찾기(Favorites) 활용</p>
+                    <div style="margin:0; line-height:1.7;">TIA Portal 태스크카드의 <span class='blue'>즐겨찾기(Favorites)</span> 영역에 자주 쓰는 명령어(접점, 코일, 타이머 등)를 등록해두면, 명령어 목록을 매번 뒤지지 않고 빠르게 드래그해서 쓸 수 있다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-8">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div id="unit-quiz-8" data-scoreboard="true">
+<div class="box quiz-box" id="box-u8-1" data-qid="u8-1">
+                    <button class="font-btn" onclick="resetAnswer('u8-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. STEP 7 Classic에서 프로젝트를 관리하는 별도의 프로그램(창) 이름은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-1', this, 'SIMATIC Manager')">SIMATIC Manager</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-1', this, 'SIMATIC Manager')">TIA Portal</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-1', this, 'SIMATIC Manager')">PLCSIM</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-1', this, 'SIMATIC Manager')">WinCC</button>
+                    </div>
+                    <div id="q-result-u8-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-1" class="note" style="display:none;">💡 해설: STEP 7 Classic은 SIMATIC Manager라는 별도 프로그램에서 프로젝트를 관리합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u8-2" data-qid="u8-2">
+                    <button class="font-btn" onclick="resetAnswer('u8-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 자주 쓰는 명령어를 모아두고 빠르게 드래그해서 쓸 수 있게 해주는 태스크카드 영역은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-2', this, '즐겨찾기(Favorites)')">즐겨찾기(Favorites)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-2', this, '즐겨찾기(Favorites)')">라이브러리</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-2', this, '즐겨찾기(Favorites)')">진단</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-2', this, '즐겨찾기(Favorites)')">온라인</button>
+                    </div>
+                    <div id="q-result-u8-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-2" class="note" style="display:none;">💡 해설: 즐겨찾기(Favorites)에 자주 쓰는 명령어를 등록해두면 작업 속도를 높일 수 있습니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-8')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-8')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-8" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(8)"></textarea>
                     </div>
 
                 </div>
 
             <div id="page-nav-bar" class="page-nav-bar" style="display:none;">
                 <button id="btn-prev" class="page-nav-btn" onclick="prevSubPage()">◀ 이전</button>
-                <button class="page-nav-btn main-btn" onclick="showSubMenu()">📋 목록</button>
+                <button class="page-nav-btn main-btn" onclick="showSubMenu()">📋 단원 목록</button>
                 <button id="btn-next" class="page-nav-btn" onclick="nextSubPage()">다음 ▶</button>
             </div>
         </div>
 
         <!-- 랜덤 모의고사 탭 -->
         <div id="tab-exam" class="tab-content">
-            <h1>지멘스 PLC 기초강좌 - <br>🎲 확인문제 모아풀기</h1>
+            <h1>지멘스 PLC 기초강좌 - <br>🎲 랜덤 모의고사</h1>
             <div id="exam-select" class="box" style="text-align:center;">
-                <p style="font-weight:700; margin-top:0;">2문제를 랜덤 순서로 풀어보세요.</p>
+                <p style="font-weight:700; margin-top:0;">몇 문제를 랜덤으로 뽑을까요?</p>
+                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 16문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
                 <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
-                    <button class="font-btn" onclick="startRandomExam(2)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">2문제(전체)</button>
+                    <button class="font-btn" onclick="startRandomExam(8)" style="padding:10px 18px;">8문제</button>
+                    <button class="font-btn" onclick="startRandomExam(16)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">16문제(전체)</button>
                 </div>
             </div>
 

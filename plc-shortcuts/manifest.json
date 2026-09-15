@@ -1,7 +1,7 @@
 {
-  "name": "지멘스 PLC - 단축키",
+  "name": "지멘스 PLC 기초강좌 - PLC 단축키",
   "short_name": "PLC 단축키",
-  "description": "지멘스 PLC 기초강좌 - 필수 단축키와 화면 설정",
+  "description": "지멘스 PLC 기초강좌 - PLC 단축키 (8단원)",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
