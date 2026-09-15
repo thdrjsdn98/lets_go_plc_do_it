@@ -1,7 +1,7 @@
 {
-  "name": "지멘스 PLC - 사용법",
+  "name": "지멘스 PLC 기초강좌 - PLC 사용법",
   "short_name": "PLC 사용법",
-  "description": "지멘스 PLC 기초강좌 - TIA Portal이란? 시작하기와 화면 구성",
+  "description": "지멘스 PLC 기초강좌 - PLC 사용법 (8단원)",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
