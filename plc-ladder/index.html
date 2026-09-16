@@ -125,7 +125,7 @@
                 </button>
                 <div class="tab-dropdown-list" id="tab-dropdown-list">
                     <button class="tab-btn active" onclick="openTab(event, 'tab-cover')">표지</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 단원학습 (8단원)</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 단원학습 (9단원)</button>
                     <button class="tab-btn" onclick="openTab(event, 'tab-exam')">🎲 랜덤 모의고사</button>
                     <button class="tab-btn" onclick="openTab(event, 'tab-wrong')">📕 오답노트</button>
                 </div>
@@ -139,9 +139,9 @@
                 <div class="cover-subtitle">④ 핵심내용② - 래더(LAD) 기초 명령어</div>
                 <div class="cover-divider"></div>
                 <div class="cover-info">
-                    <p>범위: 8단원</p>
-                    <p>확인문제: 단원별 2문제 · 총 32문제</p>
-                    <p>버전: V2.0.0 (8단원 확장판)</p>
+                    <p>범위: 9단원</p>
+                    <p>확인문제: 단원별 문제 · 총 36문제</p>
+                    <p>버전: V2.5.0 (초보자용 0단원 + 보충설명 추가)</p>
                 </div>
             </div>
             <div class="box">
@@ -164,7 +164,7 @@
         <div id="tab-study" class="tab-content">
             <h1>지멘스 PLC 기초강좌 - <br>📘 PLC 핵심내용② 래더 명령어</h1>
             <div style="text-align: right; font-size: 0.8em; color: var(--text-sub); margin-top: 4px; margin-bottom: 12px;">
-                <span>8단원 · 확인문제 32문제</span>
+                <span>9단원 · 확인문제 36문제</span>
             </div>
 
             <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
@@ -173,6 +173,13 @@
 
             <div id="sub-page-menu">
                 <div class="sub-nav-grid" id="main-menu-grid">
+                        <div class="sub-nav-card" onclick="showSubPage(9)" style="border:1.5px solid var(--primary);">
+                            <span>0단원. 래더 읽기 전 회로 기초</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-9" style="display:none;">✅ 완료</span>
+                                <span id="card-star-9"></span>
+                            </div>
+                        </div>
                         <div class="sub-nav-card" onclick="showSubPage(1)">
                             <span>01. 접점 - A접점 / B접점</span>
                             <div class="card-status-box">
@@ -235,7 +242,7 @@
                 <div id="sub-page-1" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">1 / 8 PAGE</div>
+                            <div class="page-indicator">1 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -265,6 +272,10 @@
                     <div style="margin:0; line-height:1.7;">정지버튼을 A접점으로 잘못 연결하면, 평소엔 회로가 끊긴 상태이고 버튼을 눌러야만 통전되어 버려 '정지'가 아니라 '기동' 역할을 하게 된다. 접점 종류를 헷갈리면 정반대로 동작하므로 각별히 주의해야 한다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 평소엔 열려있나, 닫혀있나</p>
+                    <div style="margin:0; line-height:1.7;">A접점(상시개방)은 평소엔 떨어져 있다가 눌러야만 붙는 초인종 버튼과 같고, B접점(상시폐쇄)은 평소엔 붙어 있다가 눌러야 떨어지는 비상정지 버튼과 같다. '평소 상태가 어떤가'만 기억하면 두 접점을 헷갈리지 않을 수 있다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -334,7 +345,7 @@
                 <div id="sub-page-2" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">2 / 8 PAGE</div>
+                            <div class="page-indicator">2 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -364,6 +375,10 @@
                     <div style="margin:0; line-height:1.7;">같은 출력(예: Q0.0)을 <span class='red'>여러 개의 일반 코일로 중복 사용</span>하면, 마지막에 실행된 네트워크의 결과가 이전 결과를 덮어써서 예상치 못한 동작이 발생할 수 있다. 이런 실수를 '다중 코일 할당(Multiple coil assignment)'이라 부르며, TIA Portal은 컴파일시 경고를 띄워주는 경우가 많다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 일반 코일 vs 기억하는 코일</p>
+                    <div style="margin:0; line-height:1.7;">일반 코일은 전원이 들어오는 동안만 켜져 있다가 조건이 사라지면 바로 꺼지는 전구와 같다. 반면 SET/RESET 코일은 한 번 켜 놓으면 손을 떼도 계속 켜져 있는 고정 스위치처럼, 별도의 RESET 신호가 올 때까지 상태를 계속 기억한다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -433,7 +448,7 @@
                 <div id="sub-page-3" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">3 / 8 PAGE</div>
+                            <div class="page-indicator">3 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -459,6 +474,10 @@
                     <div style="margin:0; line-height:1.7;">TIA Portal에서는 데이터 타입 기반의 <span class='blue'>IEC 타이머(TON, TOF, TP)</span>를 사용하는 것이 표준이며, 예전 S7 방식의 S5Time 기반 타이머(예: S_ODT)는 STEP 7 Classic과의 호환을 위해 남아있는 경우가 있다. 새 프로젝트는 IEC 타이머 사용을 권장한다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 요리 타이머에 비유하면</p>
+                    <div style="margin:0; line-height:1.7;">TON(온딜레이)은 버튼을 누른 뒤 몇 초 후에 알림이 울리는 요리 타이머, TOF(오프딜레이)는 불을 끈 뒤에도 잠시 더 켜져 있다가 꺼지는 조명 센서, TP(펄스)는 누르면 정해진 시간만 딱 켜졌다 자동으로 꺼지는 초인종과 같다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -528,7 +547,7 @@
                 <div id="sub-page-4" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">4 / 8 PAGE</div>
+                            <div class="page-indicator">4 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -554,6 +573,10 @@
                     <div style="margin:0; line-height:1.7;">CTUD는 입고(CU)와 출고(CD)를 동시에 관리해야 하는 <span class='blue'>재고 카운트</span> 같은 상황에서 유용하다. 예를 들어 창고에 물건이 들어오면 CU, 나가면 CD를 눌러 현재 재고량을 실시간으로 추적할 수 있다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 숫자를 세는 계수기</p>
+                    <div style="margin:0; line-height:1.7;">CTU(카운트업)는 지나간 사람 수를 계속 더해가는 계수기, CTD(카운트다운)는 정해진 개수에서 하나씩 빼가며 0이 되면 알려주는 카운트다운 타이머와 같다. CTUD는 이 둘을 합쳐 필요에 따라 더하거나 뺄 수 있는 계수기다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -623,7 +646,7 @@
                 <div id="sub-page-5" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">5 / 8 PAGE</div>
+                            <div class="page-indicator">5 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -649,6 +672,10 @@
                     <div style="margin:0; line-height:1.7;">탱크의 수위 센서 값(아날로그, IW 형태)을 <span class='blue'>CMP로 상한선과 비교</span>해 일정 값을 넘으면 경보를 울리는 등, 비교 명령은 아날로그 신호를 감시하는 데 특히 자주 사용된다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 저울처럼 크기를 비교</p>
+                    <div style="margin:0; line-height:1.7;">비교 명령은 두 숫자를 저울에 올려 어느 쪽이 더 크거나 같은지 판단하는 것과 같다. 생산 개수가 목표값과 같아지는 순간을 감지해 기계를 멈추는 등, 두 값을 견주어 조건을 판단할 때 자주 쓰인다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -718,7 +745,7 @@
                 <div id="sub-page-6" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">6 / 8 PAGE</div>
+                            <div class="page-indicator">6 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -748,6 +775,10 @@
                     <div style="margin:0; line-height:1.7;">정수(Int) 나눗셈에서는 소수점 이하가 <span class='red'>버림 처리</span>된다는 점을 놓쳐서 계산 결과가 예상과 다르게 나오는 경우가 흔하다. 소수점이 필요한 계산이라면 처음부터 Real 타입으로 변환해서 계산하는 것이 안전하다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 숫자를 옮기고 계산하기</p>
+                    <div style="margin:0; line-height:1.7;">MOVE 명령은 한 상자에 담긴 값을 다른 상자로 옮겨 담는 것과 같고, ADD·SUB 같은 연산 명령은 계산기로 더하고 빼는 것을 프로그램 안에서 자동으로 처리해주는 것이다. 접점·코일이 켜짐/꺼짐을 다룬다면, 이 명령들은 '숫자 값'을 다룬다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -817,7 +848,7 @@
                 <div id="sub-page-7" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">7 / 8 PAGE</div>
+                            <div class="page-indicator">7 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -843,6 +874,10 @@
                     <div style="margin:0; line-height:1.7;">서로 다른 데이터 타입끼리 계산하거나 비교해야 할 때는 <span class='blue'>CONVERT</span> 명령으로 타입을 먼저 맞춰야 한다. 예를 들어 Int 값을 Real로 변환한 뒤 소수점 계산에 사용하는 식이다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 상자의 크기를 정하는 것</p>
+                    <div style="margin:0; line-height:1.7;">데이터 타입은 값을 담을 상자의 크기와 종류를 정하는 것과 같다. Bool은 켜짐/꺼짐 하나만 담는 작은 상자, Byte·Int·DInt는 점점 더 큰 숫자를 담는 상자, Real은 소수점이 있는 숫자를 담는 상자라고 생각하면 된다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -912,7 +947,7 @@
                 <div id="sub-page-8" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">8 / 8 PAGE</div>
+                            <div class="page-indicator">8 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -942,6 +977,10 @@
                     <div style="margin:0; line-height:1.7;">블록 개수가 많아질수록 <span class='red'>FC/FB/DB 이름에 일관된 규칙</span>(예: FC_모터제어, FB_컨베이어, DB_설정값)을 정해두면, 나중에 필요한 블록을 프로젝트 트리에서 빠르게 찾을 수 있어 유지보수가 쉬워진다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 레고 블록을 조립하듯</p>
+                    <div style="margin:0; line-height:1.7;">OB1이라는 큰 틀 안에 FC·FB라는 작은 레고 블록들을 필요한 순서대로 끼워 넣어 하나의 완성된 프로그램을 만든다고 생각하면 된다. 기능별로 작은 블록을 나눠 조립하는 습관을 들이면 나중에 수정하기도 훨씬 쉬워진다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -1008,6 +1047,108 @@
 
                 </div>
 
+            
+                <div id="sub-page-9" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">9 / 9 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-9" onchange="toggleComplete(9)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-9" onclick="toggleBookmark(9)">☆</button>
+                        </div>
+                    </div>
+                    <h2>0. 래더 다이어그램을 읽기 전에: 회로 기본 개념</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">📌 핵심 용어</p>
+                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>용어</th><th>의미</th></tr><tr><td>래더 다이어그램</td><td>계전기 제어반의 배선도를 본떠 만든 PLC 프로그래밍 언어</td></tr><tr><td>접점</td><td>붙거나 떨어지며 전류를 흐르게/막는 스위치 기호</td></tr><tr><td>코일</td><td>전류가 흐르면 동작하는 출력 기호(전자석에 해당)</td></tr><tr><td>네트워크(Rung)</td><td>사다리의 발판처럼 보이는, 접점과 코일로 이루어진 한 줄의 회로</td></tr><tr><td>통전</td><td>전류가 흘러 회로가 연결된 상태</td></tr></table></div></div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 래더 다이어그램이란 무엇인가</p>
+                    <div style="margin:0; line-height:1.7;">래더 다이어그램은 옛날 계전기 제어반의 실제 배선도를 그대로 화면 위에 옮겨놓은 것에서 유래했다. 세로로 그어진 두 개의 전원레일 사이에 가로줄(네트워크)을 하나씩 그려나가는 방식으로 프로그램을 표현한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 왜 '사다리(래더)'라고 부르는가</p>
+                    <div style="margin:0; line-height:1.7;">좌우의 세로선은 사다리의 기둥, 그 사이를 잇는 가로줄(네트워크)들은 사다리의 발판처럼 보인다고 해서 '래더(Ladder, 사다리)'라는 이름이 붙었다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 접점과 코일의 물리적 의미</p>
+                    <div style="margin:0; line-height:1.7;">접점은 눌리면 붙거나 떨어지는 금속판, 즉 스위치라고 생각하면 된다. 코일은 전류가 흐르면 자석이 되어 다른 접점을 끌어당기는 전자석 부품이다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. '왼쪽에서 오른쪽으로 전류가 흐른다'는 비유</p>
+                    <div style="margin:0; line-height:1.7;">실제로는 PLC가 논리를 계산하는 것이지만, <span class='blue'>왼쪽 전원레일</span>에서 출발해 접점들을 통과하며 <span class='red'>오른쪽 코일</span>까지 도달하면 회로가 '통전'되어 코일이 켜진다고 상상하면 이해가 훨씬 쉬워진다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">💡 실무 팁</p>
+                    <div style="margin:0; line-height:1.7;">처음에는 접점 하나, 코일 하나짜리 아주 단순한 네트워크부터 손으로 직접 그려보며 감을 잡는 것이 좋다. 복잡한 회로도 결국 이런 단순한 조각들이 모인 것이다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-9">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
+                    <div id="unit-quiz-9" data-scoreboard="true">
+<div class="box quiz-box" id="box-u9-1" data-qid="u9-1">
+                    <button class="font-btn" onclick="resetAnswer('u9-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 래더 다이어그램에서 스위치 역할을 하는 기호를 무엇이라 하는가? (한글 2글자)</p>
+                    <div style="display:flex; gap:6px; margin:12px 0;">
+                        <input type="text" id="input-u9-1" class="mini-text-input" placeholder="정답 입력" style="max-width:220px;">
+                        <button class="font-btn" onclick="checkAnswerByInput('u9-1', document.getElementById('input-u9-1'), ["접점"])">확인</button>
+                    </div>
+                    <div id="q-result-u9-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-1" class="note" style="display:none;">💡 해설: 붙거나 떨어지며 전류를 흐르게 하거나 막는 스위치 기호를 접점이라고 합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u9-2" data-qid="u9-2">
+                    <button class="font-btn" onclick="resetAnswer('u9-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 래더 다이어그램에서 전류가 흐르는 것처럼 표현되는 방향은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-2', this, '왼쪽에서 오른쪽')">왼쪽에서 오른쪽</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-2', this, '왼쪽에서 오른쪽')">오른쪽에서 왼쪽</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-2', this, '왼쪽에서 오른쪽')">위에서 아래</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-2', this, '왼쪽에서 오른쪽')">방향이 없음</button>
+                    </div>
+                    <div id="q-result-u9-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-2" class="note" style="display:none;">💡 해설: 래더 다이어그램은 왼쪽 전원레일에서 오른쪽 코일 방향으로 통전된다고 표현합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u9-3" data-qid="u9-3">
+                    <button class="font-btn" onclick="resetAnswer('u9-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 전류가 흐르면 자석이 되어 다른 접점을 움직이게 하는 부품은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '코일')">코일</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '코일')">저항</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '코일')">다이오드</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '코일')">퓨즈</button>
+                    </div>
+                    <div id="q-result-u9-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-3" class="note" style="display:none;">💡 해설: 코일은 전류가 흐르면 전자석처럼 동작해 관련 접점을 움직입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u9-4" data-qid="u9-4">
+                    <button class="font-btn" onclick="resetAnswer('u9-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 래더 다이어그램이라는 이름이 유래한 모양은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '사다리 모양')">사다리 모양</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '사다리 모양')">원 모양</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '사다리 모양')">별 모양</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '사다리 모양')">삼각형 모양</button>
+                    </div>
+                    <div id="q-result-u9-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-4" class="note" style="display:none;">💡 해설: 좌우 세로선(기둥)과 가로줄(발판)이 사다리처럼 보여 이런 이름이 붙었습니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-9')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-9')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-9" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(9)"></textarea>
+                    </div>
+
+                </div>
+
             <div id="page-nav-bar" class="page-nav-bar" style="display:none;">
                 <button id="btn-prev" class="page-nav-btn" onclick="prevSubPage()">◀ 이전</button>
                 <button class="page-nav-btn main-btn" onclick="showSubMenu()">📋 단원 목록</button>
@@ -1020,10 +1161,10 @@
             <h1>지멘스 PLC 기초강좌 - <br>🎲 랜덤 모의고사</h1>
             <div id="exam-select" class="box" style="text-align:center;">
                 <p style="font-weight:700; margin-top:0;">몇 문제를 랜덤으로 뽑을까요?</p>
-                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 32문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
+                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 36문제(0~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
                 <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
                     <button class="font-btn" onclick="startRandomExam(8)" style="padding:10px 18px;">8문제</button>
-                    <button class="font-btn" onclick="startRandomExam(32)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">32문제(전체)</button>
+                    <button class="font-btn" onclick="startRandomExam(36)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">36문제(전체)</button>
                 </div>
             </div>
 
