@@ -140,7 +140,7 @@
                 <div class="cover-divider"></div>
                 <div class="cover-info">
                     <p>범위: 8단원</p>
-                    <p>확인문제: 단원별 2문제 · 총 16문제</p>
+                    <p>확인문제: 단원별 2문제 · 총 32문제</p>
                     <p>버전: V2.0.0 (8단원 확장판)</p>
                 </div>
             </div>
@@ -164,7 +164,7 @@
         <div id="tab-study" class="tab-content">
             <h1>지멘스 PLC 기초강좌 - <br>📘 PLC 예제① 자기유지·인터록</h1>
             <div style="text-align: right; font-size: 0.8em; color: var(--text-sub); margin-top: 4px; margin-bottom: 12px;">
-                <span>8단원 · 확인문제 16문제</span>
+                <span>8단원 · 확인문제 32문제</span>
             </div>
 
             <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
@@ -284,11 +284,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">3. 동작 순서</p>
                     <div style="margin:0; line-height:1.7;">① I0.0(기동)을 누르면 Q0.0 ON → ② 손을 떼도 Q0.0의 A접점(자기유지접점)이 통전 중이므로 유지 → ③ I0.1(정지, B접점)을 누르면 경로가 끊어져 Q0.0 OFF.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 자기유지회로가 필요한 이유</p>
+                    <div style="margin:0; line-height:1.7;">만약 자기유지 없이 <span class='blue'>버튼을 누르는 동안에만</span> 모터를 돌리려 한다면, 작업자가 계속 버튼을 누르고 있어야 하므로 비현실적이다. 자기유지회로는 '한 번 누르면 계속 동작, 다시 누르면(정지버튼) 멈춤'이라는 실무에서 가장 흔한 요구사항을 구현하는 기본 패턴이다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. SET/RESET으로 구현하는 대안</p>
+                    <div style="margin:0; line-height:1.7;">같은 동작을 SET(S)/RESET(R) 코일로도 구현할 수 있다. 기동버튼 조건에서 <span class='red'>Q0.0을 SET</span>, 정지버튼 조건에서 <span class='red'>Q0.0을 RESET</span>하면 접점 자기유지 없이도 동일한 효과를 낸다. 두 방식 모두 실무에서 널리 쓰이며, 회사·팀의 코딩 컨벤션에 따라 선택하면 된다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-1" data-scoreboard="true">
 <div class="box quiz-box" id="box-u1-1" data-qid="u1-1">
                     <button class="font-btn" onclick="resetAnswer('u1-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -311,6 +319,30 @@
                     </div>
                     <div id="q-result-u1-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u1-2" class="note" style="display:none;">💡 해설: 정지버튼은 눌렸을 때 회로를 끊어야 하므로 일반적으로 B접점(NC)을 사용합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u1-3" data-qid="u1-3">
+                    <button class="font-btn" onclick="resetAnswer('u1-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 자기유지회로가 필요한 이유로 가장 적절한 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, '작업자가 버튼을 계속 누르고 있지 않아도 동작이 유지되어야 하므로')">작업자가 버튼을 계속 누르고 있지 않아도 동작이 유지되어야 하므로</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, '작업자가 버튼을 계속 누르고 있지 않아도 동작이 유지되어야 하므로')">속도를 높이기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, '작업자가 버튼을 계속 누르고 있지 않아도 동작이 유지되어야 하므로')">배선을 줄이기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, '작업자가 버튼을 계속 누르고 있지 않아도 동작이 유지되어야 하므로')">타이머를 없애기 위해</button>
+                    </div>
+                    <div id="q-result-u1-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u1-3" class="note" style="display:none;">💡 해설: 자기유지회로가 없다면 버튼을 계속 누르고 있어야 하므로 실무에서는 비현실적입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u1-4" data-qid="u1-4">
+                    <button class="font-btn" onclick="resetAnswer('u1-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 자기유지회로와 동일한 동작을 SET/RESET 코일로 구현하려면?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '기동조건에서 SET, 정지조건에서 RESET')">기동조건에서 SET, 정지조건에서 RESET</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '기동조건에서 SET, 정지조건에서 RESET')">기동조건에서 RESET, 정지조건에서 SET</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '기동조건에서 SET, 정지조건에서 RESET')">둘 다 SET만 사용</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '기동조건에서 SET, 정지조건에서 RESET')">둘 다 RESET만 사용</button>
+                    </div>
+                    <div id="q-result-u1-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u1-4" class="note" style="display:none;">💡 해설: 기동버튼 조건에서 출력을 SET하고 정지버튼 조건에서 RESET하면 자기유지와 동일한 효과를 낼 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -345,11 +377,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 반대로 기동버튼은?</p>
                     <div style="margin:0; line-height:1.7;">여러 위치에서 기동시킬 수 있게 하려면 기동버튼들을 <span class='blue'>서로 병렬로</span> 연결하여, 그 중 하나만 눌러도 기동되도록 구성한다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 정지 우선의 원칙</p>
+                    <div style="margin:0; line-height:1.7;">안전 설계에서는 <span class='red'>'정지 우선(Stop-priority)' 원칙</span>을 지키는 것이 중요하다. 즉, 기동과 정지 신호가 동시에 들어와도 항상 정지가 이기도록 회로를 구성해야 하며, 이는 정지버튼(B접점)을 항상 기동버튼보다 논리적으로 뒤(코일 쪽에 더 가깝게)에 직렬로 배치함으로써 자연스럽게 만족된다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 비상정지와 일반 정지의 구분</p>
+                    <div style="margin:0; line-height:1.7;">일반 정지버튼과 별개로 <span class='blue'>비상정지(E-STOP)</span>가 있는 설비라면, 비상정지는 모든 정지버튼보다도 상위(가장 코일에 가까운 곳)에 별도로 직렬 연결해, 어떤 상황에서도 최우선으로 작동하도록 구성해야 한다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-2">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-2">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-2" data-scoreboard="true">
 <div class="box quiz-box" id="box-u2-1" data-qid="u2-1">
                     <button class="font-btn" onclick="resetAnswer('u2-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -374,6 +414,30 @@
                     </div>
                     <div id="q-result-u2-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u2-2" class="note" style="display:none;">💡 해설: 직렬 연결은 어느 하나의 접점만 끊어져도 전체 회로가 차단되는 특성을 이용한 것입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u2-3" data-qid="u2-3">
+                    <button class="font-btn" onclick="resetAnswer('u2-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 기동과 정지 신호가 동시에 들어와도 항상 정지가 우선하도록 하는 안전 설계 원칙은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, '정지 우선(Stop-priority) 원칙')">정지 우선(Stop-priority) 원칙</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, '정지 우선(Stop-priority) 원칙')">기동 우선 원칙</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, '정지 우선(Stop-priority) 원칙')">동시 우선 원칙</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, '정지 우선(Stop-priority) 원칙')">특별한 원칙 없음</button>
+                    </div>
+                    <div id="q-result-u2-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-3" class="note" style="display:none;">💡 해설: 안전 설계에서는 기동과 정지가 동시에 들어와도 항상 정지가 이기도록 하는 정지 우선 원칙을 지켜야 합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u2-4" data-qid="u2-4">
+                    <button class="font-btn" onclick="resetAnswer('u2-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 비상정지(E-STOP)는 일반 정지버튼과 비교해 회로상 어디에 배치해야 하는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '모든 정지버튼보다도 상위(가장 코일에 가깝게)')">모든 정지버튼보다도 상위(가장 코일에 가깝게)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '모든 정지버튼보다도 상위(가장 코일에 가깝게)')">기동버튼과 병렬로만</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '모든 정지버튼보다도 상위(가장 코일에 가깝게)')">가장 마지막(코일에서 먼 곳)에</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '모든 정지버튼보다도 상위(가장 코일에 가깝게)')">배치 위치는 상관없음</button>
+                    </div>
+                    <div id="q-result-u2-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-4" class="note" style="display:none;">💡 해설: 비상정지는 어떤 상황에서도 최우선으로 작동해야 하므로 다른 정지버튼보다도 상위에 배치합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -408,11 +472,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 안전상 유의사항</p>
                     <div style="margin:0; line-height:1.7;">래더 안에서의 전기적 인터록만 믿지 말고, 실제 현장에서는 정역회전 전자접촉기(MC) 사이에 <span class='red'>기계적 인터록</span>도 함께 적용하는 것이 일반적인 안전 설계 원칙이다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 왜 두 가지 인터록이 모두 필요한가</p>
+                    <div style="margin:0; line-height:1.7;">전기적 인터록(래더 로직)만 있으면, 만약 <span class='blue'>접촉기 자체의 고장(융착 등)</span>으로 실제 접점이 붙어버린 경우에는 PLC가 이를 알 수 없어 두 방향이 동시에 통전될 위험이 있다. 기계적 인터록은 이런 하드웨어적 고장 상황에서도 물리적으로 동시 투입을 막아주는 최후의 안전장치 역할을 한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 인터록의 다른 활용 예</p>
+                    <div style="margin:0; line-height:1.7;">정역회전 모터 외에도, <span class='red'>2개의 펌프 중 하나만 가동되어야 하는 경우</span>, <span class='red'>출입문 두 개가 동시에 열리면 안 되는 경우</span> 등 '동시에 둘 다 작동하면 안 되는' 모든 상황에 인터록 개념을 응용할 수 있다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-3">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-3">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-3" data-scoreboard="true">
 <div class="box quiz-box" id="box-u3-1" data-qid="u3-1">
                     <button class="font-btn" onclick="resetAnswer('u3-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -437,6 +509,30 @@
                     </div>
                     <div id="q-result-u3-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u3-2" class="note" style="display:none;">💡 해설: 전기적 인터록뿐 아니라 기계적 인터록도 함께 적용하는 것이 안전 설계의 일반적인 원칙입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u3-3" data-qid="u3-3">
+                    <button class="font-btn" onclick="resetAnswer('u3-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 전기적 인터록만으로는 대응할 수 없는 상황은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '접촉기 자체가 고장(융착)으로 붙어버린 경우')">접촉기 자체가 고장(융착)으로 붙어버린 경우</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '접촉기 자체가 고장(융착)으로 붙어버린 경우')">정상적인 소프트웨어 로직 오류</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '접촉기 자체가 고장(융착)으로 붙어버린 경우')">일반적인 버튼 입력</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '접촉기 자체가 고장(융착)으로 붙어버린 경우')">정상적인 통신 지연</button>
+                    </div>
+                    <div id="q-result-u3-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-3" class="note" style="display:none;">💡 해설: 접촉기가 물리적으로 고장나 붙어버리면 PLC 로직만으로는 감지·차단이 불가능해 기계적 인터록이 필요합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u3-4" data-qid="u3-4">
+                    <button class="font-btn" onclick="resetAnswer('u3-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 인터록 개념을 응용할 수 있는 상황으로 가장 적절한 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '동시에 둘 다 작동하면 안 되는 모든 상황')">동시에 둘 다 작동하면 안 되는 모든 상황</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '동시에 둘 다 작동하면 안 되는 모든 상황')">타이머 지연이 필요한 상황만</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '동시에 둘 다 작동하면 안 되는 모든 상황')">카운터가 필요한 상황만</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '동시에 둘 다 작동하면 안 되는 모든 상황')">인쇄가 필요한 상황</button>
+                    </div>
+                    <div id="q-result-u3-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-4" class="note" style="display:none;">💡 해설: 인터록은 정역회전뿐 아니라 동시 작동이 금지되는 모든 상황(펌프, 출입문 등)에 응용할 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -471,11 +567,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 후입력우선회로</p>
                     <div style="margin:0; line-height:1.7;">반대로 <span class='red'>나중에 눌린 버튼이 이전 상태를 덮어쓰도록</span> 만드는 회로로, 상대방 출력을 강제로 RESET 시키는 로직을 추가해 구현한다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 실무에서의 활용 예</p>
+                    <div style="margin:0; line-height:1.7;">여러 작업자가 각자의 스테이션에서 동시에 신호를 보낼 수 있는 설비에서, <span class='blue'>먼저 요청한 작업을 끝까지 처리</span>하고 싶다면 선입력우선을, <span class='red'>가장 최근 요청이 항상 우선</span>되어야 하는 상황(예: 비상 알림 갱신)이라면 후입력우선을 선택한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 인터록과의 관계</p>
+                    <div style="margin:0; line-height:1.7;">선입력우선회로는 사실상 <span class='blue'>인터록에 '먼저 켜진 쪽이 이긴다'는 규칙</span>을 추가한 형태로 볼 수 있다. 인터록의 기본 구조(상대방 B접점 직렬)를 이해하고 있으면 우선순위 회로도 자연스럽게 이해할 수 있다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-4">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-4">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-4" data-scoreboard="true">
 <div class="box quiz-box" id="box-u4-1" data-qid="u4-1">
                     <button class="font-btn" onclick="resetAnswer('u4-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -500,6 +604,30 @@
                     </div>
                     <div id="q-result-u4-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u4-2" class="note" style="display:none;">💡 해설: 후입력우선회로는 나중에 들어온 신호가 이전 상태를 덮어쓰도록 설계됩니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u4-3" data-qid="u4-3">
+                    <button class="font-btn" onclick="resetAnswer('u4-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 가장 최근 요청이 항상 우선되어야 하는 상황(예: 비상 알림 갱신)에 적합한 회로는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '후입력우선회로')">후입력우선회로</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '후입력우선회로')">선입력우선회로</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '후입력우선회로')">자기유지회로만</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '후입력우선회로')">타이머 회로만</button>
+                    </div>
+                    <div id="q-result-u4-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-3" class="note" style="display:none;">💡 해설: 가장 최근 신호가 우선되어야 한다면 후입력우선회로가 적합합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u4-4" data-qid="u4-4">
+                    <button class="font-btn" onclick="resetAnswer('u4-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 선입력우선회로는 어떤 회로의 구조를 기반으로 확장한 것으로 볼 수 있는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, '인터록 회로')">인터록 회로</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, '인터록 회로')">카운터 회로</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, '인터록 회로')">타이머 회로</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, '인터록 회로')">비교 회로</button>
+                    </div>
+                    <div id="q-result-u4-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-4" class="note" style="display:none;">💡 해설: 선입력우선회로는 인터록의 기본 구조(상대방 B접점 직렬)에 '먼저 켜진 쪽이 이긴다'는 규칙을 더한 형태로 볼 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -534,11 +662,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 지연 정지 (TOF 활용)</p>
                     <div style="margin:0; line-height:1.7;">모터가 꺼진 후에도 환기팬을 일정 시간 더 돌리고 싶은 경우처럼, 신호가 꺼진 뒤에도 일정 시간 출력을 유지하고 싶을 때는 <span class='red'>TOF(Off-Delay)</span> 타이머를 사용한다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 지연 기동의 실무 활용 예</p>
+                    <div style="margin:0; line-height:1.7;">대형 모터는 <span class='blue'>기동 순간 큰 돌입전류</span>가 흐르기 때문에, 여러 대의 모터를 동시에 기동하지 않고 TON으로 몇 초씩 간격을 두고 순서대로 기동시키면 전체 설비의 전기적 부담을 줄일 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 지연 정지의 실무 활용 예</p>
+                    <div style="margin:0; line-height:1.7;">집진기(먼지를 빨아들이는 팬)는 본 설비가 멈춘 후에도 <span class='red'>남은 먼지를 마저 빨아들이도록</span> 일정 시간 더 동작해야 하는 경우가 많다. 이때 TOF를 이용해 본 설비 정지 신호가 꺼진 뒤에도 집진기가 몇 초~몇 분 더 동작하도록 구성한다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-5">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-5">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-5" data-scoreboard="true">
 <div class="box quiz-box" id="box-u5-1" data-qid="u5-1">
                     <button class="font-btn" onclick="resetAnswer('u5-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -563,6 +699,30 @@
                     </div>
                     <div id="q-result-u5-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u5-2" class="note" style="display:none;">💡 해설: TON(On-Delay)은 입력이 켜진 뒤 설정 시간이 지나야 출력이 켜지도록 하는 데 적합합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u5-3" data-qid="u5-3">
+                    <button class="font-btn" onclick="resetAnswer('u5-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 여러 대의 대형 모터를 순서대로 지연 기동시키는 주된 이유는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, '돌입전류로 인한 전기적 부담을 줄이기 위해')">돌입전류로 인한 전기적 부담을 줄이기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, '돌입전류로 인한 전기적 부담을 줄이기 위해')">소음을 줄이기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, '돌입전류로 인한 전기적 부담을 줄이기 위해')">색상을 맞추기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, '돌입전류로 인한 전기적 부담을 줄이기 위해')">특별한 이유 없음</button>
+                    </div>
+                    <div id="q-result-u5-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-3" class="note" style="display:none;">💡 해설: 대형 모터를 동시에 기동하면 돌입전류가 겹쳐 전기적 부담이 커지므로, 순서대로 지연 기동시켜 부담을 분산합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u5-4" data-qid="u5-4">
+                    <button class="font-btn" onclick="resetAnswer('u5-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 집진기가 본 설비 정지 후에도 한동안 더 동작해야 하는 경우 적합한 타이머는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, 'TOF')">TOF</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, 'TOF')">TON</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, 'TOF')">TP</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, 'TOF')">CTU</button>
+                    </div>
+                    <div id="q-result-u5-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-4" class="note" style="display:none;">💡 해설: 본 설비가 꺼진 뒤에도 일정 시간 더 동작해야 하는 경우이므로 TOF(Off-Delay)가 적합합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -597,11 +757,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 리셋(복귀) 절차</p>
                     <div style="margin:0; line-height:1.7;">비상정지가 작동된 뒤에는 원인을 해결하고 <span class='blue'>수동으로 리셋(복귀) 조작</span>을 해야만 다시 정상 운전으로 돌아갈 수 있도록 설계하는 것이 일반적이다(자동 복귀는 안전상 지양).</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 비상정지 버튼의 물리적 특징</p>
+                    <div style="margin:0; line-height:1.7;">비상정지 버튼은 대부분 <span class='blue'>누르면 잠기고(래치), 돌리거나 당겨야 풀리는</span> 구조로 만들어져 있다. 이는 눌린 상태가 실수로 저절로 풀리지 않도록 하기 위한 물리적 안전장치다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 안전 등급이 필요한 경우</p>
+                    <div style="margin:0; line-height:1.7;">단순 B접점 하나로는 충분하지 않은 고위험 설비라면, <span class='red'>이중화된 접점과 안전 릴레이(Safety Relay) 또는 F-CPU</span>를 활용해 하나의 접점이 고장 나도 안전이 유지되도록 설계해야 한다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-6">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-6">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-6" data-scoreboard="true">
 <div class="box quiz-box" id="box-u6-1" data-qid="u6-1">
                     <button class="font-btn" onclick="resetAnswer('u6-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -626,6 +794,30 @@
                     </div>
                     <div id="q-result-u6-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u6-2" class="note" style="display:none;">💡 해설: 안전상 비상정지 이후에는 수동으로 리셋(복귀) 조작을 해야 정상 운전으로 돌아가도록 설계하는 것이 일반적입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u6-3" data-qid="u6-3">
+                    <button class="font-btn" onclick="resetAnswer('u6-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 비상정지 버튼이 눌린 뒤 저절로 풀리지 않도록 만드는 물리적 구조는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '누르면 잠기고 돌리거나 당겨야 풀리는 구조')">누르면 잠기고 돌리거나 당겨야 풀리는 구조</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '누르면 잠기고 돌리거나 당겨야 풀리는 구조')">누르면 바로 튀어나오는 구조</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '누르면 잠기고 돌리거나 당겨야 풀리는 구조')">구조는 상관없음</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '누르면 잠기고 돌리거나 당겨야 풀리는 구조')">자석으로 붙는 구조</button>
+                    </div>
+                    <div id="q-result-u6-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-3" class="note" style="display:none;">💡 해설: 비상정지 버튼은 실수로 풀리지 않도록 누르면 잠기고 돌리거나 당겨야 풀리는 구조로 설계됩니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u6-4" data-qid="u6-4">
+                    <button class="font-btn" onclick="resetAnswer('u6-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 고위험 설비에서 접점 하나의 고장에도 안전을 유지하려면 무엇을 활용해야 하는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '이중화 접점과 안전 릴레이(또는 F-CPU)')">이중화 접점과 안전 릴레이(또는 F-CPU)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '이중화 접점과 안전 릴레이(또는 F-CPU)')">일반 B접점 하나만으로 충분</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '이중화 접점과 안전 릴레이(또는 F-CPU)')">안전장치는 필요 없음</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '이중화 접점과 안전 릴레이(또는 F-CPU)')">색상 표시만으로 충분</button>
+                    </div>
+                    <div id="q-result-u6-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-4" class="note" style="display:none;">💡 해설: 고위험 설비는 이중화된 접점과 안전 릴레이 또는 F-CPU를 활용해 단일 고장에도 안전을 유지하도록 설계해야 합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -660,11 +852,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 로직 결합</p>
                     <div style="margin:0; line-height:1.7;">각 회전 방향마다 <span class='blue'>자기유지</span>(자신의 A접점 병렬)와 <span class='red'>인터록</span>(상대방 출력의 B접점 직렬)을 함께 적용하고, 정지버튼(I0.2)은 <span class='mint'>양쪽 회로 모두에 직렬로</span> 연결해 어느 방향이든 즉시 정지되게 한다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 방향 전환시 지연시간 추가하기</p>
+                    <div style="margin:0; line-height:1.7;">모터가 회전하는 도중 바로 반대 방향으로 전환하면 큰 전기적·기계적 충격이 발생할 수 있다. 실무에서는 <span class='red'>정지 후 일정 시간(TON) 지연</span>을 두어, 모터가 완전히 멈춘 뒤에야 반대 방향 기동이 가능하도록 로직을 보강하는 경우가 많다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 확장 아이디어 - 과부하 보호 연동</p>
+                    <div style="margin:0; line-height:1.7;">모터 과부하 계전기(EOCR 등)의 신호를 <span class='blue'>입력 접점으로 받아, 인터록 로직에 추가로 직렬 연결</span>하면 과부하 발생시 자동으로 모든 회전 방향을 차단하는 안전한 설계로 확장할 수 있다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-7">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-7">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-7" data-scoreboard="true">
 <div class="box quiz-box" id="box-u7-1" data-qid="u7-1">
                     <button class="font-btn" onclick="resetAnswer('u7-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -689,6 +889,30 @@
                     </div>
                     <div id="q-result-u7-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u7-2" class="note" style="display:none;">💡 해설: 정지버튼은 정회전, 역회전 두 회로 모두에 직렬로 연결해 어느 방향이든 즉시 정지시킬 수 있게 합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u7-3" data-qid="u7-3">
+                    <button class="font-btn" onclick="resetAnswer('u7-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 모터의 회전 방향을 바로 반대로 전환할 때 발생할 수 있는 문제는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '큰 전기적·기계적 충격')">큰 전기적·기계적 충격</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '큰 전기적·기계적 충격')">속도가 항상 빨라짐</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '큰 전기적·기계적 충격')">문제 없음</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '큰 전기적·기계적 충격')">타이머가 자동 정지됨</button>
+                    </div>
+                    <div id="q-result-u7-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-3" class="note" style="display:none;">💡 해설: 회전 중 바로 반대 방향으로 전환하면 전기적·기계적으로 큰 충격이 발생할 수 있어 지연시간을 두는 것이 안전합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u7-4" data-qid="u7-4">
+                    <button class="font-btn" onclick="resetAnswer('u7-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 모터 과부하 계전기 신호를 인터록 로직에 연동하면 얻는 효과는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '과부하 발생시 모든 회전 방향을 자동 차단')">과부하 발생시 모든 회전 방향을 자동 차단</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '과부하 발생시 모든 회전 방향을 자동 차단')">속도가 항상 빨라짐</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '과부하 발생시 모든 회전 방향을 자동 차단')">전력 소모가 늘어남</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '과부하 발생시 모든 회전 방향을 자동 차단')">효과 없음</button>
+                    </div>
+                    <div id="q-result-u7-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-4" class="note" style="display:none;">💡 해설: 과부하 계전기 신호를 인터록에 추가하면 과부하 상황에서 자동으로 모든 방향의 기동을 차단하는 안전한 설계가 됩니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -723,11 +947,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 인터록 적용</p>
                     <div style="margin:0; line-height:1.7;">셀렉터 스위치의 상태는 입력접점(예: I0.5)으로 읽어들이며, <span class='red'>자동 모드일 때는 수동 조작 버튼의 영향을 차단</span>하고, 수동 모드일 때는 PLC 자동 로직의 출력을 차단하도록 서로 인터록을 건다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 실무 설계 패턴</p>
+                    <div style="margin:0; line-height:1.7;">실제 로직은 보통 <span class='blue'>'(자동모드 AND 자동로직출력) OR (수동모드 AND 수동버튼)'</span> 형태의 구조로 짜여진다. 이렇게 하면 최종 출력 코일 하나에 자동/수동 두 경로가 안전하게 합쳐진다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 수동 모드에서도 안전장치는 살아있어야 한다</p>
+                    <div style="margin:0; line-height:1.7;">수동 모드로 전환했다고 해서 <span class='red'>비상정지나 인터록 같은 안전 로직까지 무시되어서는 안 된다</span>. 안전 관련 조건은 자동/수동 모드와 무관하게 항상 최우선으로 적용되도록 설계하는 것이 원칙이다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-8">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-8">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-8" data-scoreboard="true">
 <div class="box quiz-box" id="box-u8-1" data-qid="u8-1">
                     <button class="font-btn" onclick="resetAnswer('u8-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -752,6 +984,30 @@
                     </div>
                     <div id="q-result-u8-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u8-2" class="note" style="display:none;">💡 해설: 셀렉터스위치의 상태는 일반적인 입력접점(%I)을 통해 PLC가 읽어들입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u8-3" data-qid="u8-3">
+                    <button class="font-btn" onclick="resetAnswer('u8-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 자동/수동 전환 로직의 일반적인 구조로 옳은 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '(자동모드 AND 자동로직) OR (수동모드 AND 수동버튼)')">(자동모드 AND 자동로직) OR (수동모드 AND 수동버튼)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '(자동모드 AND 자동로직) OR (수동모드 AND 수동버튼)')">자동모드와 수동모드를 항상 곱한다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '(자동모드 AND 자동로직) OR (수동모드 AND 수동버튼)')">수동모드만 사용하고 자동은 무시</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '(자동모드 AND 자동로직) OR (수동모드 AND 수동버튼)')">구조는 관계없이 아무렇게나 짠다</button>
+                    </div>
+                    <div id="q-result-u8-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-3" class="note" style="display:none;">💡 해설: 자동/수동 두 경로를 각각 AND로 묶고 이를 OR로 합치는 구조가 일반적인 설계 패턴입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u8-4" data-qid="u8-4">
+                    <button class="font-btn" onclick="resetAnswer('u8-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 수동 모드로 전환해도 절대 무시되면 안 되는 로직은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '비상정지·인터록 같은 안전 로직')">비상정지·인터록 같은 안전 로직</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '비상정지·인터록 같은 안전 로직')">생산량 카운터</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '비상정지·인터록 같은 안전 로직')">타이머 설정값</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '비상정지·인터록 같은 안전 로직')">화면 밝기 설정</button>
+                    </div>
+                    <div id="q-result-u8-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-4" class="note" style="display:none;">💡 해설: 안전 관련 로직은 자동/수동 모드와 무관하게 항상 최우선으로 적용되어야 합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -778,10 +1034,10 @@
             <h1>지멘스 PLC 기초강좌 - <br>🎲 랜덤 모의고사</h1>
             <div id="exam-select" class="box" style="text-align:center;">
                 <p style="font-weight:700; margin-top:0;">몇 문제를 랜덤으로 뽑을까요?</p>
-                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 16문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
+                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 32문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
                 <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
                     <button class="font-btn" onclick="startRandomExam(8)" style="padding:10px 18px;">8문제</button>
-                    <button class="font-btn" onclick="startRandomExam(16)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">16문제(전체)</button>
+                    <button class="font-btn" onclick="startRandomExam(32)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">32문제(전체)</button>
                 </div>
             </div>
 
