@@ -140,7 +140,7 @@
                 <div class="cover-divider"></div>
                 <div class="cover-info">
                     <p>범위: 8단원</p>
-                    <p>확인문제: 단원별 2문제 · 총 16문제</p>
+                    <p>확인문제: 단원별 2문제 · 총 32문제</p>
                     <p>버전: V2.0.0 (8단원 확장판)</p>
                 </div>
             </div>
@@ -164,7 +164,7 @@
         <div id="tab-study" class="tab-content">
             <h1>지멘스 PLC 기초강좌 - <br>📘 PLC 핵심내용② 래더 명령어</h1>
             <div style="text-align: right; font-size: 0.8em; color: var(--text-sub); margin-top: 4px; margin-bottom: 12px;">
-                <span>8단원 · 확인문제 16문제</span>
+                <span>8단원 · 확인문제 32문제</span>
             </div>
 
             <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
@@ -256,11 +256,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">3. 선택 기준</p>
                     <div style="margin:0; line-height:1.7;">'이 신호가 켜지면 통전시키고 싶다' → A접점, '이 신호가 켜지면 차단하고 싶다' → B접점, 이 기준만 기억해도 대부분의 상황에서 올바르게 고를 수 있다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 여러 접점의 조합 - 직렬(AND)과 병렬(OR)</p>
+                    <div style="margin:0; line-height:1.7;">접점을 <span class='blue'>직렬로 연결하면 AND 조건</span>(둘 다 참이어야 통전), <span class='red'>병렬로 연결하면 OR 조건</span>(둘 중 하나만 참이어도 통전)이 된다. 복잡한 조건도 이 두 가지 조합만으로 대부분 표현할 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. 자주 하는 실수</p>
+                    <div style="margin:0; line-height:1.7;">정지버튼을 A접점으로 잘못 연결하면, 평소엔 회로가 끊긴 상태이고 버튼을 눌러야만 통전되어 버려 '정지'가 아니라 '기동' 역할을 하게 된다. 접점 종류를 헷갈리면 정반대로 동작하므로 각별히 주의해야 한다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-1" data-scoreboard="true">
 <div class="box quiz-box" id="box-u1-1" data-qid="u1-1">
                     <button class="font-btn" onclick="resetAnswer('u1-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -285,6 +293,30 @@
                     </div>
                     <div id="q-result-u1-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u1-2" class="note" style="display:none;">💡 해설: B접점(Normally Closed)은 평소 통전 상태이다가 조건이 참이 되면 회로를 끊는 데 사용됩니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u1-3" data-qid="u1-3">
+                    <button class="font-btn" onclick="resetAnswer('u1-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 두 접점을 직렬로 연결했을 때의 논리적 의미는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, 'AND (둘 다 참이어야 통전)')">AND (둘 다 참이어야 통전)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, 'AND (둘 다 참이어야 통전)')">OR (하나만 참이어도 통전)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, 'AND (둘 다 참이어야 통전)')">NOT (반전)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, 'AND (둘 다 참이어야 통전)')">아무 의미 없음</button>
+                    </div>
+                    <div id="q-result-u1-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u1-3" class="note" style="display:none;">💡 해설: 접점을 직렬로 연결하면 AND 조건이 되어 두 조건이 모두 참이어야 통전됩니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u1-4" data-qid="u1-4">
+                    <button class="font-btn" onclick="resetAnswer('u1-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 정지버튼을 실수로 A접점으로 연결하면 어떤 문제가 생기는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '정지가 아니라 기동처럼 동작하게 됨')">정지가 아니라 기동처럼 동작하게 됨</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '정지가 아니라 기동처럼 동작하게 됨')">아무 문제 없음</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '정지가 아니라 기동처럼 동작하게 됨')">항상 통전 상태가 됨</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '정지가 아니라 기동처럼 동작하게 됨')">타이머가 자동 작동함</button>
+                    </div>
+                    <div id="q-result-u1-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u1-4" class="note" style="display:none;">💡 해설: 정지버튼을 A접점으로 연결하면 평소 끊긴 상태이다가 눌러야 통전되어, 의도와 반대로 동작하게 됩니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -323,11 +355,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">3. 실행 순서의 중요성</p>
                     <div style="margin:0; line-height:1.7;">SET과 RESET 조건이 같은 스캔에서 동시에 참이 되면, 일반적으로 <span class='blue'>프로그램상 나중에(아래쪽에) 배치된 명령이 최종 결과를 결정</span>한다. 그래서 정지(RESET) 로직을 기동(SET) 로직보다 아래에 두는 것이 안전하다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 부정(Negate) 접점</p>
+                    <div style="margin:0; line-height:1.7;">일부 편집기에서는 접점 앞에 <span class='blue'>NOT 표시(부정)</span>를 붙여 조건을 반전시킬 수도 있다. B접점과 비슷한 효과를 내지만, NOT은 이미 만들어진 논리식 전체를 반전시킬 때 사용하는 경우가 많다는 차이가 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. 코일을 중복 사용하면 안 되는 이유</p>
+                    <div style="margin:0; line-height:1.7;">같은 출력(예: Q0.0)을 <span class='red'>여러 개의 일반 코일로 중복 사용</span>하면, 마지막에 실행된 네트워크의 결과가 이전 결과를 덮어써서 예상치 못한 동작이 발생할 수 있다. 이런 실수를 '다중 코일 할당(Multiple coil assignment)'이라 부르며, TIA Portal은 컴파일시 경고를 띄워주는 경우가 많다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-2">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-2">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-2" data-scoreboard="true">
 <div class="box quiz-box" id="box-u2-1" data-qid="u2-1">
                     <button class="font-btn" onclick="resetAnswer('u2-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -352,6 +392,30 @@
                     </div>
                     <div id="q-result-u2-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u2-2" class="note" style="display:none;">💡 해설: 일반적으로 프로그램에서 나중에(아래쪽에) 배치된 SET/RESET 명령이 최종 상태를 결정합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u2-3" data-qid="u2-3">
+                    <button class="font-btn" onclick="resetAnswer('u2-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 같은 출력을 여러 개의 일반 코일로 중복 사용할 때 생기는 문제를 무엇이라 부르는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, '다중 코일 할당(Multiple coil assignment)')">다중 코일 할당(Multiple coil assignment)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, '다중 코일 할당(Multiple coil assignment)')">인터록</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, '다중 코일 할당(Multiple coil assignment)')">자기유지</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, '다중 코일 할당(Multiple coil assignment)')">상호참조 오류</button>
+                    </div>
+                    <div id="q-result-u2-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-3" class="note" style="display:none;">💡 해설: 같은 출력을 여러 네트워크에서 일반 코일로 중복 사용하는 것을 다중 코일 할당이라 하며, 예상치 못한 동작을 유발할 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u2-4" data-qid="u2-4">
+                    <button class="font-btn" onclick="resetAnswer('u2-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 논리식 전체를 반전시킬 때 사용할 수 있는 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, 'NOT(부정) 표시')">NOT(부정) 표시</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, 'NOT(부정) 표시')">SET</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, 'NOT(부정) 표시')">RESET</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, 'NOT(부정) 표시')">타이머</button>
+                    </div>
+                    <div id="q-result-u2-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-4" class="note" style="display:none;">💡 해설: NOT(부정) 표시를 사용하면 이미 만들어진 논리식 전체의 결과를 반전시킬 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -382,11 +446,23 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">📌 핵심 요약</p>
                     <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>타이머</th><th>동작</th></tr><tr><td>TON (On-Delay)</td><td>입력 ON 후 설정시간 경과해야 출력 ON</td></tr><tr><td>TOF (Off-Delay)</td><td>입력 OFF 후 설정시간 경과해야 출력 OFF (입력 켜지면 출력은 즉시 ON)</td></tr><tr><td>TP (Pulse)</td><td>입력 ON되는 순간 설정시간만큼만 출력 ON, 이후 자동 OFF</td></tr></table></div></div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 시간 데이터 타입(Time)</p>
+                    <div style="margin:0; line-height:1.7;">타이머의 설정시간(PT)에는 보통 <span class='blue'>Time</span>이라는 전용 데이터 타입을 사용하며, T#5S(5초), T#1H(1시간)처럼 시간 단위를 붙여서 입력한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 경과시간(ET) 활용</p>
+                    <div style="margin:0; line-height:1.7;">타이머에는 설정시간(PT) 외에 <span class='red'>경과시간(ET, Elapsed Time)</span> 출력도 있어, 현재 얼마나 시간이 지났는지 실시간으로 확인하거나 다른 로직에서 활용할 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. IEC 타이머 vs S7 타이머</p>
+                    <div style="margin:0; line-height:1.7;">TIA Portal에서는 데이터 타입 기반의 <span class='blue'>IEC 타이머(TON, TOF, TP)</span>를 사용하는 것이 표준이며, 예전 S7 방식의 S5Time 기반 타이머(예: S_ODT)는 STEP 7 Classic과의 호환을 위해 남아있는 경우가 있다. 새 프로젝트는 IEC 타이머 사용을 권장한다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-3">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-3">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-3" data-scoreboard="true">
 <div class="box quiz-box" id="box-u3-1" data-qid="u3-1">
                     <button class="font-btn" onclick="resetAnswer('u3-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -411,6 +487,30 @@
                     </div>
                     <div id="q-result-u3-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u3-2" class="note" style="display:none;">💡 해설: TP(Pulse Timer)는 입력이 켜지는 순간부터 설정시간만큼만 출력이 켜지고 이후 자동으로 꺼집니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u3-3" data-qid="u3-3">
+                    <button class="font-btn" onclick="resetAnswer('u3-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 타이머의 설정시간(PT)에 흔히 사용하는 데이터 타입은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, 'Time')">Time</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, 'Time')">Bool</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, 'Time')">Int</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, 'Time')">String</button>
+                    </div>
+                    <div id="q-result-u3-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-3" class="note" style="display:none;">💡 해설: 타이머의 설정시간(PT)에는 Time이라는 전용 데이터 타입을 사용해 T#5S와 같이 입력합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u3-4" data-qid="u3-4">
+                    <button class="font-btn" onclick="resetAnswer('u3-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 현재 타이머가 얼마나 시간이 지났는지 확인할 수 있는 출력은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, 'ET(경과시간)')">ET(경과시간)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, 'ET(경과시간)')">PT(설정시간)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, 'ET(경과시간)')">IN(입력)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, 'ET(경과시간)')">Q(출력비트)</button>
+                    </div>
+                    <div id="q-result-u3-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-4" class="note" style="display:none;">💡 해설: ET(Elapsed Time, 경과시간)는 타이머가 시작된 이후 현재까지 지난 시간을 나타냅니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -441,11 +541,23 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">📌 핵심 요약</p>
                     <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>카운터</th><th>동작</th></tr><tr><td>CTU (Up Counter)</td><td>CU 입력마다 1씩 증가, 설정값(PV) 도달시 출력 ON</td></tr><tr><td>CTD (Down Counter)</td><td>CD 입력마다 1씩 감소, 0이 되면 출력 ON</td></tr><tr><td>CTUD</td><td>증가·감소를 모두 지원하는 업다운 카운터</td></tr></table></div>세 가지 모두 R(리셋) 입력으로 현재값을 초기화한다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 카운터의 데이터 타입</p>
+                    <div style="margin:0; line-height:1.7;">카운터의 현재값(CV)과 설정값(PV)은 보통 <span class='blue'>Int 또는 다른 정수형</span>으로 지정하며, 사용하려는 카운트 범위(음수 여부, 최대값)에 맞춰 적절한 정수 타입을 선택해야 한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 입력 신호의 순간 감지(Edge)</p>
+                    <div style="margin:0; line-height:1.7;">카운터의 CU/CD 입력은 신호가 계속 1로 유지되는 동안 계속 세는 것이 아니라, <span class='red'>0에서 1로 바뀌는 순간(상승 엣지)</span>마다 한 번씩만 카운트된다. 그래서 센서 신호가 짧게 깜빡여야 정확히 개수를 셀 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. CTUD의 응용</p>
+                    <div style="margin:0; line-height:1.7;">CTUD는 입고(CU)와 출고(CD)를 동시에 관리해야 하는 <span class='blue'>재고 카운트</span> 같은 상황에서 유용하다. 예를 들어 창고에 물건이 들어오면 CU, 나가면 CD를 눌러 현재 재고량을 실시간으로 추적할 수 있다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-4">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-4">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-4" data-scoreboard="true">
 <div class="box quiz-box" id="box-u4-1" data-qid="u4-1">
                     <button class="font-btn" onclick="resetAnswer('u4-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -470,6 +582,30 @@
                     </div>
                     <div id="q-result-u4-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u4-2" class="note" style="display:none;">💡 해설: CTUD는 업(증가)과 다운(감소)을 모두 지원하는 업다운 카운터입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u4-3" data-qid="u4-3">
+                    <button class="font-btn" onclick="resetAnswer('u4-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 카운터의 CU 입력이 실제로 카운트를 증가시키는 시점은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '0에서 1로 바뀌는 순간(상승 엣지)')">0에서 1로 바뀌는 순간(상승 엣지)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '0에서 1로 바뀌는 순간(상승 엣지)')">1이 유지되는 내내 계속</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '0에서 1로 바뀌는 순간(상승 엣지)')">0으로 유지되는 동안</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '0에서 1로 바뀌는 순간(상승 엣지)')">전원이 꺼질 때</button>
+                    </div>
+                    <div id="q-result-u4-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-3" class="note" style="display:none;">💡 해설: CU 입력은 상승 엣지(0→1로 바뀌는 순간)마다 한 번씩만 카운트를 증가시킵니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u4-4" data-qid="u4-4">
+                    <button class="font-btn" onclick="resetAnswer('u4-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 입고와 출고를 동시에 관리해야 하는 재고 카운트에 적합한 카운터는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, 'CTUD')">CTUD</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, 'CTUD')">CTU만 단독으로</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, 'CTUD')">CTD만 단독으로</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, 'CTUD')">타이머만 사용</button>
+                    </div>
+                    <div id="q-result-u4-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-4" class="note" style="display:none;">💡 해설: CTUD는 증가(CU)와 감소(CD)를 모두 지원하므로 입출고를 함께 관리하는 재고 카운트에 적합합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -504,11 +640,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 주의사항</p>
                     <div style="margin:0; line-height:1.7;">비교하려는 두 값의 <span class='red'>데이터 타입이 일치</span>해야 한다(예: Int와 Real을 그대로 비교하면 오류가 날 수 있음).</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 범위 판정 만들기</p>
+                    <div style="margin:0; line-height:1.7;">특정 값이 <span class='blue'>일정 범위 안에 있는지</span> 확인하려면, '값 &gt;= 하한' 조건과 '값 &lt;= 상한' 조건 두 개의 CMP를 <span class='red'>직렬(AND)</span>로 연결하면 된다. 예를 들어 온도가 20~30도 사이인지 확인할 때 자주 쓰이는 패턴이다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 실무 활용 예</p>
+                    <div style="margin:0; line-height:1.7;">탱크의 수위 센서 값(아날로그, IW 형태)을 <span class='blue'>CMP로 상한선과 비교</span>해 일정 값을 넘으면 경보를 울리는 등, 비교 명령은 아날로그 신호를 감시하는 데 특히 자주 사용된다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-5">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-5">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-5" data-scoreboard="true">
 <div class="box quiz-box" id="box-u5-1" data-qid="u5-1">
                     <button class="font-btn" onclick="resetAnswer('u5-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -533,6 +677,30 @@
                     </div>
                     <div id="q-result-u5-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u5-2" class="note" style="display:none;">💡 해설: 비교하려는 두 값의 데이터 타입이 일치해야 정상적으로 비교됩니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u5-3" data-qid="u5-3">
+                    <button class="font-btn" onclick="resetAnswer('u5-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 값이 일정 범위 안에 있는지 확인하려면 어떻게 구성하는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, '상한·하한 비교 CMP 두 개를 직렬(AND)로 연결')">상한·하한 비교 CMP 두 개를 직렬(AND)로 연결</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, '상한·하한 비교 CMP 두 개를 직렬(AND)로 연결')">CMP 하나로 항상 충분하다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, '상한·하한 비교 CMP 두 개를 직렬(AND)로 연결')">타이머를 사용해야 한다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, '상한·하한 비교 CMP 두 개를 직렬(AND)로 연결')">카운터를 사용해야 한다</button>
+                    </div>
+                    <div id="q-result-u5-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-3" class="note" style="display:none;">💡 해설: 하한 이상, 상한 이하라는 두 조건을 직렬(AND)로 연결하면 값이 범위 안에 있는지 확인할 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u5-4" data-qid="u5-4">
+                    <button class="font-btn" onclick="resetAnswer('u5-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 탱크 수위가 일정 값을 넘으면 경보를 울리는 로직에 주로 사용되는 명령은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, 'CMP(비교)')">CMP(비교)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, 'CMP(비교)')">MOVE</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, 'CMP(비교)')">ADD</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, 'CMP(비교)')">SET</button>
+                    </div>
+                    <div id="q-result-u5-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-4" class="note" style="display:none;">💡 해설: 아날로그 신호를 상한값과 비교해 경보를 발생시키는 데 CMP(비교) 명령이 자주 사용됩니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -571,11 +739,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">3. 데이터 타입 일치</p>
                     <div style="margin:0; line-height:1.7;">연산에 사용하는 값들도 서로 <span class='blue'>같은 데이터 타입</span>이어야 하며, 다르면 타입 변환 명령(CONVERT)을 먼저 거쳐야 한다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 실무 활용 - 아날로그 값 스케일링</p>
+                    <div style="margin:0; line-height:1.7;">센서에서 들어오는 아날로그 원시값(예: 0~27648)을 실제 물리량(예: 0~100도)으로 변환할 때, <span class='red'>SUB/MUL/DIV를 조합한 스케일링 계산식</span>을 직접 만들어 사용하는 경우가 많다. 일부 CPU/펌웨어에서는 이런 변환을 대신해주는 전용 명령(NORM_X, SCALE_X)을 제공하기도 한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. 자주 하는 실수</p>
+                    <div style="margin:0; line-height:1.7;">정수(Int) 나눗셈에서는 소수점 이하가 <span class='red'>버림 처리</span>된다는 점을 놓쳐서 계산 결과가 예상과 다르게 나오는 경우가 흔하다. 소수점이 필요한 계산이라면 처음부터 Real 타입으로 변환해서 계산하는 것이 안전하다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-6">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-6">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-6" data-scoreboard="true">
 <div class="box quiz-box" id="box-u6-1" data-qid="u6-1">
                     <button class="font-btn" onclick="resetAnswer('u6-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -600,6 +776,30 @@
                     </div>
                     <div id="q-result-u6-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u6-2" class="note" style="display:none;">💡 해설: ADD는 두 값을 더하는 사칙연산 명령입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u6-3" data-qid="u6-3">
+                    <button class="font-btn" onclick="resetAnswer('u6-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 아날로그 원시값을 실제 물리량으로 변환하는 작업을 무엇이라 부르는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '스케일링')">스케일링</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '스케일링')">인터록</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '스케일링')">자기유지</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '스케일링')">디바운스</button>
+                    </div>
+                    <div id="q-result-u6-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-3" class="note" style="display:none;">💡 해설: 아날로그 원시값을 실제 물리량 단위로 바꾸는 계산을 스케일링이라 부릅니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u6-4" data-qid="u6-4">
+                    <button class="font-btn" onclick="resetAnswer('u6-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 정수(Int) 타입끼리 나눗셈을 할 때 흔히 발생하는 문제는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '소수점 이하가 버림 처리되어 예상과 다른 결과가 나옴')">소수점 이하가 버림 처리되어 예상과 다른 결과가 나옴</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '소수점 이하가 버림 처리되어 예상과 다른 결과가 나옴')">항상 오류가 발생함</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '소수점 이하가 버림 처리되어 예상과 다른 결과가 나옴')">결과가 항상 0이 됨</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '소수점 이하가 버림 처리되어 예상과 다른 결과가 나옴')">문제 없음</button>
+                    </div>
+                    <div id="q-result-u6-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-4" class="note" style="display:none;">💡 해설: 정수 나눗셈은 소수점 이하를 버리기 때문에, 소수점이 필요한 계산은 Real 타입으로 먼저 변환해야 합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -630,11 +830,23 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">📌 핵심 요약</p>
                     <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>타입</th><th>설명</th></tr><tr><td>Bool</td><td>0 또는 1(참/거짓) 1비트</td></tr><tr><td>Byte</td><td>8비트</td></tr><tr><td>Int</td><td>16비트 정수</td></tr><tr><td>DInt</td><td>32비트 정수</td></tr><tr><td>Real</td><td>32비트 실수(소수점 포함)</td></tr></table></div></div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 각 타입의 표현 범위</p>
+                    <div style="margin:0; line-height:1.7;">Int는 대략 <span class='blue'>-32768 ~ 32767</span> 범위를 표현할 수 있고, 이보다 큰 값을 다뤄야 한다면 DInt(더 넓은 정수 범위)를 사용해야 한다. 범위를 넘어서는 값을 Int에 넣으면 오버플로우(값이 예상과 다르게 튀는 현상)가 발생할 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 문자열(String)과 구조체(Struct)</p>
+                    <div style="margin:0; line-height:1.7;">기본 타입 외에도 텍스트를 저장하는 <span class='red'>String</span>, 여러 변수를 하나로 묶는 <span class='blue'>구조체(Struct, User Data Type)</span>도 자주 사용된다. 예를 들어 한 제품의 '이름, 수량, 가격'을 묶어 하나의 구조체로 관리하면 데이터 관리가 편해진다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 타입 변환 (CONVERT)</p>
+                    <div style="margin:0; line-height:1.7;">서로 다른 데이터 타입끼리 계산하거나 비교해야 할 때는 <span class='blue'>CONVERT</span> 명령으로 타입을 먼저 맞춰야 한다. 예를 들어 Int 값을 Real로 변환한 뒤 소수점 계산에 사용하는 식이다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-7">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-7">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-7" data-scoreboard="true">
 <div class="box quiz-box" id="box-u7-1" data-qid="u7-1">
                     <button class="font-btn" onclick="resetAnswer('u7-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -659,6 +871,30 @@
                     </div>
                     <div id="q-result-u7-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u7-2" class="note" style="display:none;">💡 해설: Real은 소수점을 포함한 실수 값을 저장하는 데이터 타입입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u7-3" data-qid="u7-3">
+                    <button class="font-btn" onclick="resetAnswer('u7-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. Int 타입의 표현 범위를 넘어서는 값을 넣었을 때 발생할 수 있는 문제는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '오버플로우(값이 예상과 다르게 튐)')">오버플로우(값이 예상과 다르게 튐)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '오버플로우(값이 예상과 다르게 튐)')">자동으로 Real로 바뀜</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '오버플로우(값이 예상과 다르게 튐)')">아무 문제 없음</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '오버플로우(값이 예상과 다르게 튐)')">프로그램이 자동 삭제됨</button>
+                    </div>
+                    <div id="q-result-u7-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-3" class="note" style="display:none;">💡 해설: Int의 표현 범위를 넘는 값을 넣으면 오버플로우가 발생해 값이 예상과 다르게 나타날 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u7-4" data-qid="u7-4">
+                    <button class="font-btn" onclick="resetAnswer('u7-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 서로 다른 데이터 타입끼리 계산하기 전에 타입을 맞추는 명령은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, 'CONVERT')">CONVERT</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, 'CONVERT')">MOVE</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, 'CONVERT')">CMP</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, 'CONVERT')">ADD</button>
+                    </div>
+                    <div id="q-result-u7-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-4" class="note" style="display:none;">💡 해설: CONVERT 명령으로 데이터 타입을 변환한 뒤 계산이나 비교를 수행해야 정확한 결과를 얻을 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -697,11 +933,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">3. 인스턴스 DB</p>
                     <div style="margin:0; line-height:1.7;">FB를 호출할 때는 그 상태를 저장할 <span class='mint'>인스턴스 DB</span>를 함께 지정해야 하며, 이 DB 덕분에 FB는 다음 스캔에서도 이전 상태(예: 타이머 경과시간)를 기억할 수 있다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 매개변수(입출력) 설계</p>
+                    <div style="margin:0; line-height:1.7;">FC/FB를 만들 때는 <span class='blue'>Input(입력), Output(출력), InOut(입출력), Static(내부 저장용)</span> 매개변수를 적절히 설계해야 한다. 예를 들어 '모터 제어' FB라면 기동/정지 버튼을 Input으로, 모터 출력을 Output으로 받도록 설계할 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. 명명 규칙(Naming Convention) 정하기</p>
+                    <div style="margin:0; line-height:1.7;">블록 개수가 많아질수록 <span class='red'>FC/FB/DB 이름에 일관된 규칙</span>(예: FC_모터제어, FB_컨베이어, DB_설정값)을 정해두면, 나중에 필요한 블록을 프로젝트 트리에서 빠르게 찾을 수 있어 유지보수가 쉬워진다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-8">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-8">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-8" data-scoreboard="true">
 <div class="box quiz-box" id="box-u8-1" data-qid="u8-1">
                     <button class="font-btn" onclick="resetAnswer('u8-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -726,6 +970,30 @@
                     </div>
                     <div id="q-result-u8-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u8-2" class="note" style="display:none;">💡 해설: FB 호출시 인스턴스 DB를 함께 지정하여 다음 스캔에서도 상태를 기억할 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u8-3" data-qid="u8-3">
+                    <button class="font-btn" onclick="resetAnswer('u8-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. FC/FB를 설계할 때 기동·정지 버튼처럼 밖에서 안으로 들어오는 값에 사용하는 매개변수 종류는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, 'Input(입력)')">Input(입력)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, 'Input(입력)')">Output(출력)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, 'Input(입력)')">Static</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, 'Input(입력)')">Temp</button>
+                    </div>
+                    <div id="q-result-u8-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-3" class="note" style="display:none;">💡 해설: 밖에서 블록 안으로 들어오는 값은 Input(입력) 매개변수로 설계합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u8-4" data-qid="u8-4">
+                    <button class="font-btn" onclick="resetAnswer('u8-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 블록이 많아질 때 유지보수를 쉽게 하기 위한 방법은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '일관된 명명 규칙을 정해서 사용')">일관된 명명 규칙을 정해서 사용</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '일관된 명명 규칙을 정해서 사용')">이름을 매번 다르게 짓는다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '일관된 명명 규칙을 정해서 사용')">블록 이름을 숫자로만 짓는다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '일관된 명명 규칙을 정해서 사용')">이름 규칙은 중요하지 않다</button>
+                    </div>
+                    <div id="q-result-u8-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-4" class="note" style="display:none;">💡 해설: FC/FB/DB에 일관된 명명 규칙을 사용하면 필요한 블록을 빠르게 찾을 수 있어 유지보수가 쉬워집니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -752,10 +1020,10 @@
             <h1>지멘스 PLC 기초강좌 - <br>🎲 랜덤 모의고사</h1>
             <div id="exam-select" class="box" style="text-align:center;">
                 <p style="font-weight:700; margin-top:0;">몇 문제를 랜덤으로 뽑을까요?</p>
-                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 16문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
+                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 32문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
                 <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
                     <button class="font-btn" onclick="startRandomExam(8)" style="padding:10px 18px;">8문제</button>
-                    <button class="font-btn" onclick="startRandomExam(16)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">16문제(전체)</button>
+                    <button class="font-btn" onclick="startRandomExam(32)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">32문제(전체)</button>
                 </div>
             </div>
 
