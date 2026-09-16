@@ -125,7 +125,7 @@
                 </button>
                 <div class="tab-dropdown-list" id="tab-dropdown-list">
                     <button class="tab-btn active" onclick="openTab(event, 'tab-cover')">표지</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 단원학습 (8단원)</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 단원학습 (9단원)</button>
                     <button class="tab-btn" onclick="openTab(event, 'tab-exam')">🎲 랜덤 모의고사</button>
                     <button class="tab-btn" onclick="openTab(event, 'tab-wrong')">📕 오답노트</button>
                 </div>
@@ -139,9 +139,9 @@
                 <div class="cover-subtitle">⑥ 예제② - 타이머·카운터 응용</div>
                 <div class="cover-divider"></div>
                 <div class="cover-info">
-                    <p>범위: 8단원</p>
-                    <p>확인문제: 단원별 2문제 · 총 32문제</p>
-                    <p>버전: V2.0.0 (8단원 확장판)</p>
+                    <p>범위: 9단원</p>
+                    <p>확인문제: 단원별 문제 · 총 36문제</p>
+                    <p>버전: V2.5.0 (초보자용 0단원 + 보충설명 추가)</p>
                 </div>
             </div>
             <div class="box">
@@ -164,7 +164,7 @@
         <div id="tab-study" class="tab-content">
             <h1>지멘스 PLC 기초강좌 - <br>📘 PLC 예제② 타이머·카운터</h1>
             <div style="text-align: right; font-size: 0.8em; color: var(--text-sub); margin-top: 4px; margin-bottom: 12px;">
-                <span>8단원 · 확인문제 32문제</span>
+                <span>9단원 · 확인문제 36문제</span>
             </div>
 
             <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
@@ -173,6 +173,13 @@
 
             <div id="sub-page-menu">
                 <div class="sub-nav-grid" id="main-menu-grid">
+                        <div class="sub-nav-card" onclick="showSubPage(9)" style="border:1.5px solid var(--primary);">
+                            <span>0단원. 시간·신호 개념 먼저</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-9" style="display:none;">✅ 완료</span>
+                                <span id="card-star-9"></span>
+                            </div>
+                        </div>
                         <div class="sub-nav-card" onclick="showSubPage(1)">
                             <span>01. 온딜레이 타이머 기본 예제</span>
                             <div class="card-status-box">
@@ -235,7 +242,7 @@
                 <div id="sub-page-1" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">1 / 8 PAGE</div>
+                            <div class="page-indicator">1 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -261,6 +268,10 @@
                     <div style="margin:0; line-height:1.7;">버튼을 누르면 먼저 <span class='blue'>경고음(부저)이 3초간 울리고, 그 후에 실제로 설비가 기동</span>되는 안전 절차를 TON 하나로 간단히 구현할 수 있다. 부저는 버튼과 동시에 켜고, 설비 기동은 TON의 출력 신호로 연결하면 된다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 가스레인지 예열 타이머</p>
+                    <div style="margin:0; line-height:1.7;">온딜레이(TON) 타이머는 가스레인지를 켠 뒤 일정 시간이 지나야 조리 알림이 울리는 것과 같다. 조건이 켜진 순간부터 시간을 세기 시작해서, 설정값에 도달해야 비로소 출력이 켜진다는 점을 기억하면 된다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -328,7 +339,7 @@
                 <div id="sub-page-2" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">2 / 8 PAGE</div>
+                            <div class="page-indicator">2 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -354,6 +365,10 @@
                     <div style="margin:0; line-height:1.7;">설비가 켜질 때는 TON으로 천천히 예열시키고, 꺼질 때는 TOF로 천천히 냉각시키는 식으로, 하나의 설비에 <span class='red'>기동은 TON, 정지는 TOF</span>를 동시에 적용하는 경우도 실무에서 흔하다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 현관 센서등처럼</p>
+                    <div style="margin:0; line-height:1.7;">오프딜레이(TOF) 타이머는 현관 센서등이 사람이 지나간 뒤에도 몇 초간 더 켜져 있다가 꺼지는 것과 같다. 조건이 꺼지는 순간부터 시간을 세기 시작해서, 그 시간이 다 지나야 비로소 출력이 꺼진다는 점이 온딜레이와 정반대다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -423,7 +438,7 @@
                 <div id="sub-page-3" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">3 / 8 PAGE</div>
+                            <div class="page-indicator">3 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -449,6 +464,10 @@
                     <div style="margin:0; line-height:1.7;">CPU 속성에서 <span class='red'>클럭 메모리(Clock memory)</span> 기능을 활성화하면, 별도의 타이머 로직을 짜지 않아도 미리 정해진 주기(0.5초, 1초 등)로 자동 반전되는 비트를 바로 사용할 수 있어 점멸회로를 훨씬 간단하게 구현할 수 있다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 자전거 후미등 깜빡이</p>
+                    <div style="margin:0; line-height:1.7;">점멸 회로는 자전거 후미등처럼 일정한 간격으로 켜짐과 꺼짐을 계속 반복하는 것이다. 타이머 두 개를 서로 꼬리에 꼬리를 물듯 연결해서, 하나가 끝나면 다른 하나가 시작되는 구조라는 것만 이해하면 어렵지 않다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -518,7 +537,7 @@
                 <div id="sub-page-4" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">4 / 8 PAGE</div>
+                            <div class="page-indicator">4 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -544,6 +563,10 @@
                     <div style="margin:0; line-height:1.7;">카운터의 현재값(CV)을 HMI 화면의 숫자 표시 필드에 연결해두면, 작업자가 <span class='red'>실시간으로 생산 진행 상황</span>을 확인할 수 있어 현장 관리에 큰 도움이 된다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 회전문 계수기와 같다</p>
+                    <div style="margin:0; line-height:1.7;">생산 개수 카운터는 마트 입구 회전문을 지나가는 손님 수를 세는 계수기와 똑같은 원리다. 센서 앞을 물건이 지나갈 때마다 신호가 한 번씩 깜빡이고, 그 깜빡임(엣지)의 횟수를 카운터가 하나씩 세어 누적한다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -613,7 +636,7 @@
                 <div id="sub-page-5" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">5 / 8 PAGE</div>
+                            <div class="page-indicator">5 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -639,6 +662,10 @@
                     <div style="margin:0; line-height:1.7;">비상정지가 눌리면 순차 정지 로직을 거치지 않고 <span class='red'>모든 컨베이어를 즉시 동시 정지</span>시켜야 한다. 순차 제어 로직과 비상정지 로직은 서로 다른 우선순위로 설계해, 비상정지가 항상 최우선으로 작동하도록 구성해야 한다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 도미노처럼 순서대로</p>
+                    <div style="margin:0; line-height:1.7;">컨베이어 여러 대를 순서대로 기동·정지시키는 것은 도미노를 순서대로 넘어뜨리는 것과 비슷하다. 순서를 지키는 이유(물건이 밀리거나 쌓이지 않도록)까지 함께 이해하면 회로가 더 잘 와닿는다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -708,7 +735,7 @@
                 <div id="sub-page-6" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">6 / 8 PAGE</div>
+                            <div class="page-indicator">6 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -734,6 +761,10 @@
                     <div style="margin:0; line-height:1.7;">교반기 외에도 <span class='red'>세척기의 분사-정지 반복, 도장 설비의 스프레이-이동 반복</span> 등 일정 패턴을 계속 반복해야 하는 다양한 설비에 이 사이클 타이머 패턴을 응용할 수 있다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 세탁기 헹굼 반복과 같다</p>
+                    <div style="margin:0; line-height:1.7;">일정 동작을 여러 번 반복하는 사이클 타이머는 세탁기가 헹굼을 여러 차례 반복하는 것과 같다. 한 번의 사이클이 끝나면 카운터가 반복 횟수를 세고, 정해진 횟수에 도달하면 전체 동작을 멈추는 식으로 타이머와 카운터가 함께 협력한다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -803,7 +834,7 @@
                 <div id="sub-page-7" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">7 / 8 PAGE</div>
+                            <div class="page-indicator">7 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -829,6 +860,10 @@
                     <div style="margin:0; line-height:1.7;">센서 고장 등으로 <span class='red'>제품이 오랫동안 목표 개수에 도달하지 못하는 경우</span>를 대비해, 별도의 타이머로 일정 시간 이상 카운트가 멈춰 있으면 경보를 울리는 타임아웃 로직을 추가하면 설비의 신뢰성을 높일 수 있다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 박스에 물건을 채우고 포장하는 과정</p>
+                    <div style="margin:0; line-height:1.7;">포장기 예제는 '물건이 정해진 개수만큼 채워지면(카운터) → 일정 시간 눌러 포장하고(타이머) → 다시 처음부터 반복'하는 실제 생산 현장의 흐름을 그대로 옮긴 것이다. 두 기능을 나누어 생각하면 결합된 회로도 어렵지 않게 읽을 수 있다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -898,7 +933,7 @@
                 <div id="sub-page-8" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">8 / 8 PAGE</div>
+                            <div class="page-indicator">8 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -924,6 +959,10 @@
                     <div style="margin:0; line-height:1.7;">심야 시간대나 점검 모드에서는 신호등을 순환시키지 않고 <span class='blue'>노란불만 점멸</span>시키는 경우가 많다. 별도의 모드 선택 스위치를 두고, 이 모드일 때는 순환 로직 대신 3단원에서 배운 점멸회로가 노란 램프에 연결되도록 전환하는 구조로 확장할 수 있다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 우리가 매일 보는 신호등 그 자체</p>
+                    <div style="margin:0; line-height:1.7;">신호등 제어는 빨강→초록→노랑을 정해진 시간마다 순서대로 반복하는, 타이머 활용의 가장 대표적이고 친숙한 예다. 온딜레이 타이머 여러 개를 순서대로 이어 붙이면 완성되는 구조이므로, 그동안의 복습이라는 마음으로 편하게 접근하면 된다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -988,6 +1027,108 @@
 
                 </div>
 
+            
+                <div id="sub-page-9" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">9 / 9 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-9" onchange="toggleComplete(9)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-9" onclick="toggleBookmark(9)">☆</button>
+                        </div>
+                    </div>
+                    <h2>0. 타이머·카운터 예제 전에: 시간과 신호의 개념</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">📌 핵심 용어</p>
+                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>용어</th><th>의미</th></tr><tr><td>설정값(Preset/PT)</td><td>타이머가 '몇 초 후에 동작할지' 미리 정해둔 목표 시간</td></tr><tr><td>경과시간(ET)</td><td>지금까지 실제로 흐른 시간</td></tr><tr><td>상승엣지</td><td>신호가 꺼짐→켜짐으로 바뀌는 순간</td></tr><tr><td>하강엣지</td><td>신호가 켜짐→꺼짐으로 바뀌는 순간</td></tr><tr><td>스캔사이클</td><td>PLC가 입력→연산→출력을 반복하는 한 바퀴</td></tr></table></div></div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. PLC에게 '시간'이란 무엇인가</p>
+                    <div style="margin:0; line-height:1.7;">사람이 시계를 보는 것처럼, PLC도 내부적으로 아주 짧은 단위(ms)로 시간을 센다. 이를 이용해 '몇 초 후에 무언가를 하도록' 만드는 것이 타이머다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 설정값과 경과시간의 차이</p>
+                    <div style="margin:0; line-height:1.7;">설정값(PT)은 '몇 초 후에 동작할지' 미리 정해둔 목표 시간이고, 경과시간(ET)은 지금까지 흐른 실제 시간이다. 경과시간이 설정값에 도달하면 그 순간 타이머의 출력이 켜진다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 신호가 바뀌는 순간을 포착하는 개념(엣지)</p>
+                    <div style="margin:0; line-height:1.7;">상승엣지는 꺼짐→켜짐으로 바뀌는 딱 그 순간, 하강엣지는 켜짐→꺼짐으로 바뀌는 순간을 말한다. 카운터는 보통 이 '순간'을 세는 것이지, 계속 눌려있는 상태 자체를 세는 것이 아니라는 점이 중요하다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 스캔사이클 아주 살짝 맛보기</p>
+                    <div style="margin:0; line-height:1.7;">PLC는 입력을 읽고 → 연산하고 → 출력을 내보내는 과정을 아주 빠르게(보통 수십 ms 이내) 반복하는데, 이 한 바퀴를 <span class='blue'>스캔사이클</span>이라 부른다. 타이머·카운터 값도 이 사이클마다 갱신된다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">💡 실무 팁</p>
+                    <div style="margin:0; line-height:1.7;">타이머·카운터 예제가 어렵게 느껴지면, 먼저 '지금 몇 초가 지났는지'와 '지금까지 몇 번 눌렸는지'를 손으로 표에 적어보며 값의 변화를 눈으로 따라가 보면 이해가 훨씬 쉬워진다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-9">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
+                    <div id="unit-quiz-9" data-scoreboard="true">
+<div class="box quiz-box" id="box-u9-1" data-qid="u9-1">
+                    <button class="font-btn" onclick="resetAnswer('u9-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 타이머에서 '몇 초 후에 동작할지' 미리 정해둔 목표 시간을 무엇이라 하는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-1', this, '설정값(Preset)')">설정값(Preset)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-1', this, '설정값(Preset)')">경과시간(ET)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-1', this, '설정값(Preset)')">스캔사이클</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-1', this, '설정값(Preset)')">엣지</button>
+                    </div>
+                    <div id="q-result-u9-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-1" class="note" style="display:none;">💡 해설: 설정값(Preset, PT)은 타이머가 동작하기까지 목표로 하는 시간입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u9-2" data-qid="u9-2">
+                    <button class="font-btn" onclick="resetAnswer('u9-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 신호가 꺼짐에서 켜짐으로 바뀌는 순간을 무엇이라 하는가? (한글 3글자)</p>
+                    <div style="display:flex; gap:6px; margin:12px 0;">
+                        <input type="text" id="input-u9-2" class="mini-text-input" placeholder="정답 입력" style="max-width:220px;">
+                        <button class="font-btn" onclick="checkAnswerByInput('u9-2', document.getElementById('input-u9-2'), ["상승엣지", "상승 엣지"])">확인</button>
+                    </div>
+                    <div id="q-result-u9-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-2" class="note" style="display:none;">💡 해설: 꺼짐에서 켜짐으로 바뀌는 순간을 상승엣지라고 합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u9-3" data-qid="u9-3">
+                    <button class="font-btn" onclick="resetAnswer('u9-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. PLC가 입력을 읽고 연산하고 출력을 내보내는 한 바퀴의 반복 과정을 무엇이라 하는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '스캔사이클')">스캔사이클</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '스캔사이클')">다운로드</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '스캔사이클')">컴파일</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '스캔사이클')">아카이브</button>
+                    </div>
+                    <div id="q-result-u9-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-3" class="note" style="display:none;">💡 해설: PLC는 입력-연산-출력을 반복하는데, 이 한 바퀴를 스캔사이클이라 부릅니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u9-4" data-qid="u9-4">
+                    <button class="font-btn" onclick="resetAnswer('u9-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 카운터가 일반적으로 세는 대상은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '신호가 바뀌는 순간(엣지)')">신호가 바뀌는 순간(엣지)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '신호가 바뀌는 순간(엣지)')">계속 눌려 있는 시간(초)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '신호가 바뀌는 순간(엣지)')">전압의 크기</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '신호가 바뀌는 순간(엣지)')">파일의 용량</button>
+                    </div>
+                    <div id="q-result-u9-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-4" class="note" style="display:none;">💡 해설: 카운터는 보통 신호가 바뀌는 순간(엣지)의 횟수를 세어 누적합니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-9')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-9')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-9" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(9)"></textarea>
+                    </div>
+
+                </div>
+
             <div id="page-nav-bar" class="page-nav-bar" style="display:none;">
                 <button id="btn-prev" class="page-nav-btn" onclick="prevSubPage()">◀ 이전</button>
                 <button class="page-nav-btn main-btn" onclick="showSubMenu()">📋 단원 목록</button>
@@ -1000,10 +1141,10 @@
             <h1>지멘스 PLC 기초강좌 - <br>🎲 랜덤 모의고사</h1>
             <div id="exam-select" class="box" style="text-align:center;">
                 <p style="font-weight:700; margin-top:0;">몇 문제를 랜덤으로 뽑을까요?</p>
-                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 32문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
+                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 36문제(0~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
                 <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
                     <button class="font-btn" onclick="startRandomExam(8)" style="padding:10px 18px;">8문제</button>
-                    <button class="font-btn" onclick="startRandomExam(32)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">32문제(전체)</button>
+                    <button class="font-btn" onclick="startRandomExam(36)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">36문제(전체)</button>
                 </div>
             </div>
 
