@@ -14,7 +14,7 @@ var STORAGE_PREFIX = 'plc_usage_';
 function PK(key) { return STORAGE_PREFIX + key; }
 
 var currentSubPage = 0;
-var totalSubPages = 8;
+var totalSubPages = 9;
 var bookmarks = JSON.parse(localStorage.getItem(PK('user_bookmarks')) || '[]');
 var completes = JSON.parse(localStorage.getItem(PK('user_completes')) || '[]');
 var currentFontSize = parseInt(localStorage.getItem(PK('user_font_size')) || '14', 10);

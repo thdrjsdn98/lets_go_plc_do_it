@@ -125,7 +125,7 @@
                 </button>
                 <div class="tab-dropdown-list" id="tab-dropdown-list">
                     <button class="tab-btn active" onclick="openTab(event, 'tab-cover')">표지</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 단원학습 (8단원)</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 단원학습 (9단원)</button>
                     <button class="tab-btn" onclick="openTab(event, 'tab-exam')">🎲 랜덤 모의고사</button>
                     <button class="tab-btn" onclick="openTab(event, 'tab-wrong')">📕 오답노트</button>
                 </div>
@@ -139,9 +139,9 @@
                 <div class="cover-subtitle">① 사용법 - TIA Portal 시작하기와 화면 구성</div>
                 <div class="cover-divider"></div>
                 <div class="cover-info">
-                    <p>범위: 8단원</p>
-                    <p>확인문제: 단원별 2문제 · 총 32문제</p>
-                    <p>버전: V2.0.0 (8단원 확장판)</p>
+                    <p>범위: 9단원</p>
+                    <p>확인문제: 단원별 문제 · 총 36문제</p>
+                    <p>버전: V2.5.0 (초보자용 0단원 + 보충설명 추가)</p>
                 </div>
             </div>
             <div class="box">
@@ -164,7 +164,7 @@
         <div id="tab-study" class="tab-content">
             <h1>지멘스 PLC 기초강좌 - <br>📘 PLC 사용법</h1>
             <div style="text-align: right; font-size: 0.8em; color: var(--text-sub); margin-top: 4px; margin-bottom: 12px;">
-                <span>8단원 · 확인문제 32문제</span>
+                <span>9단원 · 확인문제 36문제</span>
             </div>
 
             <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
@@ -173,6 +173,13 @@
 
             <div id="sub-page-menu">
                 <div class="sub-nav-grid" id="main-menu-grid">
+                        <div class="sub-nav-card" onclick="showSubPage(9)" style="border:1.5px solid var(--primary);">
+                            <span>0단원. 시작 전에: 컴퓨터·설치 기초</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-9" style="display:none;">✅ 완료</span>
+                                <span id="card-star-9"></span>
+                            </div>
+                        </div>
                         <div class="sub-nav-card" onclick="showSubPage(1)">
                             <span>01. TIA Portal이란?</span>
                             <div class="card-status-box">
@@ -235,7 +242,7 @@
                 <div id="sub-page-1" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">1 / 8 PAGE</div>
+                            <div class="page-indicator">1 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -273,6 +280,10 @@
                     <div style="margin:0; line-height:1.7;">처음 배울 때는 'TIA Portal = PLC 프로그램만 짜는 곳'이라고 오해하기 쉬운데, 실제로는 <span class='red'>설비 전체의 엔지니어링 데이터가 모이는 하나의 큰 그릇</span>이라고 이해하면 이후 단원들의 구조가 훨씬 쉽게 이해된다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 초보자 눈높이: 통합 주방에 비유하면</p>
+                    <div style="margin:0; line-height:1.7;">TIA Portal을 대형 주방에 비유하면 이해가 쉽다. 예전에는 밥솥(PLC용 STEP&nbsp;7), 국솥(HMI용 WinCC), 오븐(드라이브용 STARTER)을 각각 다른 부엌에서 따로 조리했다면, TIA Portal은 이 모든 조리기구가 한 부엌 안에 모여 있어 재료(태그)를 옮길 필요 없이 한 곳에서 요리를 완성하는 셈이다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -340,7 +351,7 @@
                 <div id="sub-page-2" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">2 / 8 PAGE</div>
+                            <div class="page-indicator">2 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -370,6 +381,10 @@
                     <div style="margin:0; line-height:1.7;">설치 도중 오류가 잦은 편이라, ① 백신 프로그램을 잠시 끄고, ② 관리자 권한으로 설치 프로그램을 실행하고, ③ 설치 경로에 <span class='red'>한글이나 특수문자가 없는 폴더</span>를 지정하는 것이 문제를 줄이는 데 도움이 된다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 라이선스 키는 자동차 키와 같다</p>
+                    <div style="margin:0; line-height:1.7;">라이선스 키(USB 동글)는 자동차 키와 비슷하다. 키가 없으면 차(TIA Portal 풀 기능)를 몰 수 없고, 키를 잃어버리면 새로 발급받는 데 시간과 비용이 든다. 그래서 실무에서는 라이선스 키를 분실하지 않도록 각별히 관리하는 습관이 중요하다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -439,7 +454,7 @@
                 <div id="sub-page-3" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">3 / 8 PAGE</div>
+                            <div class="page-indicator">3 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -469,6 +484,10 @@
                     <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>메뉴</th><th>기능</th></tr><tr><td>디바이스 구성(Devices & networks)</td><td>CPU·모듈 추가 및 네트워크 설정</td></tr><tr><td>PLC 프로그래밍</td><td>블록 작성 및 편집</td></tr><tr><td>시각화 구성</td><td>HMI 화면 제작</td></tr><tr><td>온라인 & 진단</td><td>실제 하드웨어 상태 확인</td></tr></table></div></div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 쇼핑몰 안내데스크와 매장 안</p>
+                    <div style="margin:0; line-height:1.7;">Portal 뷰는 쇼핑몰 입구의 안내데스크, 프로젝트 뷰는 실제 물건을 고르고 결제하는 매장 내부라고 생각하면 된다. 안내데스크에서는 '어디로 갈지' 큰 방향만 고르고, 실제 작업(래더 작성, 설정 변경)은 대부분 매장 안(프로젝트 뷰)에서 이루어진다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -536,7 +555,7 @@
                 <div id="sub-page-4" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">4 / 8 PAGE</div>
+                            <div class="page-indicator">4 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -570,6 +589,10 @@
                     <div style="margin:0; line-height:1.7;">패널의 위치나 크기를 내가 편한 대로 바꿔둔 뒤, 이 배치를 유지하고 싶다면 별도로 저장해둘 수 있는 기능이 있다. 매번 창을 재배치하는 수고를 줄일 수 있다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 여러 창은 요리사의 도구대</p>
+                    <div style="margin:0; line-height:1.7;">프로젝트 트리, 인스펙터 창, 정보창은 요리사 옆에 놓인 도구대와 같다. 재료 창고(프로젝트 트리)에서 필요한 재료를 꺼내고, 계량컵(인스펙터 창)으로 설정값을 맞추고, 완성 상태를 알려주는 타이머(정보창)를 곁눈질하며 작업하는 것과 비슷하다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -639,7 +662,7 @@
                 <div id="sub-page-5" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">5 / 8 PAGE</div>
+                            <div class="page-indicator">5 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -669,6 +692,10 @@
                     <div style="margin:0; line-height:1.7;">①비슷해 보이는 CPU 모델을 대충 선택 → 다운로드 오류. ②저장 경로에 특수문자·너무 긴 경로 사용 → 파일 접근 오류. ③프로젝트 이름을 임시로 짓고 나중에 안 바꿈 → 나중에 여러 프로젝트가 섞여 헷갈림. 이 세 가지만 주의해도 초반 실수를 크게 줄일 수 있다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 새 문서 만들기 + 어떤 프린터를 연결할지 고르기</p>
+                    <div style="margin:0; line-height:1.7;">새 프로젝트를 만드는 것은 워드에서 '새 문서'를 여는 것과 같고, 디바이스(CPU)를 추가하는 것은 '어떤 프린터에 인쇄할지' 고르는 것과 비슷하다. 모델이 다르면 사용 가능한 기능도 달라지므로 반드시 실물과 똑같은 모델을 선택해야 한다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -736,7 +763,7 @@
                 <div id="sub-page-6" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">6 / 8 PAGE</div>
+                            <div class="page-indicator">6 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -766,6 +793,10 @@
                     <div style="margin:0; line-height:1.7;"><b>글로벌 DB</b>는 특정 블록에 종속되지 않고 프로그램 어디서든 접근 가능한 데이터 저장소이고, <b>인스턴스 DB</b>는 특정 FB 호출 하나에 전용으로 딸려있는 데이터 저장소다. 예를 들어 같은 FB를 3번 호출하면 인스턴스 DB도 3개가 생겨 서로 독립적으로 상태를 유지한다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 회사 조직에 비유하면</p>
+                    <div style="margin:0; line-height:1.7;">OB는 전원이 켜지면 자동으로 지시를 내리는 '사장', FC는 기억을 남기지 않고 그때그때 처리하는 '직원', FB는 자기 서랍(인스턴스 DB)을 가진 '직원', DB는 데이터를 저장해두는 '서류 캐비닛'이라고 생각하면 각 블록의 역할이 쉽게 그려진다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -835,7 +866,7 @@
                 <div id="sub-page-7" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">7 / 8 PAGE</div>
+                            <div class="page-indicator">7 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -865,6 +896,10 @@
                     <div style="margin:0; line-height:1.7;">CPU를 <span class='red'>RUN 모드</span>로 전환해야 실제로 로직이 반복 실행된다. STOP 모드에서는 프로그램이 실행되지 않으므로, 다운로드 후 RUN으로 전환하는 것을 잊지 않아야 한다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 번역 → 택배 발송 → 실시간 CCTV</p>
+                    <div style="margin:0; line-height:1.7;">컴파일은 내가 쓴 래더 언어를 PLC가 알아듣는 기계어로 '번역'하는 과정이고, 다운로드는 번역된 내용을 PLC로 '택배 발송'하는 과정이다. 모니터링은 발송 후 PLC 안에서 접점이 켜지고 꺼지는 모습을 실시간 CCTV처럼 지켜보는 기능이다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -932,7 +967,7 @@
                 <div id="sub-page-8" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">8 / 8 PAGE</div>
+                            <div class="page-indicator">8 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -962,6 +997,10 @@
                     <div style="margin:0; line-height:1.7;">프로그램 안에 <span class='blue'>주석(Comment)</span>을 충실히 남기고, 태그 이름도 의미를 알 수 있게(예: I0.0 대신 '기동버튼_라인1') 지어두면, 나중에 다른 사람이 유지보수할 때 훨씬 수월해진다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 파일 정리 습관과 똑같다</p>
+                    <div style="margin:0; line-height:1.7;">아카이브는 폴더를 압축해서 외장하드에 백업하는 것과 같고, 버전 비교는 '수정 전/후 문서'를 나란히 놓고 달라진 부분에 형광펜을 칠하는 것과 같다. 평소 파일을 날짜별로 정리하는 습관이 있다면 프로젝트 관리 기능도 크게 다르지 않게 느껴질 것이다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -1028,6 +1067,108 @@
 
                 </div>
 
+            
+                <div id="sub-page-9" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">9 / 9 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-9" onchange="toggleComplete(9)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-9" onclick="toggleBookmark(9)">☆</button>
+                        </div>
+                    </div>
+                    <h2>0. 시작 전에: 컴퓨터·설치 기초 다지기</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">📌 핵심 용어</p>
+                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>용어</th><th>의미</th></tr><tr><td>확장자</td><td>파일 이름 뒤에 붙어 파일의 종류를 나타내는 부분 (예: .apXX)</td></tr><tr><td>설치(Install)</td><td>프로그램을 컴퓨터에 사용 가능한 상태로 넣는 과정</td></tr><tr><td>라이선스</td><td>소프트웨어를 정식으로 사용할 권한(보통 USB 키로 인증)</td></tr><tr><td>관리자 권한</td><td>컴퓨터 설정을 바꿀 수 있는 최고 수준의 사용 권한</td></tr><tr><td>재부팅</td><td>설치 후 변경사항을 완전히 적용하기 위해 컴퓨터를 다시 켜는 것</td></tr></table></div></div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 내 컴퓨터가 TIA Portal을 실행할 수 있을까?</p>
+                    <div style="margin:0; line-height:1.7;">TIA Portal은 상당히 무거운 프로그램이라 <span class='blue'>64비트 윈도우</span>, 넉넉한 RAM(8GB 이상 권장), 여유 있는 저장공간이 필요하다. 회사 PC라면 이미 준비되어 있는 경우가 많지만, 개인 노트북에 처음 설치한다면 사양을 먼저 확인하는 것이 좋다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 설치 파일을 실행하기 전에 확인할 것</p>
+                    <div style="margin:0; line-height:1.7;">설치 프로그램은 반드시 <span class='red'>관리자 권한</span>으로 실행해야 한다. 또한 설치 도중 백신 프로그램이 필요한 파일을 차단하는 경우가 있어 설치가 끝날 때까지 잠시 꺼두는 경우가 많고, 설치 후에는 재부팅을 요구하는 경우가 대부분이다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 파일 확장자라는 개념</p>
+                    <div style="margin:0; line-height:1.7;">확장자는 파일이 '어떤 종류'인지 알려주는 이름표다. 예를 들어 한글 문서는 .hwp, 워드는 .docx이듯, TIA Portal 프로젝트 파일도 고유한 확장자(버전에 따라 .apXX 등)를 가진다. 이후 단원에서 프로젝트를 저장·백업할 때 이 개념이 계속 등장한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 창(Window)·패널·탭이라는 용어</p>
+                    <div style="margin:0; line-height:1.7;">윈도우 프로그램에서 화면 안에 떠 있는 하나하나의 작업 영역을 <span class='mint'>창(Window)</span>이라 부르고, 그 창들을 옆에 붙여놓은 것을 패널, 위쪽에서 클릭해 전환하는 항목을 탭이라 부른다. 이 용어들은 TIA Portal뿐 아니라 대부분의 윈도우 프로그램에서 공통으로 쓰이므로 미리 익혀두면 좋다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">💡 실무 팁</p>
+                    <div style="margin:0; line-height:1.7;">처음 설치할 때 가장 흔한 실수는 인터넷이 안 되는 현장 PC에 온라인 설치 파일만 들고 가는 것과, 라이선스 USB 키를 분실하는 것이다. 설치 전에는 항상 오프라인 설치 패키지를 준비하고, 라이선스 키는 별도로 안전하게 보관하는 습관을 들이자.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-9">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
+                    <div id="unit-quiz-9" data-scoreboard="true">
+<div class="box quiz-box" id="box-u9-1" data-qid="u9-1">
+                    <button class="font-btn" onclick="resetAnswer('u9-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 컴퓨터 프로그램의 설치 파일을 실행할 때, 일반적으로 필요한 권한은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-1', this, '관리자 권한')">관리자 권한</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-1', this, '관리자 권한')">손님 권한</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-1', this, '관리자 권한')">아무 권한도 필요 없음</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-1', this, '관리자 권한')">인터넷 권한만</button>
+                    </div>
+                    <div id="q-result-u9-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-1" class="note" style="display:none;">💡 해설: 설치 프로그램은 시스템 설정을 변경해야 하므로 관리자 권한으로 실행해야 합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u9-2" data-qid="u9-2">
+                    <button class="font-btn" onclick="resetAnswer('u9-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 파일 이름 뒤에 붙어 파일의 종류를 나타내는 것을 무엇이라 하는가? (한글)</p>
+                    <div style="display:flex; gap:6px; margin:12px 0;">
+                        <input type="text" id="input-u9-2" class="mini-text-input" placeholder="정답 입력" style="max-width:220px;">
+                        <button class="font-btn" onclick="checkAnswerByInput('u9-2', document.getElementById('input-u9-2'), ["확장자"])">확인</button>
+                    </div>
+                    <div id="q-result-u9-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-2" class="note" style="display:none;">💡 해설: 확장자는 파일의 종류를 구분해주는 이름표 역할을 합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u9-3" data-qid="u9-3">
+                    <button class="font-btn" onclick="resetAnswer('u9-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 설치 프로그램을 실행하기 전 점검 사항으로 적절하지 않은 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '백신 프로그램을 영구적으로 삭제한다')">백신 프로그램을 영구적으로 삭제한다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '백신 프로그램을 영구적으로 삭제한다')">관리자 권한으로 실행한다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '백신 프로그램을 영구적으로 삭제한다')">최소 사양을 확인한다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '백신 프로그램을 영구적으로 삭제한다')">재부팅 필요 여부를 확인한다</button>
+                    </div>
+                    <div id="q-result-u9-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-3" class="note" style="display:none;">💡 해설: 설치 중 잠시 꺼두는 것은 몰라도, 백신 프로그램을 영구히 삭제하는 것은 보안상 바람직하지 않습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u9-4" data-qid="u9-4">
+                    <button class="font-btn" onclick="resetAnswer('u9-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 윈도우 프로그램에서 화면 안에 떠 있는 하나의 작업 영역(예: 인스펙터 창)을 부르는 일반적인 용어는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '창(Window)')">창(Window)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '창(Window)')">문서(Document)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '창(Window)')">폴더(Folder)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '창(Window)')">파일(File)</button>
+                    </div>
+                    <div id="q-result-u9-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-4" class="note" style="display:none;">💡 해설: 화면 안의 개별 작업 영역은 일반적으로 '창(Window)'이라고 부릅니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-9')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-9')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-9" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(9)"></textarea>
+                    </div>
+
+                </div>
+
             <div id="page-nav-bar" class="page-nav-bar" style="display:none;">
                 <button id="btn-prev" class="page-nav-btn" onclick="prevSubPage()">◀ 이전</button>
                 <button class="page-nav-btn main-btn" onclick="showSubMenu()">📋 단원 목록</button>
@@ -1040,10 +1181,10 @@
             <h1>지멘스 PLC 기초강좌 - <br>🎲 랜덤 모의고사</h1>
             <div id="exam-select" class="box" style="text-align:center;">
                 <p style="font-weight:700; margin-top:0;">몇 문제를 랜덤으로 뽑을까요?</p>
-                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 32문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
+                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 36문제(0~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
                 <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
                     <button class="font-btn" onclick="startRandomExam(8)" style="padding:10px 18px;">8문제</button>
-                    <button class="font-btn" onclick="startRandomExam(32)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">32문제(전체)</button>
+                    <button class="font-btn" onclick="startRandomExam(36)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">36문제(전체)</button>
                 </div>
             </div>
 
