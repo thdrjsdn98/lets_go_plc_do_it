@@ -140,7 +140,7 @@
                 <div class="cover-divider"></div>
                 <div class="cover-info">
                     <p>범위: 8단원</p>
-                    <p>확인문제: 단원별 2문제 · 총 16문제</p>
+                    <p>확인문제: 단원별 2문제 · 총 32문제</p>
                     <p>버전: V2.0.0 (8단원 확장판)</p>
                 </div>
             </div>
@@ -164,7 +164,7 @@
         <div id="tab-study" class="tab-content">
             <h1>지멘스 PLC 기초강좌 - <br>📘 PLC 핵심내용① 하드웨어·통신</h1>
             <div style="text-align: right; font-size: 0.8em; color: var(--text-sub); margin-top: 4px; margin-bottom: 12px;">
-                <span>8단원 · 확인문제 16문제</span>
+                <span>8단원 · 확인문제 32문제</span>
             </div>
 
             <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
@@ -256,11 +256,23 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 확장성 고려</p>
                     <div style="margin:0; line-height:1.7;">설비가 향후 커질 가능성이 있다면, 처음부터 I/O 확장 슬롯과 통신 포트가 넉넉한 상위 모델을 선택하는 것이 유지보수에 유리하다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. S7-1200 내에서도 등급이 나뉜다</p>
+                    <div style="margin:0; line-height:1.7;">S7-1200 안에서도 CPU 1211C(가장 작은 I/O)부터 CPU 1215C, 1217C(더 많은 I/O·아날로그 채널)까지 여러 등급이 있다. 필요한 I/O 개수를 미리 계산해두면 적정 모델을 고르기 쉽다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 안전(Safety) 기능이 필요한 경우</p>
+                    <div style="margin:0; line-height:1.7;">비상정지, 안전문 등 기능안전(Functional Safety)이 필요한 설비라면 일반 CPU 대신 <span class='red'>F-CPU(Fail-safe CPU, 예: 1215FC)</span>를 선택해야 한다. F-CPU는 안전 관련 표준(SIL/PL)을 만족하도록 설계된 전용 모델이다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. CPU 선택 체크리스트</p>
+                    <div style="margin:0; line-height:1.7;">① 필요한 디지털/아날로그 I/O 개수, ② 필요한 통신 방식(PROFINET/PROFIBUS 등), ③ 안전 기능 필요 여부, ④ 향후 확장 가능성, ⑤ 예산. 이 다섯 가지를 표로 정리해두고 비교하면 CPU 선정 실수를 줄일 수 있다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-1" data-scoreboard="true">
 <div class="box quiz-box" id="box-u1-1" data-qid="u1-1">
                     <button class="font-btn" onclick="resetAnswer('u1-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -285,6 +297,30 @@
                     </div>
                     <div id="q-result-u1-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u1-2" class="note" style="display:none;">💡 해설: S7-1200은 엔트리~미들레인지급으로 소규모 자동화 설비에 적합합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u1-3" data-qid="u1-3">
+                    <button class="font-btn" onclick="resetAnswer('u1-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 비상정지 등 기능안전이 필요한 설비에 사용해야 하는 CPU 종류는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, 'F-CPU(Fail-safe CPU)')">F-CPU(Fail-safe CPU)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, 'F-CPU(Fail-safe CPU)')">일반 CPU 아무거나</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, 'F-CPU(Fail-safe CPU)')">구형 S5 CPU</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, 'F-CPU(Fail-safe CPU)')">CPU는 필요 없음</button>
+                    </div>
+                    <div id="q-result-u1-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u1-3" class="note" style="display:none;">💡 해설: 기능안전이 필요한 설비에는 안전 표준을 만족하도록 설계된 F-CPU(Fail-safe CPU)를 사용해야 합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u1-4" data-qid="u1-4">
+                    <button class="font-btn" onclick="resetAnswer('u1-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. CPU를 선정할 때 체크리스트에 포함하기에 가장 거리가 먼 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, 'CPU의 색상')">CPU의 색상</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, 'CPU의 색상')">필요한 I/O 개수</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, 'CPU의 색상')">필요한 통신 방식</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, 'CPU의 색상')">향후 확장 가능성</button>
+                    </div>
+                    <div id="q-result-u1-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u1-4" class="note" style="display:none;">💡 해설: CPU 선택 시 I/O 개수, 통신 방식, 안전기능, 확장성, 예산 등을 고려해야 하며 색상은 기능적 기준이 아닙니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -323,11 +359,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">3. 검색 팁</p>
                     <div style="margin:0; line-height:1.7;">정확한 주문번호를 모른다면 CPU 라벨의 문자를 카탈로그 검색창에 입력해 필터링하는 방식으로 빠르게 찾을 수 있다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 신호 모듈(SM)과 통신 모듈(CM)</p>
+                    <div style="margin:0; line-height:1.7;">입출력을 늘리는 <span class='blue'>신호 모듈(Signal Module, SM)</span>과, PROFIBUS 등 추가 통신 포트를 위한 <span class='red'>통신 모듈(Communication Module, CM)</span>을 구분해서 카탈로그에서 찾아야 한다. 흔히 SM은 CPU 오른쪽, CM은 CPU 왼쪽에 배치하는 규칙을 가진 제품군도 있으므로 매뉴얼을 확인해야 한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. 시뮬레이션으로 배치 미리보기</p>
+                    <div style="margin:0; line-height:1.7;">실제 구매 전, 카탈로그에서 모듈들을 가상으로 배치해보면서 <span class='blue'>필요한 슬롯 수와 전원 소모량</span>을 미리 계산해볼 수 있다. 전원 모듈의 용량을 초과해 모듈을 배치하면 실제로는 정상 동작하지 않으므로 이 계산이 중요하다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-2">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-2">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-2" data-scoreboard="true">
 <div class="box quiz-box" id="box-u2-1" data-qid="u2-1">
                     <button class="font-btn" onclick="resetAnswer('u2-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -350,6 +394,30 @@
                     </div>
                     <div id="q-result-u2-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u2-2" class="note" style="display:none;">💡 해설: 하드웨어 카탈로그에서 필요한 I/O 모듈, 통신 모듈 등을 검색해 배치할 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u2-3" data-qid="u2-3">
+                    <button class="font-btn" onclick="resetAnswer('u2-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 입출력 개수를 늘리기 위해 추가하는 모듈은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, '신호 모듈(SM)')">신호 모듈(SM)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, '신호 모듈(SM)')">통신 모듈(CM)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, '신호 모듈(SM)')">전원 모듈만</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, '신호 모듈(SM)')">CPU 모듈</button>
+                    </div>
+                    <div id="q-result-u2-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-3" class="note" style="display:none;">💡 해설: 신호 모듈(Signal Module, SM)은 디지털·아날로그 입출력을 확장하는 데 사용됩니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u2-4" data-qid="u2-4">
+                    <button class="font-btn" onclick="resetAnswer('u2-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 모듈을 여러 개 배치하기 전에 미리 계산해야 하는 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '전원 모듈의 용량(소모 전력)')">전원 모듈의 용량(소모 전력)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '전원 모듈의 용량(소모 전력)')">모듈의 색상</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '전원 모듈의 용량(소모 전력)')">케이블 길이</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '전원 모듈의 용량(소모 전력)')">프로젝트 이름</button>
+                    </div>
+                    <div id="q-result-u2-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-4" class="note" style="display:none;">💡 해설: 전원 모듈의 용량을 초과해 모듈을 배치하면 정상 동작하지 않으므로 미리 소모 전력을 계산해야 합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -384,11 +452,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">1. 비트·바이트·워드 표기</p>
                     <div style="margin:0; line-height:1.7;">I0.0은 입력 0바이트의 0번 비트를 뜻하며, I0.0~I0.7을 묶어 <span class='blue'>IB0(바이트)</span>, 두 바이트를 묶으면 <span class='blue'>IW0(워드)</span>로 표기한다. 출력(Q)과 메모리(M)도 동일한 표기 규칙을 따른다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 아날로그 신호의 주소</p>
+                    <div style="margin:0; line-height:1.7;">디지털 신호가 0/1의 비트 단위라면, 아날로그 신호(온도·압력 센서 등)는 보통 <span class='red'>IW(워드) 단위</span>로 표현되며 0~27648 같은 정수 범위 값으로 변환되어 들어온다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 심볼릭 이름(태그 이름) 활용</p>
+                    <div style="margin:0; line-height:1.7;">실제 프로그램에서는 I0.0처럼 절대 주소만 쓰기보다, <span class='blue'>'기동버튼_라인1'</span>처럼 의미를 담은 심볼릭 이름(태그 이름)을 지정해서 사용하는 것이 훨씬 읽기 쉽고 유지보수하기 좋다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-3">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-3">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-3" data-scoreboard="true">
 <div class="box quiz-box" id="box-u3-1" data-qid="u3-1">
                     <button class="font-btn" onclick="resetAnswer('u3-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -413,6 +489,30 @@
                     </div>
                     <div id="q-result-u3-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u3-2" class="note" style="display:none;">💡 해설: %Q는 출력(Output), %I는 입력(Input)에 사용하는 어드레스 접두사입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u3-3" data-qid="u3-3">
+                    <button class="font-btn" onclick="resetAnswer('u3-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 온도·압력 센서 같은 아날로그 신호는 보통 어떤 단위로 표현되는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '워드(IW) 단위의 정수 값')">워드(IW) 단위의 정수 값</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '워드(IW) 단위의 정수 값')">비트 단위(0/1)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '워드(IW) 단위의 정수 값')">문자열</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '워드(IW) 단위의 정수 값')">표현 불가능</button>
+                    </div>
+                    <div id="q-result-u3-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-3" class="note" style="display:none;">💡 해설: 아날로그 신호는 보통 워드(IW) 단위의 정수 범위 값으로 변환되어 PLC에 들어옵니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u3-4" data-qid="u3-4">
+                    <button class="font-btn" onclick="resetAnswer('u3-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. I0.0 대신 '기동버튼_라인1'처럼 의미 있는 이름을 붙여 쓰는 것을 무엇이라 하는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '심볼릭 이름(태그 이름)')">심볼릭 이름(태그 이름)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '심볼릭 이름(태그 이름)')">절대 주소</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '심볼릭 이름(태그 이름)')">데이터 타입</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '심볼릭 이름(태그 이름)')">네트워크 이름</button>
+                    </div>
+                    <div id="q-result-u3-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-4" class="note" style="display:none;">💡 해설: 의미를 담은 이름을 심볼릭 이름(태그 이름)이라 하며, 프로그램의 가독성을 크게 높여줍니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -447,11 +547,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 통신 방식</p>
                     <div style="margin:0; line-height:1.7;">요즘 CPU는 대부분 <span class='red'>PROFINET(이더넷)</span> 방식으로 연결하며, PC의 IP 대역과 CPU의 IP 주소가 같은 서브넷에 있어야 정상적으로 통신된다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 여러 어댑터가 있을 때 주의점</p>
+                    <div style="margin:0; line-height:1.7;">노트북에는 유선랜, 무선랜, 가상 어댑터(VPN 등) 여러 개가 동시에 존재하는 경우가 많다. <span class='blue'>실제로 PLC와 케이블로 연결된 어댑터</span>를 정확히 골라야 하며, 잘못된 어댑터를 선택하면 '검색되는 디바이스 없음' 오류가 흔히 발생한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 접근 가능한 노드 검색</p>
+                    <div style="margin:0; line-height:1.7;">온라인 액세스 화면에서 <span class='red'>'접근 가능한 디바이스 검색(Accessible devices)'</span> 버튼을 누르면, 현재 네트워크에 연결된 PLC들이 자동으로 검색되어 목록에 나타난다. IP 주소를 잘 모를 때 특히 유용하다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-4">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-4">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-4" data-scoreboard="true">
 <div class="box quiz-box" id="box-u4-1" data-qid="u4-1">
                     <button class="font-btn" onclick="resetAnswer('u4-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -476,6 +584,30 @@
                     </div>
                     <div id="q-result-u4-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u4-2" class="note" style="display:none;">💡 해설: 요즘 CPU는 대부분 PROFINET(이더넷) 방식으로 PC와 통신합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u4-3" data-qid="u4-3">
+                    <button class="font-btn" onclick="resetAnswer('u4-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 노트북에 여러 네트워크 어댑터가 있을 때 흔히 발생하는 문제는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '잘못된 어댑터 선택으로 '검색되는 디바이스 없음' 오류')">잘못된 어댑터 선택으로 '검색되는 디바이스 없음' 오류</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '잘못된 어댑터 선택으로 '검색되는 디바이스 없음' 오류')">속도가 항상 빨라짐</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '잘못된 어댑터 선택으로 '검색되는 디바이스 없음' 오류')">라이선스가 자동 갱신됨</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '잘못된 어댑터 선택으로 '검색되는 디바이스 없음' 오류')">문제 없음</button>
+                    </div>
+                    <div id="q-result-u4-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-3" class="note" style="display:none;">💡 해설: 실제 PLC와 연결된 어댑터가 아닌 다른 어댑터를 선택하면 디바이스가 검색되지 않는 문제가 흔히 발생합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u4-4" data-qid="u4-4">
+                    <button class="font-btn" onclick="resetAnswer('u4-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. IP 주소를 잘 모를 때 네트워크상의 PLC를 찾는 데 유용한 기능은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, '접근 가능한 디바이스 검색(Accessible devices)')">접근 가능한 디바이스 검색(Accessible devices)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, '접근 가능한 디바이스 검색(Accessible devices)')">라이브러리 검색</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, '접근 가능한 디바이스 검색(Accessible devices)')">정보창 검색</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, '접근 가능한 디바이스 검색(Accessible devices)')">태그표 검색</button>
+                    </div>
+                    <div id="q-result-u4-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-4" class="note" style="display:none;">💡 해설: 접근 가능한 디바이스 검색 기능으로 네트워크에 연결된 PLC들을 자동으로 찾을 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -510,11 +642,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 주소 충돌 주의</p>
                     <div style="margin:0; line-height:1.7;">같은 네트워크에 여러 CPU가 있다면 <span class='red'>서로 겹치지 않는 IP</span>를 부여해야 하며, 충돌 시 통신 오류나 다운로드 실패가 발생할 수 있다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 서브넷 마스크의 의미</p>
+                    <div style="margin:0; line-height:1.7;">서브넷 마스크(예: 255.255.255.0)는 IP 주소 중 <span class='blue'>어디까지가 네트워크를 구분하는 부분인지</span>를 나타낸다. PC와 CPU의 서브넷 마스크가 다르면 같은 대역처럼 보여도 통신이 안 될 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 고정 IP 관리 팁</p>
+                    <div style="margin:0; line-height:1.7;">현장에서는 나중에 설비를 추가하거나 교체할 때를 대비해, IP 주소를 <span class='red'>문서(배치도)로 정리</span>해두는 것이 유지보수에 큰 도움이 된다. IP가 겹치는 사고는 현장에서 실제로 자주 발생하는 실수 중 하나다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-5">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-5">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-5" data-scoreboard="true">
 <div class="box quiz-box" id="box-u5-1" data-qid="u5-1">
                     <button class="font-btn" onclick="resetAnswer('u5-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -539,6 +679,30 @@
                     </div>
                     <div id="q-result-u5-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u5-2" class="note" style="display:none;">💡 해설: 같은 네트워크 안의 여러 CPU는 서로 다른 IP 주소를 가져야 통신 충돌이 발생하지 않습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u5-3" data-qid="u5-3">
+                    <button class="font-btn" onclick="resetAnswer('u5-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 서브넷 마스크의 역할은 무엇인가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, 'IP 주소 중 네트워크를 구분하는 범위를 나타냄')">IP 주소 중 네트워크를 구분하는 범위를 나타냄</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, 'IP 주소 중 네트워크를 구분하는 범위를 나타냄')">CPU의 속도를 결정함</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, 'IP 주소 중 네트워크를 구분하는 범위를 나타냄')">메모리 용량을 정함</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, 'IP 주소 중 네트워크를 구분하는 범위를 나타냄')">프로그램 언어를 정함</button>
+                    </div>
+                    <div id="q-result-u5-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-3" class="note" style="display:none;">💡 해설: 서브넷 마스크는 IP 주소 중 어디까지가 네트워크 구분에 사용되는지를 나타냅니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u5-4" data-qid="u5-4">
+                    <button class="font-btn" onclick="resetAnswer('u5-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 여러 설비의 IP 주소를 관리하는 좋은 방법은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, '문서(배치도)로 정리해둔다')">문서(배치도)로 정리해둔다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, '문서(배치도)로 정리해둔다')">기억에만 의존한다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, '문서(배치도)로 정리해둔다')">관리할 필요가 없다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, '문서(배치도)로 정리해둔다')">매번 임의로 부여한다</button>
+                    </div>
+                    <div id="q-result-u5-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-4" class="note" style="display:none;">💡 해설: IP 주소를 문서로 정리해두면 설비 추가·교체 시 충돌을 예방하는 데 큰 도움이 됩니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -573,11 +737,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. PROFIBUS</p>
                     <div style="margin:0; line-height:1.7;">주로 <span class='red'>S7-300/400 세대</span>와 함께 쓰이던 구형 시리얼 기반 필드버스로, 최근에는 PROFINET으로 전환되는 추세다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 토폴로지(배선 구조)</p>
+                    <div style="margin:0; line-height:1.7;">PROFINET은 <span class='blue'>스타형, 라인형, 링형</span> 등 다양한 네트워크 구조(토폴로지)를 지원해 배선 방식에 유연성이 있는 반면, PROFIBUS는 전통적으로 버스(라인)형 배선이 기본이었다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 두 프로토콜 간 연동</p>
+                    <div style="margin:0; line-height:1.7;">구형 PROFIBUS 장비를 최신 PROFINET 네트워크에 연결해야 할 때는 <span class='red'>PROFINET/PROFIBUS 게이트웨이(변환 장치)</span>를 사용해 두 프로토콜을 연동시킬 수 있다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-6">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-6">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-6" data-scoreboard="true">
 <div class="box quiz-box" id="box-u6-1" data-qid="u6-1">
                     <button class="font-btn" onclick="resetAnswer('u6-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -602,6 +774,30 @@
                     </div>
                     <div id="q-result-u6-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u6-2" class="note" style="display:none;">💡 해설: PROFIBUS는 S7-300/400 세대에서 널리 쓰이던 구형 시리얼 기반 필드버스입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u6-3" data-qid="u6-3">
+                    <button class="font-btn" onclick="resetAnswer('u6-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. PROFINET이 지원하는 네트워크 배선 구조(토폴로지)로 옳은 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '스타형, 라인형, 링형 등 다양한 구조')">스타형, 라인형, 링형 등 다양한 구조</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '스타형, 라인형, 링형 등 다양한 구조')">오직 링형만 가능</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '스타형, 라인형, 링형 등 다양한 구조')">배선 구조가 없음</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '스타형, 라인형, 링형 등 다양한 구조')">오직 스타형만 가능</button>
+                    </div>
+                    <div id="q-result-u6-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-3" class="note" style="display:none;">💡 해설: PROFINET은 스타형, 라인형, 링형 등 다양한 토폴로지를 지원해 배선에 유연성이 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u6-4" data-qid="u6-4">
+                    <button class="font-btn" onclick="resetAnswer('u6-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 구형 PROFIBUS 장비를 PROFINET 네트워크에 연결하려면 무엇이 필요한가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, 'PROFINET/PROFIBUS 게이트웨이')">PROFINET/PROFIBUS 게이트웨이</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, 'PROFINET/PROFIBUS 게이트웨이')">필요 없이 바로 연결 가능</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, 'PROFINET/PROFIBUS 게이트웨이')">새 CPU 구매만 하면 됨</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, 'PROFINET/PROFIBUS 게이트웨이')">연결 자체가 불가능함</button>
+                    </div>
+                    <div id="q-result-u6-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-4" class="note" style="display:none;">💡 해설: 두 프로토콜 간에는 변환 장치인 게이트웨이를 사용해 연동할 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -636,11 +832,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 해결 방법</p>
                     <div style="margin:0; line-height:1.7;"><span class='blue'>온라인 진단(Online & Diagnostics)</span>에서 실제 연결된 CPU의 주문번호·펌웨어 버전을 확인한 뒤, 프로젝트의 하드웨어 구성과 대조해 일치시킨다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 펌웨어 버전 불일치 대응</p>
+                    <div style="margin:0; line-height:1.7;">펌웨어 버전이 프로젝트보다 낮으면 <span class='red'>펌웨어 업데이트</span>가 필요할 수 있고, 반대로 프로젝트 설정을 실제 CPU의 펌웨어 버전에 맞춰 낮추는 방법도 있다. 상황에 따라 더 간단한 쪽을 선택한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 다운로드 전 최종 점검 리스트</p>
+                    <div style="margin:0; line-height:1.7;">① 올바른 네트워크 어댑터 선택, ② CPU가 STOP 모드인지 확인(다운로드는 보통 STOP 상태에서 안전), ③ 하드웨어 구성과 실제 배치가 일치하는지, 이 세 가지를 다운로드 직전에 습관적으로 확인하면 문제를 크게 줄일 수 있다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-7">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-7">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-7" data-scoreboard="true">
 <div class="box quiz-box" id="box-u7-1" data-qid="u7-1">
                     <button class="font-btn" onclick="resetAnswer('u7-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -665,6 +869,30 @@
                     </div>
                     <div id="q-result-u7-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u7-2" class="note" style="display:none;">💡 해설: 온라인 진단(Online & Diagnostics) 기능으로 실제 연결된 CPU의 상세 정보를 확인할 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u7-3" data-qid="u7-3">
+                    <button class="font-btn" onclick="resetAnswer('u7-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 실제 CPU의 펌웨어 버전이 프로젝트 설정보다 낮을 때 취할 수 있는 조치는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '펌웨어 업데이트 또는 프로젝트 설정을 낮춘다')">펌웨어 업데이트 또는 프로젝트 설정을 낮춘다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '펌웨어 업데이트 또는 프로젝트 설정을 낮춘다')">무시하고 강제로 다운로드한다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '펌웨어 업데이트 또는 프로젝트 설정을 낮춘다')">CPU를 교체해야만 한다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '펌웨어 업데이트 또는 프로젝트 설정을 낮춘다')">해결 방법이 없다</button>
+                    </div>
+                    <div id="q-result-u7-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-3" class="note" style="display:none;">💡 해설: 펌웨어를 업데이트하거나 프로젝트의 설정 버전을 실제 CPU에 맞춰 조정하는 방법이 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u7-4" data-qid="u7-4">
+                    <button class="font-btn" onclick="resetAnswer('u7-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 다운로드 직전에 확인하면 좋은 항목이 아닌 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '프로젝트 파일의 글꼴 종류')">프로젝트 파일의 글꼴 종류</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '프로젝트 파일의 글꼴 종류')">올바른 네트워크 어댑터 선택 여부</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '프로젝트 파일의 글꼴 종류')">CPU가 STOP 모드인지 여부</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '프로젝트 파일의 글꼴 종류')">하드웨어 구성과 실제 배치 일치 여부</button>
+                    </div>
+                    <div id="q-result-u7-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-4" class="note" style="display:none;">💡 해설: 글꼴 종류는 다운로드와 무관하며, 어댑터·CPU 모드·하드웨어 구성 일치 여부가 실질적인 점검 항목입니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -703,11 +931,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">3. PLCSIM Advanced</p>
                     <div style="margin:0; line-height:1.7;">더 고급 기능이 필요하다면 <span class='mint'>PLCSIM Advanced</span>를 통해 가상 네트워크 통신, API 연동 등 확장된 시뮬레이션 환경을 사용할 수도 있다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 시뮬레이션의 한계</p>
+                    <div style="margin:0; line-height:1.7;">PLCSIM은 로직(프로그램) 검증에는 매우 유용하지만, <span class='red'>실제 아날로그 신호의 노이즈, 배선 저항, 기계적 지연</span> 같은 물리적 요소까지 완벽히 재현하지는 못한다. 따라서 시뮬레이션에서 검증한 로직도 실제 하드웨어에서 다시 한번 확인하는 과정이 필요하다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. 실무 활용 시나리오</p>
+                    <div style="margin:0; line-height:1.7;">현장에 실제 설비가 아직 설치되지 않은 초기 개발 단계에서, PLCSIM으로 <span class='blue'>기본 로직을 미리 완성</span>해두면 실제 설비가 도착했을 때 다운로드 후 미세 조정만으로 빠르게 가동할 수 있어 개발 기간을 크게 단축할 수 있다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-8">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-8">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-8" data-scoreboard="true">
 <div class="box quiz-box" id="box-u8-1" data-qid="u8-1">
                     <button class="font-btn" onclick="resetAnswer('u8-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -730,6 +966,30 @@
                     </div>
                     <div id="q-result-u8-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u8-2" class="note" style="display:none;">💡 해설: 와치 테이블(Watch table)을 사용하면 특정 비트를 강제로 On/Off하며 로직 동작을 확인할 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u8-3" data-qid="u8-3">
+                    <button class="font-btn" onclick="resetAnswer('u8-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. PLCSIM 시뮬레이션의 한계로 옳은 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '실제 배선 저항·기계적 지연 같은 물리적 요소를 완벽히 재현하지 못함')">실제 배선 저항·기계적 지연 같은 물리적 요소를 완벽히 재현하지 못함</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '실제 배선 저항·기계적 지연 같은 물리적 요소를 완벽히 재현하지 못함')">로직 오류를 전혀 찾을 수 없음</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '실제 배선 저항·기계적 지연 같은 물리적 요소를 완벽히 재현하지 못함')">프로그램 다운로드가 불가능함</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '실제 배선 저항·기계적 지연 같은 물리적 요소를 완벽히 재현하지 못함')">한계가 전혀 없음</button>
+                    </div>
+                    <div id="q-result-u8-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-3" class="note" style="display:none;">💡 해설: PLCSIM은 로직 검증에는 유용하지만 실제 물리적 요소까지 완벽히 재현하지는 못합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u8-4" data-qid="u8-4">
+                    <button class="font-btn" onclick="resetAnswer('u8-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 실제 설비가 도착하기 전 PLCSIM을 활용하는 이유는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '기본 로직을 미리 완성해 개발 기간을 단축하기 위해')">기본 로직을 미리 완성해 개발 기간을 단축하기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '기본 로직을 미리 완성해 개발 기간을 단축하기 위해')">설비가 필요 없게 만들기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '기본 로직을 미리 완성해 개발 기간을 단축하기 위해')">라이선스를 절약하기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '기본 로직을 미리 완성해 개발 기간을 단축하기 위해')">속도를 자랑하기 위해</button>
+                    </div>
+                    <div id="q-result-u8-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-4" class="note" style="display:none;">💡 해설: 설비 도착 전에 기본 로직을 PLCSIM으로 미리 완성해두면 실제 가동까지의 기간을 크게 단축할 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -756,10 +1016,10 @@
             <h1>지멘스 PLC 기초강좌 - <br>🎲 랜덤 모의고사</h1>
             <div id="exam-select" class="box" style="text-align:center;">
                 <p style="font-weight:700; margin-top:0;">몇 문제를 랜덤으로 뽑을까요?</p>
-                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 16문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
+                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 32문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
                 <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
                     <button class="font-btn" onclick="startRandomExam(8)" style="padding:10px 18px;">8문제</button>
-                    <button class="font-btn" onclick="startRandomExam(16)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">16문제(전체)</button>
+                    <button class="font-btn" onclick="startRandomExam(32)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">32문제(전체)</button>
                 </div>
             </div>
 
