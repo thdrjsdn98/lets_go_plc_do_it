@@ -140,7 +140,7 @@
                 <div class="cover-divider"></div>
                 <div class="cover-info">
                     <p>범위: 8단원</p>
-                    <p>확인문제: 단원별 2문제 · 총 16문제</p>
+                    <p>확인문제: 단원별 2문제 · 총 32문제</p>
                     <p>버전: V2.0.0 (8단원 확장판)</p>
                 </div>
             </div>
@@ -164,7 +164,7 @@
         <div id="tab-study" class="tab-content">
             <h1>지멘스 PLC 기초강좌 - <br>📘 PLC 단축키</h1>
             <div style="text-align: right; font-size: 0.8em; color: var(--text-sub); margin-top: 4px; margin-bottom: 12px;">
-                <span>8단원 · 확인문제 16문제</span>
+                <span>8단원 · 확인문제 32문제</span>
             </div>
 
             <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
@@ -252,11 +252,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 이 강좌의 접근 방법</p>
                     <div style="margin:0; line-height:1.7;">이 강좌에서는 ① 버전이 바뀌어도 잘 유지되는 <span class='blue'>공통 윈도우 단축키</span>를 우선 익히고, ② TIA Portal 안에서 <span class='blue'>내가 쓰는 버전 기준으로 직접 확인하는 방법</span>을 배우는 순서로 진행한다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 단축키를 외우는 것보다 중요한 것</p>
+                    <div style="margin:0; line-height:1.7;">실무에서는 단축키를 몇 개 아는 것보다 <span class='red'>필요한 기능을 언제든 메뉴나 우클릭으로 찾아낼 수 있는 감각</span>이 훨씬 중요하다. 단축키는 이미 알고 있는 기능을 더 빠르게 실행하는 '지름길'일 뿐, 단축키를 모른다고 해서 그 기능을 아예 못 쓰는 것은 아니다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 학습 순서 제안</p>
+                    <div style="margin:0; line-height:1.7;">① 이번 단원들에서 공통 단축키부터 익히고 → ② 실제로 TIA Portal을 열어 Options 메뉴에서 내 버전의 단축키를 한 번 훑어보고 → ③ 자주 쓰는 3~4개만 우선 손에 익히는 순서를 추천한다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-1" data-scoreboard="true">
 <div class="box quiz-box" id="box-u1-1" data-qid="u1-1">
                     <button class="font-btn" onclick="resetAnswer('u1-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -281,6 +289,30 @@
                     </div>
                     <div id="q-result-u1-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u1-2" class="note" style="display:none;">💡 해설: 버전마다 단축키가 다를 수 있으므로, 실제 설치된 버전의 설정 화면에서 직접 확인하는 것이 가장 정확합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u1-3" data-qid="u1-3">
+                    <button class="font-btn" onclick="resetAnswer('u1-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 단축키에 대한 설명 중 가장 적절한 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, '이미 아는 기능을 더 빠르게 실행하는 지름길일 뿐이다')">이미 아는 기능을 더 빠르게 실행하는 지름길일 뿐이다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, '이미 아는 기능을 더 빠르게 실행하는 지름길일 뿐이다')">단축키를 모르면 그 기능을 절대 쓸 수 없다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, '이미 아는 기능을 더 빠르게 실행하는 지름길일 뿐이다')">단축키가 기능 그 자체다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, '이미 아는 기능을 더 빠르게 실행하는 지름길일 뿐이다')">메뉴보다 항상 느리다</button>
+                    </div>
+                    <div id="q-result-u1-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u1-3" class="note" style="display:none;">💡 해설: 단축키는 메뉴나 우클릭으로도 실행 가능한 기능을 더 빠르게 실행하는 지름길에 불과합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u1-4" data-qid="u1-4">
+                    <button class="font-btn" onclick="resetAnswer('u1-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 이 강좌가 추천하는 단축키 학습 순서로 가장 적절한 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '공통 단축키 → 내 버전에서 직접 확인 → 자주 쓰는 것부터 익히기')">공통 단축키 → 내 버전에서 직접 확인 → 자주 쓰는 것부터 익히기</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '공통 단축키 → 내 버전에서 직접 확인 → 자주 쓰는 것부터 익히기')">무조건 모든 단축키 암기부터</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '공통 단축키 → 내 버전에서 직접 확인 → 자주 쓰는 것부터 익히기')">단축키는 배울 필요 없음</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '공통 단축키 → 내 버전에서 직접 확인 → 자주 쓰는 것부터 익히기')">가장 어려운 것부터 시작</button>
+                    </div>
+                    <div id="q-result-u1-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u1-4" class="note" style="display:none;">💡 해설: 공통 단축키를 먼저 익히고, 내 버전에서 직접 확인한 뒤, 자주 쓰는 몇 개부터 손에 익히는 순서를 추천합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -315,11 +347,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 습관화 팁</p>
                     <div style="margin:0; line-height:1.7;">작업 중간중간 <span class='blue'>Ctrl+S</span>를 누르는 습관만 들여도, 정전이나 프로그램 오류로 인한 작업 손실을 크게 줄일 수 있다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 자동 저장 기능도 함께 활용</p>
+                    <div style="margin:0; line-height:1.7;">TIA Portal은 일정 주기로 <span class='red'>자동 저장(Autosave)</span> 옵션을 제공하는 경우가 많다. 수동 저장 습관과 자동 저장 옵션을 함께 활용하면 작업 손실 위험을 이중으로 줄일 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 인쇄 활용 팁</p>
+                    <div style="margin:0; line-height:1.7;">프로그램 전체를 인쇄하기보다는, 필요한 네트워크(rung)만 선택해서 인쇄하거나 PDF로 내보내면 검토용 자료를 훨씬 깔끔하게 만들 수 있다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-2">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-2">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-2" data-scoreboard="true">
 <div class="box quiz-box" id="box-u2-1" data-qid="u2-1">
                     <button class="font-btn" onclick="resetAnswer('u2-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -344,6 +384,30 @@
                     </div>
                     <div id="q-result-u2-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u2-2" class="note" style="display:none;">💡 해설: Ctrl+P는 대부분의 윈도우 프로그램에서 인쇄 대화상자를 여는 공통 단축키입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u2-3" data-qid="u2-3">
+                    <button class="font-btn" onclick="resetAnswer('u2-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 수동 저장 습관과 함께 활용하면 좋은 기능은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, '자동 저장(Autosave)')">자동 저장(Autosave)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, '자동 저장(Autosave)')">인쇄 미리보기</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, '자동 저장(Autosave)')">온라인 진단</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, '자동 저장(Autosave)')">라이브러리</button>
+                    </div>
+                    <div id="q-result-u2-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-3" class="note" style="display:none;">💡 해설: 자동 저장 옵션을 함께 활용하면 수동 저장을 깜빡했을 때도 작업 손실을 줄일 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u2-4" data-qid="u2-4">
+                    <button class="font-btn" onclick="resetAnswer('u2-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 검토용 자료를 깔끔하게 만들려면 인쇄 시 어떻게 하는 것이 좋은가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '필요한 네트워크만 선택해서 인쇄')">필요한 네트워크만 선택해서 인쇄</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '필요한 네트워크만 선택해서 인쇄')">항상 전체 프로그램을 인쇄</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '필요한 네트워크만 선택해서 인쇄')">인쇄 기능을 아예 쓰지 않는다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '필요한 네트워크만 선택해서 인쇄')">이미지 캡처만 사용</button>
+                    </div>
+                    <div id="q-result-u2-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-4" class="note" style="display:none;">💡 해설: 필요한 부분만 선택해 인쇄하거나 PDF로 내보내면 훨씬 깔끔한 검토 자료를 만들 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -378,11 +442,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 실무 활용 팁</p>
                     <div style="margin:0; line-height:1.7;">비슷한 네트워크(rung)를 여러 개 만들어야 할 때, 하나를 완성한 뒤 <span class='blue'>복사→붙여넣기</span>로 틀을 재사용하고 주소만 바꾸면 작업 속도가 크게 빨라진다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 실행취소의 한계</p>
+                    <div style="margin:0; line-height:1.7;">Ctrl+Z(실행취소)는 대체로 여러 단계를 되돌릴 수 있지만, <span class='red'>저장 후에는 되돌릴 수 있는 범위가 제한</span>될 수 있다. 큰 수정을 하기 전에는 먼저 저장을 해두고 시작하는 것이 안전하다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 삭제 시 주의사항</p>
+                    <div style="margin:0; line-height:1.7;">Delete로 접점이나 코일을 지울 때, 해당 태그가 다른 네트워크에서도 쓰이고 있다면 <span class='blue'>상호참조(Cross reference)</span>를 먼저 확인해 영향 범위를 파악하는 것이 안전하다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-3">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-3">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-3" data-scoreboard="true">
 <div class="box quiz-box" id="box-u3-1" data-qid="u3-1">
                     <button class="font-btn" onclick="resetAnswer('u3-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -407,6 +479,30 @@
                     </div>
                     <div id="q-result-u3-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u3-2" class="note" style="display:none;">💡 해설: Ctrl+A는 대부분의 윈도우 프로그램에서 전체 선택에 사용되는 공통 단축키입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u3-3" data-qid="u3-3">
+                    <button class="font-btn" onclick="resetAnswer('u3-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 큰 수정을 하기 전 안전을 위해 먼저 해두면 좋은 습관은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '저장해두기')">저장해두기</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '저장해두기')">전체 삭제하기</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '저장해두기')">인쇄하기</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '저장해두기')">라이선스 확인하기</button>
+                    </div>
+                    <div id="q-result-u3-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-3" class="note" style="display:none;">💡 해설: 실행취소가 항상 완벽하게 되돌려주지 않을 수 있으므로, 큰 수정 전에는 먼저 저장해두는 것이 안전합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u3-4" data-qid="u3-4">
+                    <button class="font-btn" onclick="resetAnswer('u3-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 특정 태그를 삭제하기 전에 영향 범위를 파악하려면 무엇을 확인하는 것이 좋은가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '상호참조(Cross reference)')">상호참조(Cross reference)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '상호참조(Cross reference)')">라이브러리</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '상호참조(Cross reference)')">정보창</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '상호참조(Cross reference)')">태스크카드</button>
+                    </div>
+                    <div id="q-result-u3-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-4" class="note" style="display:none;">💡 해설: 상호참조를 확인하면 해당 태그가 다른 네트워크에서도 쓰이고 있는지 미리 파악할 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -441,11 +537,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 상호참조(Cross reference)</p>
                     <div style="margin:0; line-height:1.7;">특정 태그나 블록이 프로그램 전체 어디서 쓰이는지 한눈에 보여주는 <span class='red'>상호참조</span> 창을 여는 데, 사용자들 사이에서 <span class='blue'>Shift + F11</span>이 널리 쓰인다고 알려져 있다(버전에 따라 다를 수 있으므로 실제 설치 버전에서 재확인 권장).</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 상호참조가 중요한 이유</p>
+                    <div style="margin:0; line-height:1.7;">여러 사람이 함께 작업하거나 프로그램이 커질수록, 특정 태그를 수정하기 전에 그 태그가 <span class='red'>몇 개의 네트워크에서 쓰이고 있는지</span> 미리 확인하는 습관이 예상치 못한 오작동을 막아준다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 찾기 범위 설정</p>
+                    <div style="margin:0; line-height:1.7;">찾기 기능은 보통 현재 열린 블록 안에서만 찾는 것과, 프로젝트 전체에서 찾는 것을 구분해서 지원한다. 프로젝트 규모가 크다면 <span class='blue'>전체 프로젝트 검색</span> 옵션을 활용하는 것이 효율적이다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-4">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-4">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-4" data-scoreboard="true">
 <div class="box quiz-box" id="box-u4-1" data-qid="u4-1">
                     <button class="font-btn" onclick="resetAnswer('u4-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -468,6 +572,30 @@
                     </div>
                     <div id="q-result-u4-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u4-2" class="note" style="display:none;">💡 해설: 지멘스 포럼 등에서 Shift+F11이 상호참조 창을 여는 단축키로 자주 언급됩니다(버전별 재확인 권장).</div>
+                </div>
+<div class="box quiz-box" id="box-u4-3" data-qid="u4-3">
+                    <button class="font-btn" onclick="resetAnswer('u4-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 상호참조를 미리 확인하는 것이 중요한 이유는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '태그 수정 전 영향 범위를 파악할 수 있어서')">태그 수정 전 영향 범위를 파악할 수 있어서</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '태그 수정 전 영향 범위를 파악할 수 있어서')">화면이 예뻐져서</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '태그 수정 전 영향 범위를 파악할 수 있어서')">저장 속도가 빨라져서</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '태그 수정 전 영향 범위를 파악할 수 있어서')">라이선스가 갱신되어서</button>
+                    </div>
+                    <div id="q-result-u4-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-3" class="note" style="display:none;">💡 해설: 상호참조로 특정 태그가 몇 개의 네트워크에서 쓰이는지 미리 확인하면 예상치 못한 오작동을 막을 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u4-4" data-qid="u4-4">
+                    <button class="font-btn" onclick="resetAnswer('u4-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 프로젝트 규모가 클 때 특정 태그를 효율적으로 찾으려면?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, '전체 프로젝트 검색 옵션 활용')">전체 프로젝트 검색 옵션 활용</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, '전체 프로젝트 검색 옵션 활용')">블록을 하나씩 직접 열어본다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, '전체 프로젝트 검색 옵션 활용')">찾기 기능을 쓰지 않는다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, '전체 프로젝트 검색 옵션 활용')">메모장으로 옮겨서 찾는다</button>
+                    </div>
+                    <div id="q-result-u4-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-4" class="note" style="display:none;">💡 해설: 전체 프로젝트 검색 옵션을 활용하면 여러 블록에 걸쳐 있는 태그도 한 번에 찾을 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -502,11 +630,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 창 전환</p>
                     <div style="margin:0; line-height:1.7;">여러 개의 도킹된 창(뷰)을 순서대로 전환할 때, 윈도우 프로그램 전반에서 <span class='blue'>Ctrl + Tab</span>이 널리 쓰인다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 창 도킹/분리</p>
+                    <div style="margin:0; line-height:1.7;">태스크카드나 인스펙터 창 등 대부분의 패널은 <span class='red'>드래그해서 위치를 바꾸거나(도킹)</span>, 화면 밖으로 완전히 분리해 별도 창처럼 띄울 수도 있다. 듀얼 모니터 환경이라면 프로그램 에디터와 태그표를 각각 다른 모니터에 띄워두는 방식도 유용하다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 화면 배치 초기화</p>
+                    <div style="margin:0; line-height:1.7;">이것저것 옮기다 화면이 뒤죽박죽되었다면, 보기(View) 메뉴에서 <span class='blue'>기본 배치로 초기화</span>하는 옵션을 찾아 원래 상태로 되돌릴 수 있다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-5">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-5">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-5" data-scoreboard="true">
 <div class="box quiz-box" id="box-u5-1" data-qid="u5-1">
                     <button class="font-btn" onclick="resetAnswer('u5-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -531,6 +667,30 @@
                     </div>
                     <div id="q-result-u5-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u5-2" class="note" style="display:none;">💡 해설: Ctrl + Tab은 여러 창/탭을 순서대로 전환하는 데 널리 쓰이는 윈도우 공통 단축키입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u5-3" data-qid="u5-3">
+                    <button class="font-btn" onclick="resetAnswer('u5-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 태스크카드나 인스펙터 창처럼 위치를 바꾸거나 분리할 수 있는 것을 무엇이라 하는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, '도킹 가능한 패널')">도킹 가능한 패널</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, '도킹 가능한 패널')">고정 배너</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, '도킹 가능한 패널')">정적 이미지</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, '도킹 가능한 패널')">잠긴 창</button>
+                    </div>
+                    <div id="q-result-u5-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-3" class="note" style="display:none;">💡 해설: 대부분의 패널은 도킹(위치 이동) 및 화면 밖 분리가 가능한 도킹 패널로 구성되어 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u5-4" data-qid="u5-4">
+                    <button class="font-btn" onclick="resetAnswer('u5-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 화면 배치가 뒤죽박죽되었을 때 되돌릴 수 있는 방법은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, '보기(View) 메뉴에서 기본 배치로 초기화')">보기(View) 메뉴에서 기본 배치로 초기화</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, '보기(View) 메뉴에서 기본 배치로 초기화')">프로그램 재설치</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, '보기(View) 메뉴에서 기본 배치로 초기화')">새 프로젝트 생성</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, '보기(View) 메뉴에서 기본 배치로 초기화')">되돌릴 수 없음</button>
+                    </div>
+                    <div id="q-result-u5-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-4" class="note" style="display:none;">💡 해설: 보기(View) 메뉴의 초기화 옵션으로 화면 배치를 기본 상태로 되돌릴 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -565,11 +725,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 툴팁으로 확인하기</p>
                     <div style="margin:0; line-height:1.7;">툴바 아이콘 위에 마우스를 잠깐 올려두면(호버) <span class='red'>툴팁(Tooltip)</span>에 기능 이름과 함께 현재 버전에서의 단축키가 표시되는 경우가 많다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 부분 컴파일 vs 전체 컴파일</p>
+                    <div style="margin:0; line-height:1.7;">블록을 하나만 수정했다면 <span class='blue'>해당 블록만 컴파일</span>해서 시간을 절약할 수 있고, 구조를 크게 바꿨다면 <span class='red'>하드웨어와 소프트웨어 전체를 컴파일</span>하는 옵션을 선택하는 것이 안전하다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 다운로드 옵션 확인</p>
+                    <div style="margin:0; line-height:1.7;">다운로드 시 나타나는 옵션 중 '차이만 다운로드(변경분만)'와 '전체 다운로드'를 구분해서 제공하는 경우가 있다. 시간이 급할 땐 전자가 빠르지만, 문제가 의심될 땐 전체 다운로드로 확실하게 갱신하는 편이 안전하다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-6">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-6">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-6" data-scoreboard="true">
 <div class="box quiz-box" id="box-u6-1" data-qid="u6-1">
                     <button class="font-btn" onclick="resetAnswer('u6-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -594,6 +762,30 @@
                     </div>
                     <div id="q-result-u6-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u6-2" class="note" style="display:none;">💡 해설: 툴팁(Tooltip)에는 기능 설명과 함께 해당 버전의 단축키 정보가 표시되는 경우가 많습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u6-3" data-qid="u6-3">
+                    <button class="font-btn" onclick="resetAnswer('u6-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 블록 하나만 수정했을 때 시간을 절약하는 방법은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '해당 블록만 컴파일')">해당 블록만 컴파일</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '해당 블록만 컴파일')">항상 전체 컴파일</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '해당 블록만 컴파일')">컴파일 생략</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '해당 블록만 컴파일')">프로젝트 재생성</button>
+                    </div>
+                    <div id="q-result-u6-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-3" class="note" style="display:none;">💡 해설: 수정한 블록만 컴파일하면 전체를 컴파일하는 것보다 시간을 절약할 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u6-4" data-qid="u6-4">
+                    <button class="font-btn" onclick="resetAnswer('u6-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 문제가 의심될 때 확실하게 갱신하려면 어떤 다운로드 방식이 안전한가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '전체 다운로드')">전체 다운로드</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '전체 다운로드')">변경분만 다운로드</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '전체 다운로드')">다운로드 생략</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '전체 다운로드')">컴파일만 하고 다운로드 안 함</button>
+                    </div>
+                    <div id="q-result-u6-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-4" class="note" style="display:none;">💡 해설: 문제가 의심될 때는 변경분만 다운로드하는 것보다 전체 다운로드로 확실하게 갱신하는 것이 안전합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -632,11 +824,15 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">3. 실전 팁</p>
                     <div style="margin:0; line-height:1.7;">모든 단축키를 다 외우려 하지 말고, 내가 하루에도 여러 번 쓰는 3~4개(예: 저장, 찾기, 컴파일 관련 메뉴)부터 먼저 손에 익히는 것을 추천한다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 나만의 단축키표 만들기</p>
+                    <div style="margin:0; line-height:1.7;">직접 재할당한 단축키들은 캡처해두거나 메모장에 정리해서 <span class='blue'>나만의 단축키표</span>로 보관해두면, 다른 PC에 새로 설치했을 때도 빠르게 같은 환경을 만들 수 있다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-7">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-7">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-7" data-scoreboard="true">
 <div class="box quiz-box" id="box-u7-1" data-qid="u7-1">
                     <button class="font-btn" onclick="resetAnswer('u7-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -661,6 +857,30 @@
                     </div>
                     <div id="q-result-u7-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u7-2" class="note" style="display:none;">💡 해설: 새 단축키가 이미 다른 기능에 쓰이고 있지는 않은지 확인해야 오작동을 피할 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u7-3" data-qid="u7-3">
+                    <button class="font-btn" onclick="resetAnswer('u7-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 단축키를 얼마나 외워야 효율적인가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '자주 쓰는 3~4개부터 우선 익힌다')">자주 쓰는 3~4개부터 우선 익힌다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '자주 쓰는 3~4개부터 우선 익힌다')">모든 단축키를 반드시 암기해야 한다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '자주 쓰는 3~4개부터 우선 익힌다')">하나도 외울 필요 없다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '자주 쓰는 3~4개부터 우선 익힌다')">정해진 개수는 없고 무작위로 외운다</button>
+                    </div>
+                    <div id="q-result-u7-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-3" class="note" style="display:none;">💡 해설: 모든 단축키를 외우기보다 자주 쓰는 몇 개부터 우선 익히는 것이 효율적입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u7-4" data-qid="u7-4">
+                    <button class="font-btn" onclick="resetAnswer('u7-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 직접 재할당한 단축키를 다른 PC에서도 빠르게 재현하려면?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '나만의 단축키표로 정리해둔다')">나만의 단축키표로 정리해둔다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '나만의 단축키표로 정리해둔다')">매번 새로 기억에 의존한다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '나만의 단축키표로 정리해둔다')">재현이 불가능하다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '나만의 단축키표로 정리해둔다')">재설치할 때마다 다르게 설정한다</button>
+                    </div>
+                    <div id="q-result-u7-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-4" class="note" style="display:none;">💡 해설: 직접 재할당한 단축키를 정리해두면 다른 PC에서도 빠르게 같은 환경을 재현할 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -695,11 +915,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 즐겨찾기(Favorites) 활용</p>
                     <div style="margin:0; line-height:1.7;">TIA Portal 태스크카드의 <span class='blue'>즐겨찾기(Favorites)</span> 영역에 자주 쓰는 명령어(접점, 코일, 타이머 등)를 등록해두면, 명령어 목록을 매번 뒤지지 않고 빠르게 드래그해서 쓸 수 있다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 마우스 제스처 활용</p>
+                    <div style="margin:0; line-height:1.7;">네트워크(rung) 사이를 마우스 오른쪽 버튼 클릭만으로 삽입·삭제·주석추가 등 다양한 조작을 할 수 있는 <span class='red'>우클릭 컨텍스트 메뉴</span>를 적극 활용하면, 단축키를 몰라도 웬만한 작업은 충분히 빠르게 처리할 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 템플릿/복사 활용한 생산성 향상</p>
+                    <div style="margin:0; line-height:1.7;">자주 쓰는 로직 패턴(예: 자기유지+인터록 조합)을 미리 만들어두고, 새 프로젝트마다 <span class='blue'>복사해서 재사용</span>하면 매번 처음부터 작성하는 것보다 훨씬 빠르게 개발할 수 있다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-8">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-8">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-8" data-scoreboard="true">
 <div class="box quiz-box" id="box-u8-1" data-qid="u8-1">
                     <button class="font-btn" onclick="resetAnswer('u8-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -724,6 +952,30 @@
                     </div>
                     <div id="q-result-u8-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u8-2" class="note" style="display:none;">💡 해설: 즐겨찾기(Favorites)에 자주 쓰는 명령어를 등록해두면 작업 속도를 높일 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u8-3" data-qid="u8-3">
+                    <button class="font-btn" onclick="resetAnswer('u8-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 단축키를 몰라도 웬만한 작업을 빠르게 처리할 수 있게 해주는 방법은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '우클릭 컨텍스트 메뉴 활용')">우클릭 컨텍스트 메뉴 활용</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '우클릭 컨텍스트 메뉴 활용')">메뉴를 아예 사용하지 않는다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '우클릭 컨텍스트 메뉴 활용')">매번 재설치한다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '우클릭 컨텍스트 메뉴 활용')">키보드를 새로 산다</button>
+                    </div>
+                    <div id="q-result-u8-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-3" class="note" style="display:none;">💡 해설: 우클릭 컨텍스트 메뉴를 적극 활용하면 단축키를 몰라도 대부분의 조작을 빠르게 처리할 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u8-4" data-qid="u8-4">
+                    <button class="font-btn" onclick="resetAnswer('u8-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 자주 쓰는 로직 패턴을 여러 프로젝트에서 빠르게 재사용하는 방법은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '템플릿으로 만들어 복사해서 재사용')">템플릿으로 만들어 복사해서 재사용</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '템플릿으로 만들어 복사해서 재사용')">매번 처음부터 새로 작성</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '템플릿으로 만들어 복사해서 재사용')">패턴을 외워서 손으로 다시 그림</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '템플릿으로 만들어 복사해서 재사용')">재사용은 불가능함</button>
+                    </div>
+                    <div id="q-result-u8-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-4" class="note" style="display:none;">💡 해설: 자주 쓰는 패턴을 템플릿처럼 만들어두고 복사해서 재사용하면 개발 속도를 크게 높일 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -750,10 +1002,10 @@
             <h1>지멘스 PLC 기초강좌 - <br>🎲 랜덤 모의고사</h1>
             <div id="exam-select" class="box" style="text-align:center;">
                 <p style="font-weight:700; margin-top:0;">몇 문제를 랜덤으로 뽑을까요?</p>
-                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 16문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
+                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 32문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
                 <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
                     <button class="font-btn" onclick="startRandomExam(8)" style="padding:10px 18px;">8문제</button>
-                    <button class="font-btn" onclick="startRandomExam(16)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">16문제(전체)</button>
+                    <button class="font-btn" onclick="startRandomExam(32)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">32문제(전체)</button>
                 </div>
             </div>
 
