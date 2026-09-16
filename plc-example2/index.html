@@ -140,7 +140,7 @@
                 <div class="cover-divider"></div>
                 <div class="cover-info">
                     <p>범위: 8단원</p>
-                    <p>확인문제: 단원별 2문제 · 총 16문제</p>
+                    <p>확인문제: 단원별 2문제 · 총 32문제</p>
                     <p>버전: V2.0.0 (8단원 확장판)</p>
                 </div>
             </div>
@@ -164,7 +164,7 @@
         <div id="tab-study" class="tab-content">
             <h1>지멘스 PLC 기초강좌 - <br>📘 PLC 예제② 타이머·카운터</h1>
             <div style="text-align: right; font-size: 0.8em; color: var(--text-sub); margin-top: 4px; margin-bottom: 12px;">
-                <span>8단원 · 확인문제 16문제</span>
+                <span>8단원 · 확인문제 32문제</span>
             </div>
 
             <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
@@ -252,11 +252,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 입력이 중간에 꺼지면?</p>
                     <div style="margin:0; line-height:1.7;">설정시간이 지나기 전에 입력(I0.0)이 꺼지면, TON의 경과시간(경과된 카운트)은 <span class='red'>리셋(초기화)</span>되어 다시 처음부터 세야 한다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 여러 타이머를 함께 쓸 때 주의점</p>
+                    <div style="margin:0; line-height:1.7;">같은 프로그램 안에서 여러 개의 TON을 사용할 때는, 각 타이머마다 <span class='blue'>서로 다른 타이머 인스턴스(DB)</span>를 지정해야 한다. 실수로 같은 타이머를 두 곳에서 같이 쓰면 서로의 동작에 영향을 주어 예상치 못한 결과가 나올 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 응용 - 경고 후 기동</p>
+                    <div style="margin:0; line-height:1.7;">버튼을 누르면 먼저 <span class='blue'>경고음(부저)이 3초간 울리고, 그 후에 실제로 설비가 기동</span>되는 안전 절차를 TON 하나로 간단히 구현할 수 있다. 부저는 버튼과 동시에 켜고, 설비 기동은 TON의 출력 신호로 연결하면 된다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-1" data-scoreboard="true">
 <div class="box quiz-box" id="box-u1-1" data-qid="u1-1">
                     <button class="font-btn" onclick="resetAnswer('u1-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -279,6 +287,30 @@
                     </div>
                     <div id="q-result-u1-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u1-2" class="note" style="display:none;">💡 해설: TON은 설정시간이 지나기 전에 입력이 꺼지면 경과시간이 리셋(초기화)됩니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u1-3" data-qid="u1-3">
+                    <button class="font-btn" onclick="resetAnswer('u1-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 여러 개의 TON을 사용할 때 각각 지정해야 하는 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, '서로 다른 타이머 인스턴스(DB)')">서로 다른 타이머 인스턴스(DB)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, '서로 다른 타이머 인스턴스(DB)')">같은 인스턴스 하나만</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, '서로 다른 타이머 인스턴스(DB)')">타이머는 하나만 써야 함</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, '서로 다른 타이머 인스턴스(DB)')">지정할 필요 없음</button>
+                    </div>
+                    <div id="q-result-u1-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u1-3" class="note" style="display:none;">💡 해설: 각 TON마다 별도의 인스턴스를 지정하지 않으면 서로 영향을 주어 오작동할 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u1-4" data-qid="u1-4">
+                    <button class="font-btn" onclick="resetAnswer('u1-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 버튼을 누르면 경고음이 먼저 울리고 일정 시간 뒤 설비가 기동되게 하려면?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '부저는 버튼과 동시에, 설비 기동은 TON 출력으로 연결')">부저는 버튼과 동시에, 설비 기동은 TON 출력으로 연결</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '부저는 버튼과 동시에, 설비 기동은 TON 출력으로 연결')">부저와 설비를 동시에 기동</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '부저는 버튼과 동시에, 설비 기동은 TON 출력으로 연결')">타이머 없이 구현</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '부저는 버튼과 동시에, 설비 기동은 TON 출력으로 연결')">카운터로 구현</button>
+                    </div>
+                    <div id="q-result-u1-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u1-4" class="note" style="display:none;">💡 해설: 부저를 버튼과 동시에 켜고, 설비 기동 신호를 TON의 지연된 출력으로 연결하면 경고 후 기동 절차를 구현할 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -313,11 +345,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. TOF의 즉시 ON 특성</p>
                     <div style="margin:0; line-height:1.7;">TOF 타이머는 입력이 켜지는 순간 출력이 <span class='red'>즉시 ON</span>된다는 점을 기억해야 한다. 지연은 오직 '꺼질 때'만 적용된다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 응용 - 모터 냉각팬 지연 정지</p>
+                    <div style="margin:0; line-height:1.7;">모터를 구동하는 인버터는 모터가 멈춘 직후에도 내부 발열이 남아있어, <span class='blue'>냉각팬을 몇 분 더 돌려야</span> 하는 경우가 많다. 모터 정지 신호를 TOF의 입력에 연결하고, TOF 출력을 냉각팬에 연결하면 이 요구사항을 간단히 구현할 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. TON과 TOF를 함께 쓰는 예</p>
+                    <div style="margin:0; line-height:1.7;">설비가 켜질 때는 TON으로 천천히 예열시키고, 꺼질 때는 TOF로 천천히 냉각시키는 식으로, 하나의 설비에 <span class='red'>기동은 TON, 정지는 TOF</span>를 동시에 적용하는 경우도 실무에서 흔하다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-2">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-2">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-2" data-scoreboard="true">
 <div class="box quiz-box" id="box-u2-1" data-qid="u2-1">
                     <button class="font-btn" onclick="resetAnswer('u2-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -342,6 +382,30 @@
                     </div>
                     <div id="q-result-u2-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u2-2" class="note" style="display:none;">💡 해설: TOF는 입력이 켜지는 순간 출력이 즉시 ON되고, 지연은 입력이 꺼질 때만 적용됩니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u2-3" data-qid="u2-3">
+                    <button class="font-btn" onclick="resetAnswer('u2-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 모터가 멈춘 뒤에도 냉각팬을 몇 분 더 돌려야 하는 예제에 적합한 타이머는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, 'TOF')">TOF</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, 'TOF')">TON</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, 'TOF')">TP</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, 'TOF')">CTU</button>
+                    </div>
+                    <div id="q-result-u2-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-3" class="note" style="display:none;">💡 해설: 모터 정지 후에도 냉각팬이 일정 시간 더 동작해야 하므로 TOF(Off-Delay)가 적합합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u2-4" data-qid="u2-4">
+                    <button class="font-btn" onclick="resetAnswer('u2-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 설비 기동은 천천히 예열, 정지는 천천히 냉각시키고 싶을 때 각각 어떤 타이머를 쓰는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '기동엔 TON, 정지엔 TOF')">기동엔 TON, 정지엔 TOF</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '기동엔 TON, 정지엔 TOF')">기동엔 TOF, 정지엔 TON</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '기동엔 TON, 정지엔 TOF')">둘 다 TP만 사용</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '기동엔 TON, 정지엔 TOF')">타이머는 필요 없음</button>
+                    </div>
+                    <div id="q-result-u2-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-4" class="note" style="display:none;">💡 해설: 기동시 지연은 TON, 정지시 지연은 TOF를 사용하는 것이 일반적인 조합입니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -376,11 +440,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. ON/OFF 시간을 다르게 하려면</p>
                     <div style="margin:0; line-height:1.7;">켜져 있는 시간과 꺼져 있는 시간을 다르게 하고 싶다면, <span class='red'>TON 2개를 각각 다른 설정시간(PT)</span>으로 두고 서로를 순서대로 기동시키는 방식으로 구성한다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 응용 - 경고등 점멸</p>
+                    <div style="margin:0; line-height:1.7;">설비에 이상이 생겼을 때 일반 램프처럼 계속 켜두기보다, <span class='blue'>점멸시켜서 시각적으로 더 눈에 띄게</span> 하는 것이 안전 관리에 효과적이다. 경보 조건이 참일 때만 점멸회로가 동작하도록 AND 조건을 앞에 추가하면 된다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 클럭 메모리(Clock memory) 활용</p>
+                    <div style="margin:0; line-height:1.7;">CPU 속성에서 <span class='red'>클럭 메모리(Clock memory)</span> 기능을 활성화하면, 별도의 타이머 로직을 짜지 않아도 미리 정해진 주기(0.5초, 1초 등)로 자동 반전되는 비트를 바로 사용할 수 있어 점멸회로를 훨씬 간단하게 구현할 수 있다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-3">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-3">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-3" data-scoreboard="true">
 <div class="box quiz-box" id="box-u3-1" data-qid="u3-1">
                     <button class="font-btn" onclick="resetAnswer('u3-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -405,6 +477,30 @@
                     </div>
                     <div id="q-result-u3-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u3-2" class="note" style="display:none;">💡 해설: 점멸회로는 타이머의 출력을 스스로에게 되먹여 반전시키는 구조가 핵심입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u3-3" data-qid="u3-3">
+                    <button class="font-btn" onclick="resetAnswer('u3-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 설비 이상 경고를 일반 램프 점등 대신 점멸시키는 이유는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '시각적으로 더 눈에 띄게 하기 위해')">시각적으로 더 눈에 띄게 하기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '시각적으로 더 눈에 띄게 하기 위해')">전력을 아끼기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '시각적으로 더 눈에 띄게 하기 위해')">타이머를 테스트하기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '시각적으로 더 눈에 띄게 하기 위해')">특별한 이유 없음</button>
+                    </div>
+                    <div id="q-result-u3-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-3" class="note" style="display:none;">💡 해설: 점멸은 계속 켜진 상태보다 시각적으로 더 눈에 띄어 안전 관리에 효과적입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u3-4" data-qid="u3-4">
+                    <button class="font-btn" onclick="resetAnswer('u3-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 별도의 타이머 로직 없이 미리 정해진 주기로 자동 반전되는 비트를 제공하는 CPU 기능은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '클럭 메모리(Clock memory)')">클럭 메모리(Clock memory)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '클럭 메모리(Clock memory)')">와치 테이블</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '클럭 메모리(Clock memory)')">인스턴스 DB</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '클럭 메모리(Clock memory)')">정보창</button>
+                    </div>
+                    <div id="q-result-u3-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-4" class="note" style="display:none;">💡 해설: 클럭 메모리 기능을 활성화하면 정해진 주기로 자동 반전되는 비트를 바로 사용할 수 있어 점멸회로 구현이 간단해집니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -439,11 +535,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 리셋 처리</p>
                     <div style="margin:0; line-height:1.7;">별도의 리셋버튼(I0.3)을 카운터의 <span class='red'>R 입력</span>에 연결해, 다음 배치를 위해 카운트를 0으로 되돌릴 수 있게 한다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 누적 생산량과 배치 생산량 구분하기</p>
+                    <div style="margin:0; line-height:1.7;">하루 전체 누적 생산량을 계속 세고 싶다면 리셋을 자정에 한 번만 실행하는 별도 카운터를, 박스 단위 배치 생산량을 관리하고 싶다면 박스가 다 찰 때마다 리셋되는 카운터를 <span class='blue'>따로 두 개 운영</span>하는 방식이 실무에서 흔히 쓰인다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 카운터 값을 HMI에 표시하기</p>
+                    <div style="margin:0; line-height:1.7;">카운터의 현재값(CV)을 HMI 화면의 숫자 표시 필드에 연결해두면, 작업자가 <span class='red'>실시간으로 생산 진행 상황</span>을 확인할 수 있어 현장 관리에 큰 도움이 된다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-4">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-4">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-4" data-scoreboard="true">
 <div class="box quiz-box" id="box-u4-1" data-qid="u4-1">
                     <button class="font-btn" onclick="resetAnswer('u4-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -468,6 +572,30 @@
                     </div>
                     <div id="q-result-u4-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u4-2" class="note" style="display:none;">💡 해설: PV(Preset Value, 설정값)는 카운터가 도달하고자 하는 목표 값입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u4-3" data-qid="u4-3">
+                    <button class="font-btn" onclick="resetAnswer('u4-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 누적 생산량과 배치 생산량을 각각 관리하고 싶을 때 좋은 방법은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '카운터를 목적별로 두 개 운영')">카운터를 목적별로 두 개 운영</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '카운터를 목적별로 두 개 운영')">카운터 하나로 모두 처리</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '카운터를 목적별로 두 개 운영')">타이머로 대체</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '카운터를 목적별로 두 개 운영')">관리 자체가 불가능함</button>
+                    </div>
+                    <div id="q-result-u4-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-3" class="note" style="display:none;">💡 해설: 리셋 시점이 다른 두 목적(누적/배치)은 카운터를 따로 두어 관리하는 것이 실무에서 흔한 방식입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u4-4" data-qid="u4-4">
+                    <button class="font-btn" onclick="resetAnswer('u4-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 작업자가 실시간 생산 진행 상황을 확인하려면 카운터 값을 어디에 연결하면 좋은가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, 'HMI 화면의 숫자 표시 필드')">HMI 화면의 숫자 표시 필드</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, 'HMI 화면의 숫자 표시 필드')">타이머 설정값</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, 'HMI 화면의 숫자 표시 필드')">비교 명령</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, 'HMI 화면의 숫자 표시 필드')">정보창</button>
+                    </div>
+                    <div id="q-result-u4-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-4" class="note" style="display:none;">💡 해설: 카운터의 현재값을 HMI 화면에 표시하면 작업자가 실시간으로 생산 진행 상황을 확인할 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -502,11 +630,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 정지 순서</p>
                     <div style="margin:0; line-height:1.7;">정지할 때는 반대로 <span class='red'>맨 앞 컨베이어부터 먼저 멈춰야</span> 자재가 컨베이어 사이에 걸리지 않는다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 인터록 조건 추가하기</p>
+                    <div style="margin:0; line-height:1.7;">앞 컨베이어가 정상적으로 돌고 있지 않으면(과부하 등으로 정지) <span class='blue'>뒤 컨베이어도 함께 정지</span>시키는 인터록 조건을 추가하면, 자재가 멈춰선 컨베이어 위에 계속 쌓이는 사고를 예방할 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 비상정지와의 결합</p>
+                    <div style="margin:0; line-height:1.7;">비상정지가 눌리면 순차 정지 로직을 거치지 않고 <span class='red'>모든 컨베이어를 즉시 동시 정지</span>시켜야 한다. 순차 제어 로직과 비상정지 로직은 서로 다른 우선순위로 설계해, 비상정지가 항상 최우선으로 작동하도록 구성해야 한다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-5">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-5">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-5" data-scoreboard="true">
 <div class="box quiz-box" id="box-u5-1" data-qid="u5-1">
                     <button class="font-btn" onclick="resetAnswer('u5-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -531,6 +667,30 @@
                     </div>
                     <div id="q-result-u5-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u5-2" class="note" style="display:none;">💡 해설: 정지할 때는 맨 앞 컨베이어부터 먼저 멈춰야 자재가 걸리는 것을 방지할 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u5-3" data-qid="u5-3">
+                    <button class="font-btn" onclick="resetAnswer('u5-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 앞 컨베이어가 과부하로 정지했을 때 뒤 컨베이어도 함께 정지시키는 이유는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, '자재가 멈춘 컨베이어 위에 계속 쌓이는 것을 막기 위해')">자재가 멈춘 컨베이어 위에 계속 쌓이는 것을 막기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, '자재가 멈춘 컨베이어 위에 계속 쌓이는 것을 막기 위해')">전력을 아끼기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, '자재가 멈춘 컨베이어 위에 계속 쌓이는 것을 막기 위해')">타이머를 재설정하기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, '자재가 멈춘 컨베이어 위에 계속 쌓이는 것을 막기 위해')">특별한 이유 없음</button>
+                    </div>
+                    <div id="q-result-u5-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-3" class="note" style="display:none;">💡 해설: 앞 컨베이어가 멈췄는데 뒤 컨베이어가 계속 돌면 자재가 쌓이는 사고로 이어질 수 있어 인터록을 추가합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u5-4" data-qid="u5-4">
+                    <button class="font-btn" onclick="resetAnswer('u5-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 비상정지가 눌렸을 때 컨베이어들은 어떻게 정지해야 하는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, '순차 정지 로직을 거치지 않고 즉시 동시 정지')">순차 정지 로직을 거치지 않고 즉시 동시 정지</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, '순차 정지 로직을 거치지 않고 즉시 동시 정지')">평소처럼 순서대로 정지</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, '순차 정지 로직을 거치지 않고 즉시 동시 정지')">가장 나중에 정지</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, '순차 정지 로직을 거치지 않고 즉시 동시 정지')">정지하지 않음</button>
+                    </div>
+                    <div id="q-result-u5-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-4" class="note" style="display:none;">💡 해설: 비상정지는 순차 제어 로직보다 우선하여 모든 컨베이어를 즉시 동시에 정지시켜야 합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -565,11 +725,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 구현 방법</p>
                     <div style="margin:0; line-height:1.7;">동작시간용 TON과 정지시간용 TON, 총 <span class='red'>최소 2개의 타이머</span>를 서로 이어지도록 구성하면 이러한 사이클 동작을 만들 수 있으며, 각 타이머의 설정시간(PT)만 다르게 지정하면 동작/정지 시간을 원하는 대로 조절할 수 있다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 사이클 횟수 제한하기</p>
+                    <div style="margin:0; line-height:1.7;">무한 반복이 아니라 <span class='blue'>정해진 횟수만큼만 반복</span>하고 싶다면, 사이클이 한 번 완료될 때마다 카운터(CTU)를 1씩 증가시키고, 설정 횟수에 도달하면 전체 사이클 로직을 정지시키는 조건을 추가하면 된다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 사이클 동작의 실무 활용 예</p>
+                    <div style="margin:0; line-height:1.7;">교반기 외에도 <span class='red'>세척기의 분사-정지 반복, 도장 설비의 스프레이-이동 반복</span> 등 일정 패턴을 계속 반복해야 하는 다양한 설비에 이 사이클 타이머 패턴을 응용할 수 있다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-6">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-6">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-6" data-scoreboard="true">
 <div class="box quiz-box" id="box-u6-1" data-qid="u6-1">
                     <button class="font-btn" onclick="resetAnswer('u6-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -594,6 +762,30 @@
                     </div>
                     <div id="q-result-u6-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u6-2" class="note" style="display:none;">💡 해설: 각 타이머의 설정시간(PT) 값을 다르게 지정하면 동작시간과 정지시간을 원하는 대로 조절할 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u6-3" data-qid="u6-3">
+                    <button class="font-btn" onclick="resetAnswer('u6-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 사이클을 무한 반복이 아니라 정해진 횟수만 반복시키려면?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '사이클 완료마다 카운터를 증가시켜 설정 횟수에서 정지')">사이클 완료마다 카운터를 증가시켜 설정 횟수에서 정지</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '사이클 완료마다 카운터를 증가시켜 설정 횟수에서 정지')">타이머를 아예 없앤다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '사이클 완료마다 카운터를 증가시켜 설정 횟수에서 정지')">카운터는 필요 없음</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, '사이클 완료마다 카운터를 증가시켜 설정 횟수에서 정지')">무조건 무한반복만 가능</button>
+                    </div>
+                    <div id="q-result-u6-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-3" class="note" style="display:none;">💡 해설: 사이클이 완료될 때마다 카운터를 증가시키고 설정 횟수에 도달하면 정지시키는 조건을 추가하면 됩니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u6-4" data-qid="u6-4">
+                    <button class="font-btn" onclick="resetAnswer('u6-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 사이클 타이머 패턴을 응용할 수 있는 설비로 가장 거리가 먼 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '단순 전원 On/Off 콘센트')">단순 전원 On/Off 콘센트</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '단순 전원 On/Off 콘센트')">세척기의 분사-정지 반복</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '단순 전원 On/Off 콘센트')">교반기의 동작-정지 반복</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '단순 전원 On/Off 콘센트')">도장 설비의 스프레이-이동 반복</button>
+                    </div>
+                    <div id="q-result-u6-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-4" class="note" style="display:none;">💡 해설: 사이클 패턴이 필요 없는 단순 전원 콘센트는 이 응용 사례와 거리가 멉니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -628,11 +820,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 로직 흐름</p>
                     <div style="margin:0; line-height:1.7;">① 광센서 신호가 CTU의 CU에 들어가 개수를 카운트 → ② PV(목표 개수) 도달시 CTU 출력 ON → ③ 이 신호로 TON을 기동해 포장 모터를 설정시간만큼 동작 → ④ TON 완료 신호로 <span class='red'>CTU를 리셋(R)</span>.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 컨베이어 정지와의 연동</p>
+                    <div style="margin:0; line-height:1.7;">포장 동작이 진행되는 동안에는 <span class='blue'>다음 제품이 포장 위치로 넘어오지 않도록 컨베이어를 잠시 정지</span>시키는 조건을 함께 추가하는 것이 일반적이다. 포장 완료 신호가 나온 뒤에야 컨베이어가 다시 동작하도록 인터록을 건다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 이상 상황 대비 - 타임아웃 처리</p>
+                    <div style="margin:0; line-height:1.7;">센서 고장 등으로 <span class='red'>제품이 오랫동안 목표 개수에 도달하지 못하는 경우</span>를 대비해, 별도의 타이머로 일정 시간 이상 카운트가 멈춰 있으면 경보를 울리는 타임아웃 로직을 추가하면 설비의 신뢰성을 높일 수 있다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-7">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-7">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-7" data-scoreboard="true">
 <div class="box quiz-box" id="box-u7-1" data-qid="u7-1">
                     <button class="font-btn" onclick="resetAnswer('u7-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -657,6 +857,30 @@
                     </div>
                     <div id="q-result-u7-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u7-2" class="note" style="display:none;">💡 해설: 포장 동작이 끝나면 카운터의 R(리셋) 입력을 활성화해 현재값을 0으로 되돌립니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u7-3" data-qid="u7-3">
+                    <button class="font-btn" onclick="resetAnswer('u7-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 포장 동작 중 컨베이어를 잠시 정지시키는 이유는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '다음 제품이 포장 위치로 넘어오는 것을 막기 위해')">다음 제품이 포장 위치로 넘어오는 것을 막기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '다음 제품이 포장 위치로 넘어오는 것을 막기 위해')">전력을 아끼기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '다음 제품이 포장 위치로 넘어오는 것을 막기 위해')">타이머를 재설정하기 위해</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, '다음 제품이 포장 위치로 넘어오는 것을 막기 위해')">특별한 이유 없음</button>
+                    </div>
+                    <div id="q-result-u7-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-3" class="note" style="display:none;">💡 해설: 포장 동작 중에는 다음 제품이 겹치지 않도록 컨베이어를 잠시 정지시키는 인터록을 거는 것이 일반적입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u7-4" data-qid="u7-4">
+                    <button class="font-btn" onclick="resetAnswer('u7-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 센서 고장 등으로 오랫동안 목표 개수에 도달하지 못할 때를 대비하는 방법은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '타임아웃 감지용 타이머로 경보를 울림')">타임아웃 감지용 타이머로 경보를 울림</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '타임아웃 감지용 타이머로 경보를 울림')">무시하고 계속 기다림</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '타임아웃 감지용 타이머로 경보를 울림')">카운터를 없앤다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '타임아웃 감지용 타이머로 경보를 울림')">포장기를 항상 꺼둔다</button>
+                    </div>
+                    <div id="q-result-u7-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-4" class="note" style="display:none;">💡 해설: 타임아웃 로직을 추가하면 이상 상황을 빠르게 감지해 설비 신뢰성을 높일 수 있습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -691,11 +915,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 구현 방법</p>
                     <div style="margin:0; line-height:1.7;">각 색상이 켜지는 시간을 지연시키기 위해 <span class='red'>TON을 체인처럼 순서대로 연결</span>하는 방식(또는 상태 전이 방식)으로 구현할 수 있으며, 마지막 단계의 완료 신호가 다시 첫 단계를 기동시키도록 연결해 무한 반복시킨다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 보행자 신호 연동하기</p>
+                    <div style="margin:0; line-height:1.7;">차량 신호가 초록일 때는 <span class='blue'>보행자 신호를 빨강</span>으로, 차량 신호가 빨강일 때는 <span class='red'>보행자 신호를 초록</span>으로 반대로 연동시키면 실제 교차로 신호등과 비슷한 구조를 만들 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 점멸 모드 추가하기</p>
+                    <div style="margin:0; line-height:1.7;">심야 시간대나 점검 모드에서는 신호등을 순환시키지 않고 <span class='blue'>노란불만 점멸</span>시키는 경우가 많다. 별도의 모드 선택 스위치를 두고, 이 모드일 때는 순환 로직 대신 3단원에서 배운 점멸회로가 노란 램프에 연결되도록 전환하는 구조로 확장할 수 있다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-8">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-8">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-8" data-scoreboard="true">
 <div class="box quiz-box" id="box-u8-1" data-qid="u8-1">
                     <button class="font-btn" onclick="resetAnswer('u8-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -718,6 +950,30 @@
                     </div>
                     <div id="q-result-u8-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u8-2" class="note" style="display:none;">💡 해설: TON(On-Delay Timer)을 사용해 각 색상이 켜지는 시간을 순서대로 지연시킬 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u8-3" data-qid="u8-3">
+                    <button class="font-btn" onclick="resetAnswer('u8-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 차량 신호가 초록일 때 보행자 신호는 어떻게 연동되어야 하는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '빨강으로 반대 연동')">빨강으로 반대 연동</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '빨강으로 반대 연동')">동시에 초록</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '빨강으로 반대 연동')">항상 꺼둠</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '빨강으로 반대 연동')">관계 없음</button>
+                    </div>
+                    <div id="q-result-u8-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-3" class="note" style="display:none;">💡 해설: 차량 신호와 보행자 신호는 서로 반대로 연동되어야 안전한 교차로 신호 체계가 됩니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u8-4" data-qid="u8-4">
+                    <button class="font-btn" onclick="resetAnswer('u8-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 심야 시간대나 점검 모드에서 신호등이 흔히 전환되는 동작은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '노란불 점멸')">노란불 점멸</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '노란불 점멸')">빨강만 계속 켜짐</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '노란불 점멸')">모든 불이 꺼짐</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '노란불 점멸')">초록만 계속 켜짐</button>
+                    </div>
+                    <div id="q-result-u8-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-4" class="note" style="display:none;">💡 해설: 심야·점검 모드에서는 순환 신호 대신 노란불만 점멸시키는 경우가 흔합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -744,10 +1000,10 @@
             <h1>지멘스 PLC 기초강좌 - <br>🎲 랜덤 모의고사</h1>
             <div id="exam-select" class="box" style="text-align:center;">
                 <p style="font-weight:700; margin-top:0;">몇 문제를 랜덤으로 뽑을까요?</p>
-                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 16문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
+                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 32문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
                 <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
                     <button class="font-btn" onclick="startRandomExam(8)" style="padding:10px 18px;">8문제</button>
-                    <button class="font-btn" onclick="startRandomExam(16)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">16문제(전체)</button>
+                    <button class="font-btn" onclick="startRandomExam(32)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">32문제(전체)</button>
                 </div>
             </div>
 
