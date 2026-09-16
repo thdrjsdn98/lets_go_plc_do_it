@@ -125,7 +125,7 @@
                 </button>
                 <div class="tab-dropdown-list" id="tab-dropdown-list">
                     <button class="tab-btn active" onclick="openTab(event, 'tab-cover')">표지</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 단원학습 (8단원)</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 단원학습 (9단원)</button>
                     <button class="tab-btn" onclick="openTab(event, 'tab-exam')">🎲 랜덤 모의고사</button>
                     <button class="tab-btn" onclick="openTab(event, 'tab-wrong')">📕 오답노트</button>
                 </div>
@@ -139,9 +139,9 @@
                 <div class="cover-subtitle">③ 핵심내용① - 하드웨어 구성과 통신 설정</div>
                 <div class="cover-divider"></div>
                 <div class="cover-info">
-                    <p>범위: 8단원</p>
-                    <p>확인문제: 단원별 2문제 · 총 32문제</p>
-                    <p>버전: V2.0.0 (8단원 확장판)</p>
+                    <p>범위: 9단원</p>
+                    <p>확인문제: 단원별 문제 · 총 36문제</p>
+                    <p>버전: V2.5.0 (초보자용 0단원 + 보충설명 추가)</p>
                 </div>
             </div>
             <div class="box">
@@ -164,7 +164,7 @@
         <div id="tab-study" class="tab-content">
             <h1>지멘스 PLC 기초강좌 - <br>📘 PLC 핵심내용① 하드웨어·통신</h1>
             <div style="text-align: right; font-size: 0.8em; color: var(--text-sub); margin-top: 4px; margin-bottom: 12px;">
-                <span>8단원 · 확인문제 32문제</span>
+                <span>9단원 · 확인문제 36문제</span>
             </div>
 
             <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
@@ -173,6 +173,13 @@
 
             <div id="sub-page-menu">
                 <div class="sub-nav-grid" id="main-menu-grid">
+                        <div class="sub-nav-card" onclick="showSubPage(9)" style="border:1.5px solid var(--primary);">
+                            <span>0단원. 전기·제어 왕초보 용어</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-9" style="display:none;">✅ 완료</span>
+                                <span id="card-star-9"></span>
+                            </div>
+                        </div>
                         <div class="sub-nav-card" onclick="showSubPage(1)">
                             <span>01. CPU 종류와 선택 기준</span>
                             <div class="card-status-box">
@@ -235,7 +242,7 @@
                 <div id="sub-page-1" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">1 / 8 PAGE</div>
+                            <div class="page-indicator">1 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -269,6 +276,10 @@
                     <div style="margin:0; line-height:1.7;">① 필요한 디지털/아날로그 I/O 개수, ② 필요한 통신 방식(PROFINET/PROFIBUS 등), ③ 안전 기능 필요 여부, ④ 향후 확장 가능성, ⑤ 예산. 이 다섯 가지를 표로 정리해두고 비교하면 CPU 선정 실수를 줄일 수 있다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 CPU는 PLC의 '두뇌'</p>
+                    <div style="margin:0; line-height:1.7;">CPU(중앙처리장치)는 PLC 전체의 두뇌 역할을 하며, 입력을 읽고 판단해서 출력을 내보내는 모든 계산이 이 안에서 이루어진다. PLC의 CPU 모델에 따라 처리 속도, 다룰 수 있는 I/O 개수, 통신 기능이 달라진다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -338,7 +349,7 @@
                 <div id="sub-page-2" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">2 / 8 PAGE</div>
+                            <div class="page-indicator">2 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -368,6 +379,10 @@
                     <div style="margin:0; line-height:1.7;">실제 구매 전, 카탈로그에서 모듈들을 가상으로 배치해보면서 <span class='blue'>필요한 슬롯 수와 전원 소모량</span>을 미리 계산해볼 수 있다. 전원 모듈의 용량을 초과해 모듈을 배치하면 실제로는 정상 동작하지 않으므로 이 계산이 중요하다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 부품 쇼핑몰이라고 생각하면 된다</p>
+                    <div style="margin:0; line-height:1.7;">하드웨어 카탈로그는 지멘스가 만든 모든 부품(CPU, I/O 모듈, 통신 모듈)이 정리된 온라인 쇼핑몰 카탈로그와 비슷하다. 내가 쓸 실제 부품의 정확한 모델(주문번호)을 찾아 프로젝트에 '장바구니 담듯' 추가하는 것이 디바이스 추가 작업이다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -435,7 +450,7 @@
                 <div id="sub-page-3" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">3 / 8 PAGE</div>
+                            <div class="page-indicator">3 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -461,6 +476,10 @@
                     <div style="margin:0; line-height:1.7;">실제 프로그램에서는 I0.0처럼 절대 주소만 쓰기보다, <span class='blue'>'기동버튼_라인1'</span>처럼 의미를 담은 심볼릭 이름(태그 이름)을 지정해서 사용하는 것이 훨씬 읽기 쉽고 유지보수하기 좋다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 주소는 '사서함 번호'와 같다</p>
+                    <div style="margin:0; line-height:1.7;">I0.0, Q0.1 같은 어드레스는 아파트의 동-호수나 우체국 사서함 번호와 비슷하다. 정확한 번호를 알아야 정확한 신호를 주고받을 수 있듯, 어드레스를 정확히 알아야 원하는 버튼·센서·모터를 프로그램에서 정확히 지정할 수 있다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -530,7 +549,7 @@
                 <div id="sub-page-4" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">4 / 8 PAGE</div>
+                            <div class="page-indicator">4 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -556,6 +575,10 @@
                     <div style="margin:0; line-height:1.7;">온라인 액세스 화면에서 <span class='red'>'접근 가능한 디바이스 검색(Accessible devices)'</span> 버튼을 누르면, 현재 네트워크에 연결된 PLC들이 자동으로 검색되어 목록에 나타난다. IP 주소를 잘 모를 때 특히 유용하다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 PC와 PLC 사이의 '대화 통로'</p>
+                    <div style="margin:0; line-height:1.7;">PG/PC 인터페이스는 내 컴퓨터가 PLC와 대화하기 위해 사용하는 통로(랜선, USB 등)를 지정하는 설정이다. PC와 PLC가 같은 통로로 연결되어 있어야 온라인 접속이 가능하다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -625,7 +648,7 @@
                 <div id="sub-page-5" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">5 / 8 PAGE</div>
+                            <div class="page-indicator">5 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -651,6 +674,10 @@
                     <div style="margin:0; line-height:1.7;">현장에서는 나중에 설비를 추가하거나 교체할 때를 대비해, IP 주소를 <span class='red'>문서(배치도)로 정리</span>해두는 것이 유지보수에 큰 도움이 된다. IP가 겹치는 사고는 현장에서 실제로 자주 발생하는 실수 중 하나다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 IP 주소는 '집 주소'다</p>
+                    <div style="margin:0; line-height:1.7;">IP 주소는 네트워크 안에서 특정 장치를 찾아가기 위한 집 주소와 같다. 서브넷은 '같은 동네인지 아닌지'를 구분하는 규칙이라고 생각하면, 같은 동네(서브넷) 안에 있어야 서로 바로 통신할 수 있다는 점이 쉽게 이해된다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -720,7 +747,7 @@
                 <div id="sub-page-6" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">6 / 8 PAGE</div>
+                            <div class="page-indicator">6 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -746,6 +773,10 @@
                     <div style="margin:0; line-height:1.7;">구형 PROFIBUS 장비를 최신 PROFINET 네트워크에 연결해야 할 때는 <span class='red'>PROFINET/PROFIBUS 게이트웨이(변환 장치)</span>를 사용해 두 프로토콜을 연동시킬 수 있다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 여러 부품을 잇는 '도로망'</p>
+                    <div style="margin:0; line-height:1.7;">PROFINET·PROFIBUS는 CPU와 여러 원격 I/O, 드라이브를 하나로 연결하는 도로망과 같다. PROFINET은 이더넷 기반의 최신 고속도로, PROFIBUS는 그 이전 세대에 쓰이던 구형 도로라고 이해하면 관계가 쉽게 그려진다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -815,7 +846,7 @@
                 <div id="sub-page-7" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">7 / 8 PAGE</div>
+                            <div class="page-indicator">7 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -841,6 +872,10 @@
                     <div style="margin:0; line-height:1.7;">① 올바른 네트워크 어댑터 선택, ② CPU가 STOP 모드인지 확인(다운로드는 보통 STOP 상태에서 안전), ③ 하드웨어 구성과 실제 배치가 일치하는지, 이 세 가지를 다운로드 직전에 습관적으로 확인하면 문제를 크게 줄일 수 있다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 다른 열쇠로 자물쇠를 여는 상황</p>
+                    <div style="margin:0; line-height:1.7;">하드웨어 불일치 오류는 다른 집 열쇠로 우리 집 문을 열려는 상황과 같다. 설정한 CPU 모델과 실제 연결된 CPU 모델이 다르면 오류가 나므로, 항상 실물 라벨과 화면 설정이 정확히 일치하는지 확인하는 습관이 중요하다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -910,7 +945,7 @@
                 <div id="sub-page-8" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">8 / 8 PAGE</div>
+                            <div class="page-indicator">8 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -940,6 +975,10 @@
                     <div style="margin:0; line-height:1.7;">현장에 실제 설비가 아직 설치되지 않은 초기 개발 단계에서, PLCSIM으로 <span class='blue'>기본 로직을 미리 완성</span>해두면 실제 설비가 도착했을 때 다운로드 후 미세 조정만으로 빠르게 가동할 수 있어 개발 기간을 크게 단축할 수 있다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 실제 장비 없이 연습하는 모의비행</p>
+                    <div style="margin:0; line-height:1.7;">PLCSIM은 조종사가 실제 비행 전에 모의비행 장치로 연습하는 것과 같은 역할을 한다. 실제 하드웨어가 없어도 컴퓨터 안에서 가상의 PLC를 돌려 프로그램이 의도대로 동작하는지 미리 확인할 수 있어 초보자가 안전하게 연습하기에 좋다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -1004,6 +1043,108 @@
 
                 </div>
 
+            
+                <div id="sub-page-9" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">9 / 9 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-9" onchange="toggleComplete(9)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-9" onclick="toggleBookmark(9)">☆</button>
+                        </div>
+                    </div>
+                    <h2>0. 전기·제어 완전 왕초보 용어부터</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">📌 핵심 용어</p>
+                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>용어</th><th>의미</th></tr><tr><td>입력(Input)</td><td>PLC가 외부(버튼, 센서)로부터 받아들이는 신호</td></tr><tr><td>출력(Output)</td><td>PLC가 외부(모터, 램프, 밸브)로 내보내는 신호</td></tr><tr><td>접점</td><td>붙었다 떨어졌다 하며 전류를 흐르게 하거나 막는 스위치 역할의 부품</td></tr><tr><td>릴레이</td><td>작은 신호로 큰 부하를 켜고 끄는 전자식 스위치</td></tr><tr><td>센서</td><td>빛·압력·위치 등 물리량을 전기 신호로 바꿔주는 부품</td></tr><tr><td>CPU</td><td>입력을 읽고 판단해 출력을 내보내는 PLC의 두뇌</td></tr></table></div></div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. PLC가 하는 일을 한 문장으로</p>
+                    <div style="margin:0; line-height:1.7;">PLC는 <span class='blue'>센서(입력)의 신호를 읽고</span> → <span class='red'>정해진 논리에 따라 판단하고</span> → <span class='mint'>모터·램프(출력)를 켜고 끄는</span> 장치라고 한 문장으로 요약할 수 있다. 이후 모든 단원은 결국 이 세 단계를 더 자세히 배우는 과정이다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 입력(I)과 출력(Q, 또는 O)이란</p>
+                    <div style="margin:0; line-height:1.7;">입력은 PLC가 '받아들이는' 신호(버튼, 리미트스위치, 센서)이고, 출력은 PLC가 '내보내는' 신호(모터, 램프, 밸브)다. 지멘스 PLC에서는 관례적으로 입력을 I, 출력을 Q로 표기한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 전압·전류 아주 기초만</p>
+                    <div style="margin:0; line-height:1.7;">전압은 물을 흐르게 만드는 '압력'에, 전류는 실제로 흐르는 '물의 양'에 비유할 수 있다. 접점이 붙으면(ON) 회로가 완성되어 전류가 흐르고, 떨어지면(OFF) 물길이 막힌 것처럼 전류가 흐르지 않는다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 릴레이와 센서란 무엇인가</p>
+                    <div style="margin:0; line-height:1.7;">릴레이는 작은 전기 신호로 큰 부하(모터 등)를 켜고 끄는 스위치 역할을 하는 부품이고, 센서는 빛·압력·위치 같은 물리량을 PLC가 이해할 수 있는 전기 신호로 바꿔주는 부품이다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">💡 실무 팁</p>
+                    <div style="margin:0; line-height:1.7;">이번 하드웨어 단원에서 나오는 I/O, 어드레스 같은 개념은 이 페이지의 전기 기초만 알아도 훨씬 쉽게 이해된다. 낯선 용어가 나올 때마다 '이게 입력 쪽 얘기인지 출력 쪽 얘기인지'부터 구분해보면 도움이 된다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-9">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
+                    <div id="unit-quiz-9" data-scoreboard="true">
+<div class="box quiz-box" id="box-u9-1" data-qid="u9-1">
+                    <button class="font-btn" onclick="resetAnswer('u9-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. PLC가 신호를 '받아들이는' 쪽을 부르는 말은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-1', this, '입력(Input)')">입력(Input)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-1', this, '입력(Input)')">출력(Output)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-1', this, '입력(Input)')">전원(Power)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-1', this, '입력(Input)')">접지(Ground)</button>
+                    </div>
+                    <div id="q-result-u9-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-1" class="note" style="display:none;">💡 해설: 버튼, 센서처럼 PLC가 받아들이는 신호를 입력이라고 합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u9-2" data-qid="u9-2">
+                    <button class="font-btn" onclick="resetAnswer('u9-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 물리량(빛, 압력, 위치 등)을 전기 신호로 바꿔주는 부품을 무엇이라 하는가? (한글)</p>
+                    <div style="display:flex; gap:6px; margin:12px 0;">
+                        <input type="text" id="input-u9-2" class="mini-text-input" placeholder="정답 입력" style="max-width:220px;">
+                        <button class="font-btn" onclick="checkAnswerByInput('u9-2', document.getElementById('input-u9-2'), ["센서"])">확인</button>
+                    </div>
+                    <div id="q-result-u9-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-2" class="note" style="display:none;">💡 해설: 센서는 물리량을 전기 신호로 변환해 PLC가 읽을 수 있게 해줍니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u9-3" data-qid="u9-3">
+                    <button class="font-btn" onclick="resetAnswer('u9-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 작은 신호로 큰 부하(모터 등)를 켜고 끄는 스위치 역할을 하는 부품은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '릴레이')">릴레이</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '릴레이')">저항</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '릴레이')">콘덴서</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '릴레이')">다이오드</button>
+                    </div>
+                    <div id="q-result-u9-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-3" class="note" style="display:none;">💡 해설: 릴레이는 작은 제어 신호로 큰 부하를 켜고 끄는 전자식 스위치입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u9-4" data-qid="u9-4">
+                    <button class="font-btn" onclick="resetAnswer('u9-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 다음 중 PLC의 '출력' 장치에 해당하는 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '모터')">모터</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '모터')">푸시버튼</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '모터')">리미트스위치</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '모터')">광센서</button>
+                    </div>
+                    <div id="q-result-u9-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-4" class="note" style="display:none;">💡 해설: 모터는 PLC가 신호를 내보내 동작시키는 출력 장치입니다. 나머지는 모두 입력 장치입니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-9')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-9')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-9" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(9)"></textarea>
+                    </div>
+
+                </div>
+
             <div id="page-nav-bar" class="page-nav-bar" style="display:none;">
                 <button id="btn-prev" class="page-nav-btn" onclick="prevSubPage()">◀ 이전</button>
                 <button class="page-nav-btn main-btn" onclick="showSubMenu()">📋 단원 목록</button>
@@ -1016,10 +1157,10 @@
             <h1>지멘스 PLC 기초강좌 - <br>🎲 랜덤 모의고사</h1>
             <div id="exam-select" class="box" style="text-align:center;">
                 <p style="font-weight:700; margin-top:0;">몇 문제를 랜덤으로 뽑을까요?</p>
-                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 32문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
+                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 36문제(0~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
                 <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
                     <button class="font-btn" onclick="startRandomExam(8)" style="padding:10px 18px;">8문제</button>
-                    <button class="font-btn" onclick="startRandomExam(32)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">32문제(전체)</button>
+                    <button class="font-btn" onclick="startRandomExam(36)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">36문제(전체)</button>
                 </div>
             </div>
 
