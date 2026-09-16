@@ -125,7 +125,7 @@
                 </button>
                 <div class="tab-dropdown-list" id="tab-dropdown-list">
                     <button class="tab-btn active" onclick="openTab(event, 'tab-cover')">표지</button>
-                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 단원학습 (8단원)</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab-study')">📘 단원학습 (9단원)</button>
                     <button class="tab-btn" onclick="openTab(event, 'tab-exam')">🎲 랜덤 모의고사</button>
                     <button class="tab-btn" onclick="openTab(event, 'tab-wrong')">📕 오답노트</button>
                 </div>
@@ -139,9 +139,9 @@
                 <div class="cover-subtitle">② 단축키 - 공통 단축키와 TIA Portal 확인법</div>
                 <div class="cover-divider"></div>
                 <div class="cover-info">
-                    <p>범위: 8단원</p>
-                    <p>확인문제: 단원별 2문제 · 총 32문제</p>
-                    <p>버전: V2.0.0 (8단원 확장판)</p>
+                    <p>범위: 9단원</p>
+                    <p>확인문제: 단원별 문제 · 총 36문제</p>
+                    <p>버전: V2.5.0 (초보자용 0단원 + 보충설명 추가)</p>
                 </div>
             </div>
             <div class="box">
@@ -164,7 +164,7 @@
         <div id="tab-study" class="tab-content">
             <h1>지멘스 PLC 기초강좌 - <br>📘 PLC 단축키</h1>
             <div style="text-align: right; font-size: 0.8em; color: var(--text-sub); margin-top: 4px; margin-bottom: 12px;">
-                <span>8단원 · 확인문제 32문제</span>
+                <span>9단원 · 확인문제 36문제</span>
             </div>
 
             <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
@@ -173,6 +173,13 @@
 
             <div id="sub-page-menu">
                 <div class="sub-nav-grid" id="main-menu-grid">
+                        <div class="sub-nav-card" onclick="showSubPage(9)" style="border:1.5px solid var(--primary);">
+                            <span>0단원. 단축키 전에: 키보드 기본</span>
+                            <div class="card-status-box">
+                                <span class="card-done-badge" id="card-done-9" style="display:none;">✅ 완료</span>
+                                <span id="card-star-9"></span>
+                            </div>
+                        </div>
                         <div class="sub-nav-card" onclick="showSubPage(1)">
                             <span>01. 왜 단축키 학습이 까다로운가</span>
                             <div class="card-status-box">
@@ -235,7 +242,7 @@
                 <div id="sub-page-1" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">1 / 8 PAGE</div>
+                            <div class="page-indicator">1 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -261,6 +268,10 @@
                     <div style="margin:0; line-height:1.7;">① 이번 단원들에서 공통 단축키부터 익히고 → ② 실제로 TIA Portal을 열어 Options 메뉴에서 내 버전의 단축키를 한 번 훑어보고 → ③ 자주 쓰는 3~4개만 우선 손에 익히는 순서를 추천한다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 다른 프로그램과 헷갈리는 게 당연하다</p>
+                    <div style="margin:0; line-height:1.7;">엑셀·워드에서 쓰던 단축키가 TIA Portal에서는 다르게 동작하거나 아예 다른 기능에 배정된 경우가 많다. 이건 배우는 사람의 문제가 아니라 프로그램마다 단축키 체계가 다르기 때문이므로, 처음에 헷갈리는 게 당연하다고 생각하고 편하게 접근하면 된다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -330,7 +341,7 @@
                 <div id="sub-page-2" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">2 / 8 PAGE</div>
+                            <div class="page-indicator">2 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -356,6 +367,10 @@
                     <div style="margin:0; line-height:1.7;">프로그램 전체를 인쇄하기보다는, 필요한 네트워크(rung)만 선택해서 인쇄하거나 PDF로 내보내면 검토용 자료를 훨씬 깔끔하게 만들 수 있다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 가장 먼저 손에 익혀야 할 것들</p>
+                    <div style="margin:0; line-height:1.7;">Ctrl+S(저장), Ctrl+P(인쇄)처럼 파일 관련 단축키는 다른 윈도우 프로그램과 거의 동일하다. 이미 알고 있는 단축키가 그대로 통하는 경우가 많으니 '완전히 새로 외운다'기보다 '기존에 알던 것을 확인한다'는 마음으로 보면 된다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -425,7 +440,7 @@
                 <div id="sub-page-3" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">3 / 8 PAGE</div>
+                            <div class="page-indicator">3 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -451,6 +466,10 @@
                     <div style="margin:0; line-height:1.7;">Delete로 접점이나 코일을 지울 때, 해당 태그가 다른 네트워크에서도 쓰이고 있다면 <span class='blue'>상호참조(Cross reference)</span>를 먼저 확인해 영향 범위를 파악하는 것이 안전하다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 복사·붙여넣기는 래더에서도 똑같다</p>
+                    <div style="margin:0; line-height:1.7;">Ctrl+C(복사), Ctrl+V(붙여넣기), Ctrl+Z(실행 취소)는 래더 네트워크를 다룰 때도 동일하게 쓰인다. 비슷한 회로를 여러 개 그려야 할 때, 하나를 완성한 뒤 복사·붙여넣기로 나머지를 빠르게 만들고 접점 이름만 바꿔주면 훨씬 효율적이다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -520,7 +539,7 @@
                 <div id="sub-page-4" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">4 / 8 PAGE</div>
+                            <div class="page-indicator">4 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -546,6 +565,10 @@
                     <div style="margin:0; line-height:1.7;">찾기 기능은 보통 현재 열린 블록 안에서만 찾는 것과, 프로젝트 전체에서 찾는 것을 구분해서 지원한다. 프로젝트 규모가 크다면 <span class='blue'>전체 프로젝트 검색</span> 옵션을 활용하는 것이 효율적이다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 '이 접점을 어디서 또 쓰고 있지?'를 위한 기능</p>
+                    <div style="margin:0; line-height:1.7;">프로그램이 커지면 같은 태그를 여러 네트워크에서 반복 사용하게 되는데, 상호참조 기능은 이 태그가 프로그램 전체 어디에 쓰이는지 보여주는 지도와 같다. 접점을 수정하기 전에 영향 범위를 먼저 확인하는 습관을 들이면 실수를 크게 줄일 수 있다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -613,7 +636,7 @@
                 <div id="sub-page-5" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">5 / 8 PAGE</div>
+                            <div class="page-indicator">5 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -639,6 +662,10 @@
                     <div style="margin:0; line-height:1.7;">이것저것 옮기다 화면이 뒤죽박죽되었다면, 보기(View) 메뉴에서 <span class='blue'>기본 배치로 초기화</span>하는 옵션을 찾아 원래 상태로 되돌릴 수 있다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 확대/축소는 지도 앱과 같다</p>
+                    <div style="margin:0; line-height:1.7;">래더 다이어그램을 확대·축소하는 것은 지도 앱에서 화면을 확대·축소하는 것과 같은 원리다. 전체 구조를 볼 땐 축소하고, 세부 접점 이름을 확인할 땐 확대하는 식으로 목적에 맞게 전환하는 습관을 들이면 작업 속도가 빨라진다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -708,7 +735,7 @@
                 <div id="sub-page-6" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">6 / 8 PAGE</div>
+                            <div class="page-indicator">6 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -734,6 +761,10 @@
                     <div style="margin:0; line-height:1.7;">다운로드 시 나타나는 옵션 중 '차이만 다운로드(변경분만)'와 '전체 다운로드'를 구분해서 제공하는 경우가 있다. 시간이 급할 땐 전자가 빠르지만, 문제가 의심될 땐 전체 다운로드로 확실하게 갱신하는 편이 안전하다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 반복 작업일수록 단축키 효과가 크다</p>
+                    <div style="margin:0; line-height:1.7;">코드를 수정할 때마다 컴파일·다운로드를 마우스로 매번 클릭하다 보면 손이 많이 간다. 하루에도 수십 번 반복하는 작업이라, 단축키 하나만 익혀도 누적된 시간 절약 효과가 상당히 크다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -803,7 +834,7 @@
                 <div id="sub-page-7" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">7 / 8 PAGE</div>
+                            <div class="page-indicator">7 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -829,6 +860,10 @@
                     <div style="margin:0; line-height:1.7;">직접 재할당한 단축키들은 캡처해두거나 메모장에 정리해서 <span class='blue'>나만의 단축키표</span>로 보관해두면, 다른 PC에 새로 설치했을 때도 빠르게 같은 환경을 만들 수 있다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 내 손에 맞게 바꿔도 된다</p>
+                    <div style="margin:0; line-height:1.7;">기본 단축키가 손에 잘 안 맞거나 다른 프로그램과 자꾸 충돌한다면, 얼마든지 나에게 편한 조합으로 바꿔서 쓸 수 있다. 원래 정해진 대로 써야 한다는 부담을 갖지 말고, 작업 습관에 맞게 조정하는 것도 정당한 생산성 향상 방법이다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -898,7 +933,7 @@
                 <div id="sub-page-8" class="sub-page" style="display:none;">
                     <div class="sub-page-header">
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <div class="page-indicator">8 / 8 PAGE</div>
+                            <div class="page-indicator">8 / 9 PAGE</div>
                             <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
                         </div>
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -924,6 +959,10 @@
                     <div style="margin:0; line-height:1.7;">자주 쓰는 로직 패턴(예: 자기유지+인터록 조합)을 미리 만들어두고, 새 프로젝트마다 <span class='blue'>복사해서 재사용</span>하면 매번 처음부터 작성하는 것보다 훨씬 빠르게 개발할 수 있다.</div>
                 </div>
 
+<div class="highlight-box" style="border-left:4px solid #f59e0b; background:var(--box-bg, rgba(245,158,11,0.06));">
+                    <p style="font-weight:700; margin:0 0 6px 0;">🔰 옛날 프로그램 경험이 있다면</p>
+                    <div style="margin:0; line-height:1.7;">STEP 7 Classic을 먼저 배운 사람이라면 일부 단축키가 TIA Portal에서 다르게 동작해 오히려 헷갈릴 수 있다. 이런 경우 억지로 예전 습관을 유지하려 하지 말고, TIA Portal 고유의 방식으로 다시 익히는 편이 장기적으로 더 편하다.</div>
+                </div>
                     <div class="quiz-sec-header">
                         <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
@@ -990,6 +1029,108 @@
 
                 </div>
 
+            
+                <div id="sub-page-9" class="sub-page" style="display:none;">
+                    <div class="sub-page-header">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div class="page-indicator">9 / 9 PAGE</div>
+                            <button class="font-btn" onclick="showSubMenu()" style="font-size:0.75em; padding:4px 8px;">📋 단원 목록</button>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <label class="complete-check-label"><input type="checkbox" id="check-page-9" onchange="toggleComplete(9)"> 학습 완료</label>
+                            <button class="bookmark-btn" id="star-btn-9" onclick="toggleBookmark(9)">☆</button>
+                        </div>
+                    </div>
+                    <h2>0. 단축키를 배우기 전에: 키보드·마우스 기본 다지기</h2>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">📌 핵심 용어</p>
+                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>용어</th><th>의미</th></tr><tr><td>조합키</td><td>Ctrl·Alt·Shift처럼 다른 키와 함께 눌러야 의미가 생기는 키</td></tr><tr><td>우클릭</td><td>마우스 오른쪽 버튼 클릭, 상황에 맞는 메뉴(컨텍스트 메뉴)를 띄움</td></tr><tr><td>드래그</td><td>마우스 버튼을 누른 채로 끌어서 이동시키는 동작</td></tr><tr><td>포커스</td><td>지금 어떤 창·개체가 선택되어 입력을 받을 준비가 된 상태</td></tr></table></div></div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">1. 왜 단축키가 필요한가</p>
+                    <div style="margin:0; line-height:1.7;">마우스로 매번 메뉴를 찾아 클릭하는 것보다, 손을 키보드에 둔 채로 반복 작업을 처리하는 것이 훨씬 빠르다. 특히 래더 작성처럼 비슷한 동작을 계속 반복하는 엔지니어링 소프트웨어에서는 단축키의 효과가 더욱 크다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 조합키를 읽는 법</p>
+                    <div style="margin:0; line-height:1.7;">'Ctrl+C'라는 표기는 <span class='blue'>Ctrl키를 누른 채로</span> C키를 누르라는 뜻이지, 순서대로 하나씩 눌렀다 떼라는 뜻이 아니다. '+'로 연결된 키들은 항상 동시에 누른다고 이해하면 된다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 마우스 오른쪽 버튼(우클릭)의 의미</p>
+                    <div style="margin:0; line-height:1.7;">우클릭하면 지금 상황에 맞는 메뉴(컨텍스트 메뉴)가 뜨는데, TIA Portal 안 거의 모든 창에서 이 메뉴의 내용이 다르게 나타난다. 원하는 기능을 못 찾겠을 때는 일단 우클릭부터 시도해보는 습관을 들이면 좋다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. '포커스'라는 개념</p>
+                    <div style="margin:0; line-height:1.7;">지금 어떤 창이나 개체가 선택된 상태인지에 따라 같은 단축키도 다르게 동작할 수 있다. 예를 들어 프로젝트 트리에 포커스가 있을 때와 래더 편집창에 포커스가 있을 때, Delete 키가 지우는 대상이 서로 다르다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">💡 실무 팁</p>
+                    <div style="margin:0; line-height:1.7;">단축키를 처음부터 전부 외우려 하지 말고, 가장 자주 쓰는 5개 정도만 먼저 손에 익힌 뒤 필요할 때마다 하나씩 늘려가는 방식이 부담이 적고 오래 간다.</div>
+                </div>
+
+                    <div class="quiz-sec-header">
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
+                    </div>
+                    <div class="score-board"><span id="score-unit-quiz-9">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
+                    <div id="unit-quiz-9" data-scoreboard="true">
+<div class="box quiz-box" id="box-u9-1" data-qid="u9-1">
+                    <button class="font-btn" onclick="resetAnswer('u9-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q1. 'Ctrl+S'라는 표기가 의미하는 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-1', this, 'Ctrl키를 누른 채로 S키를 누른다')">Ctrl키를 누른 채로 S키를 누른다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-1', this, 'Ctrl키를 누른 채로 S키를 누른다')">Ctrl키와 S키를 순서대로 각각 눌렀다 뗀다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-1', this, 'Ctrl키를 누른 채로 S키를 누른다')">S키를 두 번 누른다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-1', this, 'Ctrl키를 누른 채로 S키를 누른다')">Ctrl키만 누른다</button>
+                    </div>
+                    <div id="q-result-u9-1" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-1" class="note" style="display:none;">💡 해설: '+'로 연결된 조합키는 두 키를 동시에 누르라는 뜻입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u9-2" data-qid="u9-2">
+                    <button class="font-btn" onclick="resetAnswer('u9-2')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q2. 마우스 오른쪽 버튼을 눌렀을 때 뜨는, 상황에 맞는 기능 목록을 부르는 말은? (한글)</p>
+                    <div style="display:flex; gap:6px; margin:12px 0;">
+                        <input type="text" id="input-u9-2" class="mini-text-input" placeholder="정답 입력" style="max-width:220px;">
+                        <button class="font-btn" onclick="checkAnswerByInput('u9-2', document.getElementById('input-u9-2'), ["컨텍스트 메뉴", "상황메뉴", "우클릭 메뉴"])">확인</button>
+                    </div>
+                    <div id="q-result-u9-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-2" class="note" style="display:none;">💡 해설: 우클릭 시 뜨는 메뉴를 컨텍스트 메뉴(상황 메뉴)라고 합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u9-3" data-qid="u9-3">
+                    <button class="font-btn" onclick="resetAnswer('u9-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 같은 단축키가 상황에 따라 다르게 동작하는 이유로 가장 관련 있는 개념은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '포커스(현재 선택된 창/개체)')">포커스(현재 선택된 창/개체)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '포커스(현재 선택된 창/개체)')">모니터 해상도</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '포커스(현재 선택된 창/개체)')">마우스 감도</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-3', this, '포커스(현재 선택된 창/개체)')">인터넷 속도</button>
+                    </div>
+                    <div id="q-result-u9-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-3" class="note" style="display:none;">💡 해설: 현재 어떤 창/개체에 포커스가 있는지에 따라 단축키의 동작 대상이 달라집니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u9-4" data-qid="u9-4">
+                    <button class="font-btn" onclick="resetAnswer('u9-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 단축키를 처음 배우는 사람에게 권장되는 학습 방법은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '자주 쓰는 몇 개부터 익히고 점차 늘린다')">자주 쓰는 몇 개부터 익히고 점차 늘린다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '자주 쓰는 몇 개부터 익히고 점차 늘린다')">모든 단축키를 한 번에 암기한다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '자주 쓰는 몇 개부터 익히고 점차 늘린다')">단축키는 몰라도 상관없다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u9-4', this, '자주 쓰는 몇 개부터 익히고 점차 늘린다')">마우스만 사용한다</button>
+                    </div>
+                    <div id="q-result-u9-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u9-4" class="note" style="display:none;">💡 해설: 처음부터 전부 외우려 하기보다 자주 쓰는 것부터 익히는 편이 부담이 적습니다.</div>
+                </div>
+                    </div>
+                    <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+                        <button class="font-btn" onclick="shuffleSection('unit-quiz-9')" style="background-color:#8b5cf6; color:#fff;">🔀 순서 섞기</button>
+                        <button class="font-btn" onclick="resetAllInContainer('unit-quiz-9')" style="background-color:#ef4444; color:#fff;">🔄 전체 초기화</button>
+                    </div>
+
+                    <div class="page-memo-section">
+                        <p class="page-memo-title">📝 나만의 메모</p>
+                        <textarea id="memo-input-9" class="page-memo-textarea" placeholder="이 단원에서 헷갈리는 부분을 적어보세요." onblur="savePageMemo(9)"></textarea>
+                    </div>
+
+                </div>
+
             <div id="page-nav-bar" class="page-nav-bar" style="display:none;">
                 <button id="btn-prev" class="page-nav-btn" onclick="prevSubPage()">◀ 이전</button>
                 <button class="page-nav-btn main-btn" onclick="showSubMenu()">📋 단원 목록</button>
@@ -1002,10 +1143,10 @@
             <h1>지멘스 PLC 기초강좌 - <br>🎲 랜덤 모의고사</h1>
             <div id="exam-select" class="box" style="text-align:center;">
                 <p style="font-weight:700; margin-top:0;">몇 문제를 랜덤으로 뽑을까요?</p>
-                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 32문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
+                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 36문제(0~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
                 <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
                     <button class="font-btn" onclick="startRandomExam(8)" style="padding:10px 18px;">8문제</button>
-                    <button class="font-btn" onclick="startRandomExam(32)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">32문제(전체)</button>
+                    <button class="font-btn" onclick="startRandomExam(36)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">36문제(전체)</button>
                 </div>
             </div>
 
