@@ -140,7 +140,7 @@
                 <div class="cover-divider"></div>
                 <div class="cover-info">
                     <p>범위: 8단원</p>
-                    <p>확인문제: 단원별 2문제 · 총 16문제</p>
+                    <p>확인문제: 단원별 2문제 · 총 32문제</p>
                     <p>버전: V2.0.0 (8단원 확장판)</p>
                 </div>
             </div>
@@ -164,7 +164,7 @@
         <div id="tab-study" class="tab-content">
             <h1>지멘스 PLC 기초강좌 - <br>📘 PLC 사용법</h1>
             <div style="text-align: right; font-size: 0.8em; color: var(--text-sub); margin-top: 4px; margin-bottom: 12px;">
-                <span>8단원 · 확인문제 16문제</span>
+                <span>8단원 · 확인문제 32문제</span>
             </div>
 
             <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
@@ -246,25 +246,37 @@
                     <h2>01. TIA Portal이란?</h2>
 <div class="highlight-box">
                     <p style="font-weight:700; margin:0 0 6px 0;">📌 핵심 용어</p>
-                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>용어</th><th>의미</th></tr><tr><td>TIA Portal</td><td>PLC·HMI·드라이브를 하나의 SW에서 다루는 통합 엔지니어링 플랫폼</td></tr><tr><td>S7-1200/1500</td><td>최신 세대 CPU, TIA Portal로 프로그래밍</td></tr><tr><td>S7-300/400</td><td>구형 CPU, 주로 STEP 7 Classic(SIMATIC Manager)로 프로그래밍</td></tr></table></div></div>
+                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>용어</th><th>의미</th></tr><tr><td>TIA Portal</td><td>PLC·HMI·드라이브를 하나의 SW에서 다루는 통합 엔지니어링 플랫폼</td></tr><tr><td>S7-1200/1500</td><td>최신 세대 CPU, TIA Portal로 프로그래밍</td></tr><tr><td>S7-300/400</td><td>구형 CPU, 주로 STEP 7 Classic(SIMATIC Manager)로 프로그래밍</td></tr><tr><td>TIA</td><td>Totally Integrated Automation의 약자</td></tr></table></div></div>
                 </div>
 <div class="highlight-box">
                     <p style="font-weight:700; margin:0 0 6px 0;">1. TIA Portal 개요</p>
-                    <div style="margin:0; line-height:1.7;">지멘스의 <span class='blue'>통합 엔지니어링 소프트웨어</span>로, S7-1200·S7-1500 PLC, ET200 원격 I/O, HMI 터치패널, SINAMICS 드라이브를 <span class='red'>하나의 프로젝트</span> 안에서 함께 설정·프로그래밍한다.</div>
+                    <div style="margin:0; line-height:1.7;">지멘스의 <span class='blue'>통합 엔지니어링 소프트웨어</span>로, S7-1200·S7-1500 PLC, ET200 원격 I/O, HMI 터치패널, SINAMICS 드라이브를 <span class='red'>하나의 프로젝트</span> 안에서 함께 설정·프로그래밍한다. 'TIA'는 Totally Integrated Automation(완전히 통합된 자동화)의 약자로, 지멘스가 자동화 제품군 전체를 하나의 철학으로 묶어 부르는 이름이기도 하다.</div>
                 </div>
 <div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">2. 이름이 헷갈리는 이유</p>
+                    <p style="font-weight:700; margin:0 0 6px 0;">2. 왜 예전엔 여러 소프트웨어를 따로 썼나</p>
+                    <div style="margin:0; line-height:1.7;">TIA Portal 이전에는 PLC 프로그래밍용 STEP 7, HMI 화면 제작용 WinCC, 드라이브 설정용 STARTER 등을 <span class='blue'>각각 따로 실행</span>해야 했다. 이 방식은 태그(주소)를 프로그램마다 따로 입력해야 하고, 한 프로그램에서 바꾼 이름이 다른 프로그램에는 자동으로 반영되지 않아 실수가 잦았다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 이름이 헷갈리는 이유</p>
                     <div style="margin:0; line-height:1.7;">TIA Portal 안에서 PLC를 프로그래밍하는 파트의 이름이 <span class='mint'>'STEP 7'</span>이다. 그래서 '구형 STEP 7 Classic'과 'TIA Portal 안의 STEP 7'을 혼동하기 쉬운데, 전자는 별도 프로그램(SIMATIC Manager), 후자는 TIA Portal에 내장된 기능이라는 점을 구분해야 한다.</div>
                 </div>
 <div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">3. 통합환경의 장점</p>
-                    <div style="margin:0; line-height:1.7;">PLC 태그를 HMI 화면에서 그대로 끌어다 쓸 수 있고, 진단 정보가 하나의 창에서 통합 관리되며, 프로젝트 파일이 하나로 묶여 관리가 쉬워진다.</div>
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 통합환경의 장점</p>
+                    <div style="margin:0; line-height:1.7;">PLC 태그를 HMI 화면에서 그대로 끌어다 쓸 수 있고, 진단 정보가 하나의 창에서 통합 관리되며, 프로젝트 파일이 하나로 묶여 관리가 쉬워진다. 또한 여러 CPU와 HMI, 드라이브가 하나의 프로젝트 트리 안에 있으므로 전체 설비의 구성을 한눈에 파악하기도 좋다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. TIA Portal이 지원하는 제품군 예시</p>
+                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>분야</th><th>대표 제품</th></tr><tr><td>PLC</td><td>S7-1200, S7-1500 (일부 S7-300/400 연동)</td></tr><tr><td>HMI</td><td>Basic Panel, Comfort Panel 등 터치패널</td></tr><tr><td>드라이브</td><td>SINAMICS 계열 인버터</td></tr><tr><td>원격 I/O</td><td>ET200 시리즈</td></tr></table></div></div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">💡 실무 팁</p>
+                    <div style="margin:0; line-height:1.7;">처음 배울 때는 'TIA Portal = PLC 프로그램만 짜는 곳'이라고 오해하기 쉬운데, 실제로는 <span class='red'>설비 전체의 엔지니어링 데이터가 모이는 하나의 큰 그릇</span>이라고 이해하면 이후 단원들의 구조가 훨씬 쉽게 이해된다.</div>
                 </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-1">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-1" data-scoreboard="true">
 <div class="box quiz-box" id="box-u1-1" data-qid="u1-1">
                     <button class="font-btn" onclick="resetAnswer('u1-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -287,6 +299,30 @@
                     </div>
                     <div id="q-result-u1-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u1-2" class="note" style="display:none;">💡 해설: TIA Portal은 최신 지멘스 CPU 계열의 통합 엔지니어링 소프트웨어입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u1-3" data-qid="u1-3">
+                    <button class="font-btn" onclick="resetAnswer('u1-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 'TIA'라는 이름이 뜻하는 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, 'Totally Integrated Automation')">Totally Integrated Automation</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, 'Totally Integrated Automation')">Total Industrial Application</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, 'Totally Integrated Automation')">Technical Interface Automation</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-3', this, 'Totally Integrated Automation')">Trans Industry Access</button>
+                    </div>
+                    <div id="q-result-u1-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u1-3" class="note" style="display:none;">💡 해설: TIA는 'Totally Integrated Automation(완전히 통합된 자동화)'의 약자입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u1-4" data-qid="u1-4">
+                    <button class="font-btn" onclick="resetAnswer('u1-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. TIA Portal 이전 방식(개별 소프트웨어 사용)의 단점으로 옳은 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '태그를 프로그램마다 따로 입력해야 해서 실수가 잦음')">태그를 프로그램마다 따로 입력해야 해서 실수가 잦음</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '태그를 프로그램마다 따로 입력해야 해서 실수가 잦음')">속도가 항상 더 빠름</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '태그를 프로그램마다 따로 입력해야 해서 실수가 잦음')">설치가 필요 없음</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u1-4', this, '태그를 프로그램마다 따로 입력해야 해서 실수가 잦음')">단점이 전혀 없음</button>
+                    </div>
+                    <div id="q-result-u1-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u1-4" class="note" style="display:none;">💡 해설: 개별 소프트웨어를 따로 쓰면 태그(주소) 동기화가 안 되어 실수가 잦아지는 것이 대표적 단점이었습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -325,11 +361,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">3. 제품 등급 (Basic / Professional)</p>
                     <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>제품</th><th>지원 범위</th></tr><tr><td>STEP 7 Basic</td><td>S7-1200 전용</td></tr><tr><td>STEP 7 Professional</td><td>S7-1200 / S7-1500 / S7-300 / S7-400 등 폭넓게 지원</td></tr></table></div>처음 시작할 CPU 종류에 맞춰 필요한 제품 등급을 선택해야 한다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 라이선스 관리 도구</p>
+                    <div style="margin:0; line-height:1.7;">지멘스는 <span class='blue'>Automation License Manager</span>라는 별도 도구로 PC에 설치된 여러 라이선스를 조회·이전·백업할 수 있게 해준다. PC를 교체하거나 재설치할 때는 이 도구로 라이선스를 먼저 옮겨두는 것이 안전하다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. 설치 실패를 줄이는 팁</p>
+                    <div style="margin:0; line-height:1.7;">설치 도중 오류가 잦은 편이라, ① 백신 프로그램을 잠시 끄고, ② 관리자 권한으로 설치 프로그램을 실행하고, ③ 설치 경로에 <span class='red'>한글이나 특수문자가 없는 폴더</span>를 지정하는 것이 문제를 줄이는 데 도움이 된다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-2">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-2">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-2" data-scoreboard="true">
 <div class="box quiz-box" id="box-u2-1" data-qid="u2-1">
                     <button class="font-btn" onclick="resetAnswer('u2-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -354,6 +398,30 @@
                     </div>
                     <div id="q-result-u2-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u2-2" class="note" style="display:none;">💡 해설: TIA Portal/STEP 7은 일반적으로 라이선스 키를 통해 인증합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u2-3" data-qid="u2-3">
+                    <button class="font-btn" onclick="resetAnswer('u2-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. PC에 설치된 라이선스를 조회·이전·백업할 때 사용하는 지멘스 도구는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, 'Automation License Manager')">Automation License Manager</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, 'Automation License Manager')">PLCSIM</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, 'Automation License Manager')">SIMATIC Manager</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-3', this, 'Automation License Manager')">TIA Selection Tool</button>
+                    </div>
+                    <div id="q-result-u2-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-3" class="note" style="display:none;">💡 해설: Automation License Manager는 라이선스를 조회·이전·백업하는 데 사용하는 지멘스의 관리 도구입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u2-4" data-qid="u2-4">
+                    <button class="font-btn" onclick="resetAnswer('u2-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 설치 오류를 줄이기 위한 팁으로 적절하지 않은 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '설치 경로에 한글·특수문자를 일부러 포함시킨다')">설치 경로에 한글·특수문자를 일부러 포함시킨다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '설치 경로에 한글·특수문자를 일부러 포함시킨다')">관리자 권한으로 설치한다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '설치 경로에 한글·특수문자를 일부러 포함시킨다')">백신 프로그램을 잠시 끈다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u2-4', this, '설치 경로에 한글·특수문자를 일부러 포함시킨다')">여러 버전을 공존 설치할 수 있다</button>
+                    </div>
+                    <div id="q-result-u2-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u2-4" class="note" style="display:none;">💡 해설: 설치 경로에 한글이나 특수문자가 있으면 오히려 설치 오류가 잦아질 수 있어 피하는 것이 좋습니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -390,13 +458,21 @@
                 </div>
 <div class="highlight-box">
                     <p style="font-weight:700; margin:0 0 6px 0;">3. 뷰 전환</p>
-                    <div style="margin:0; line-height:1.7;">Portal 뷰 좌측 하단의 <span class='blue'>'프로젝트 뷰로 전환'</span> 링크를 클릭하면 이동하며, 프로젝트 뷰에서도 좌측 하단에서 다시 Portal 뷰로 돌아갈 수 있다. 초보자는 Portal 뷰로 시작해도 되지만, 익숙해질수록 프로젝트 뷰에서 바로 작업하는 것이 더 빠르다.</div>
+                    <div style="margin:0; line-height:1.7;">Portal 뷰 좌측 하단의 <span class='blue'>'프로젝트 뷰로 전환'</span> 링크를 클릭하면 이동하며, 프로젝트 뷰에서도 좌측 하단에서 다시 Portal 뷰로 돌아갈 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 어느 화면부터 시작해야 할까</p>
+                    <div style="margin:0; line-height:1.7;">초보자는 Portal 뷰의 메뉴를 하나씩 눌러보며 흐름을 익히는 것이 도움이 되지만, 익숙해질수록 <span class='blue'>프로젝트 뷰에서 바로 작업하는 것이 훨씬 빠르다</span>. 실무자 대부분은 새 프로젝트를 만든 직후에만 Portal 뷰를 잠깐 쓰고, 이후 작업은 계속 프로젝트 뷰에서 진행한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. Portal 뷰의 주요 메뉴 목록</p>
+                    <div style="margin:0; line-height:1.7;"><div class='table-wrapper'><table class='table'><tr><th>메뉴</th><th>기능</th></tr><tr><td>디바이스 구성(Devices & networks)</td><td>CPU·모듈 추가 및 네트워크 설정</td></tr><tr><td>PLC 프로그래밍</td><td>블록 작성 및 편집</td></tr><tr><td>시각화 구성</td><td>HMI 화면 제작</td></tr><tr><td>온라인 & 진단</td><td>실제 하드웨어 상태 확인</td></tr></table></div></div>
                 </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-3">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-3">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-3" data-scoreboard="true">
 <div class="box quiz-box" id="box-u3-1" data-qid="u3-1">
                     <button class="font-btn" onclick="resetAnswer('u3-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -419,6 +495,30 @@
                     </div>
                     <div id="q-result-u3-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u3-2" class="note" style="display:none;">💡 해설: 프로젝트 뷰는 하드웨어 구성과 프로그램 작성이 이루어지는 본격적인 작업 화면입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u3-3" data-qid="u3-3">
+                    <button class="font-btn" onclick="resetAnswer('u3-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 실무자들이 대체로 Portal 뷰를 사용하는 시점은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '새 프로젝트를 만드는 초반뿐')">새 프로젝트를 만드는 초반뿐</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '새 프로젝트를 만드는 초반뿐')">모든 작업 내내 계속</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '새 프로젝트를 만드는 초반뿐')">프로그램 작성 중에만</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-3', this, '새 프로젝트를 만드는 초반뿐')">온라인 진단할 때만</button>
+                    </div>
+                    <div id="q-result-u3-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-3" class="note" style="display:none;">💡 해설: 익숙해질수록 대부분의 작업은 프로젝트 뷰에서 이루어지고, Portal 뷰는 초반에만 활용하는 경우가 많습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u3-4" data-qid="u3-4">
+                    <button class="font-btn" onclick="resetAnswer('u3-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. Portal 뷰에서 HMI 화면을 제작할 때 선택하는 메뉴는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '시각화 구성')">시각화 구성</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '시각화 구성')">PLC 프로그래밍</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '시각화 구성')">온라인 & 진단</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u3-4', this, '시각화 구성')">디바이스 구성</button>
+                    </div>
+                    <div id="q-result-u3-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u3-4" class="note" style="display:none;">💡 해설: 시각화 구성 메뉴에서 HMI 화면(터치패널 화면)을 제작합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -447,7 +547,7 @@
                     <h2>04. 화면 구성 상세</h2>
 <div class="highlight-box">
                     <p style="font-weight:700; margin:0 0 6px 0;">1. 프로젝트 트리</p>
-                    <div style="margin:0; line-height:1.7;">CPU, 프로그램 블록, 태그표 등 프로젝트의 모든 구성요소가 폴더 형태로 표시되는 좌측 패널이다.</div>
+                    <div style="margin:0; line-height:1.7;">CPU, 프로그램 블록, 태그표 등 프로젝트의 모든 구성요소가 폴더 형태로 표시되는 좌측 패널이다. 트리를 펼치면 <span class='blue'>프로그램 블록 / PLC 태그 / PLC 데이터 타입 / 감시 및 강제 테이블</span> 등 세부 폴더가 나타난다.</div>
                 </div>
 <div class="highlight-box">
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 인스펙터 창</p>
@@ -455,17 +555,25 @@
                 </div>
 <div class="highlight-box">
                     <p style="font-weight:700; margin:0 0 6px 0;">3. 태스크 카드</p>
-                    <div style="margin:0; line-height:1.7;">명령어 목록, 즐겨찾기(Favorites), 라이브러리, 하드웨어 카탈로그 등을 드래그&드롭으로 꺼내 쓰는 우측 패널이다.</div>
+                    <div style="margin:0; line-height:1.7;">명령어 목록, 즐겨찾기(Favorites), 라이브러리, 하드웨어 카탈로그 등을 드래그&드롭으로 꺼내 쓰는 우측 패널이다. 여러 개의 태스크카드 탭을 세로로 접었다 펼 수 있다.</div>
                 </div>
 <div class="highlight-box">
                     <p style="font-weight:700; margin:0 0 6px 0;">4. 정보창(Info window)</p>
-                    <div style="margin:0; line-height:1.7;">화면 하단에 위치하며, 컴파일 시 발생한 오류·경고·정보 메시지를 확인할 수 있다. 빨간 X는 오류, 노란 느낌표는 경고를 의미한다.</div>
+                    <div style="margin:0; line-height:1.7;">화면 하단에 위치하며, 컴파일 시 발생한 오류·경고·정보 메시지를 확인할 수 있다. 빨간 X는 오류, 노란 느낌표는 경고를 의미하며, 메시지를 더블클릭하면 해당 오류가 발생한 위치로 바로 이동한다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. 작업영역(에디터)</p>
+                    <div style="margin:0; line-height:1.7;">선택한 블록의 내용이 실제로 표시·편집되는 중앙 영역이다. 프로그램 블록을 열면 <span class='red'>LAD(래더), FBD, STL</span> 등 원하는 편집 언어로 전환해서 볼 수 있는 경우가 많다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">💡 실무 팁 - 화면 배치 저장하기</p>
+                    <div style="margin:0; line-height:1.7;">패널의 위치나 크기를 내가 편한 대로 바꿔둔 뒤, 이 배치를 유지하고 싶다면 별도로 저장해둘 수 있는 기능이 있다. 매번 창을 재배치하는 수고를 줄일 수 있다.</div>
                 </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-4">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-4">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-4" data-scoreboard="true">
 <div class="box quiz-box" id="box-u4-1" data-qid="u4-1">
                     <button class="font-btn" onclick="resetAnswer('u4-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -490,6 +598,30 @@
                     </div>
                     <div id="q-result-u4-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u4-2" class="note" style="display:none;">💡 해설: 인스펙터 창의 속성(Properties) 탭에서 선택한 개체의 세부 설정을 편집합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u4-3" data-qid="u4-3">
+                    <button class="font-btn" onclick="resetAnswer('u4-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 정보창에서 오류 메시지를 더블클릭하면 어떤 일이 일어나는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '오류가 발생한 위치로 바로 이동한다')">오류가 발생한 위치로 바로 이동한다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '오류가 발생한 위치로 바로 이동한다')">메시지가 삭제된다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '오류가 발생한 위치로 바로 이동한다')">프로그램이 종료된다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-3', this, '오류가 발생한 위치로 바로 이동한다')">아무 반응이 없다</button>
+                    </div>
+                    <div id="q-result-u4-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-3" class="note" style="display:none;">💡 해설: 오류 메시지를 더블클릭하면 해당 오류가 발생한 네트워크나 블록 위치로 바로 이동해줍니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u4-4" data-qid="u4-4">
+                    <button class="font-btn" onclick="resetAnswer('u4-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. PLC 태그, 데이터 타입, 감시 테이블 등이 폴더 형태로 표시되는 패널은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, '프로젝트 트리')">프로젝트 트리</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, '프로젝트 트리')">태스크카드</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, '프로젝트 트리')">인스펙터 창</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u4-4', this, '프로젝트 트리')">정보창</button>
+                    </div>
+                    <div id="q-result-u4-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u4-4" class="note" style="display:none;">💡 해설: 프로젝트 트리에는 CPU, 프로그램 블록, 태그표 등 프로젝트의 모든 구성요소가 폴더 형태로 표시됩니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -518,21 +650,29 @@
                     <h2>05. 새 프로젝트 만들기 & 디바이스 추가</h2>
 <div class="highlight-box">
                     <p style="font-weight:700; margin:0 0 6px 0;">1. 새 프로젝트 생성</p>
-                    <div style="margin:0; line-height:1.7;">Portal 뷰의 '새 프로젝트 시작'에서 프로젝트 이름과 저장 경로를 지정하면 빈 프로젝트가 만들어진다.</div>
+                    <div style="margin:0; line-height:1.7;">Portal 뷰의 '새 프로젝트 시작'에서 프로젝트 이름과 저장 경로를 지정하면 빈 프로젝트가 만들어진다. 프로젝트 이름은 나중에 여러 프로젝트를 구분해야 할 때를 대비해 <span class='blue'>설비명·라인명을 포함</span>해 짓는 것이 좋다.</div>
                 </div>
 <div class="highlight-box">
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 디바이스 추가</p>
                     <div style="margin:0; line-height:1.7;">프로젝트 트리에서 <span class='blue'>'새 디바이스 추가'</span>를 선택해 CPU를 고른다. 이때 실제 PLC 본체의 <span class='red'>정확한 주문번호(order number)</span>를 그대로 선택해야 나중에 다운로드가 정상적으로 이루어진다.</div>
                 </div>
 <div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">3. 프로젝트 라이브러리 vs 전역 라이브러리</p>
-                    <div style="margin:0; line-height:1.7;"><b>프로젝트 라이브러리</b>는 현재 프로젝트 안에서만 쓰이고, <b>전역 라이브러리(Global library)</b>는 여러 프로젝트에서 공통으로 재사용할 블록·화면을 저장해두는 곳이다.</div>
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 카탈로그에서 CPU 찾는 방법</p>
+                    <div style="margin:0; line-height:1.7;">정확한 주문번호를 모른다면, CPU 본체 옆면에 붙은 라벨을 사진으로 찍어두고 하드웨어 카탈로그 검색창에 모델명 일부를 입력해 필터링하는 방식으로 찾을 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 프로젝트 라이브러리 vs 전역 라이브러리</p>
+                    <div style="margin:0; line-height:1.7;"><b>프로젝트 라이브러리</b>는 현재 프로젝트 안에서만 쓰이고, <b>전역 라이브러리(Global library)</b>는 여러 프로젝트에서 공통으로 재사용할 블록·화면을 저장해두는 곳이다. 회사에서 표준화된 로직(예: 표준 모터 제어 FB)을 전역 라이브러리로 만들어두면 여러 프로젝트에서 그대로 가져다 쓸 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. 자주 하는 실수</p>
+                    <div style="margin:0; line-height:1.7;">①비슷해 보이는 CPU 모델을 대충 선택 → 다운로드 오류. ②저장 경로에 특수문자·너무 긴 경로 사용 → 파일 접근 오류. ③프로젝트 이름을 임시로 짓고 나중에 안 바꿈 → 나중에 여러 프로젝트가 섞여 헷갈림. 이 세 가지만 주의해도 초반 실수를 크게 줄일 수 있다.</div>
                 </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-5">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-5">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-5" data-scoreboard="true">
 <div class="box quiz-box" id="box-u5-1" data-qid="u5-1">
                     <button class="font-btn" onclick="resetAnswer('u5-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -555,6 +695,30 @@
                     </div>
                     <div id="q-result-u5-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u5-2" class="note" style="display:none;">💡 해설: 전역 라이브러리(Global library)는 여러 프로젝트에서 공통으로 재사용할 블록·화면을 저장합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u5-3" data-qid="u5-3">
+                    <button class="font-btn" onclick="resetAnswer('u5-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 정확한 CPU 주문번호를 모를 때 확인할 수 있는 가장 확실한 방법은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, 'CPU 본체 옆면 라벨 확인')">CPU 본체 옆면 라벨 확인</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, 'CPU 본체 옆면 라벨 확인')">색깔로 추측</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, 'CPU 본체 옆면 라벨 확인')">인터넷에서 대충 검색</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-3', this, 'CPU 본체 옆면 라벨 확인')">아무 CPU나 선택 후 나중에 변경 불가</button>
+                    </div>
+                    <div id="q-result-u5-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-3" class="note" style="display:none;">💡 해설: CPU 본체 측면에 붙은 라벨에서 정확한 주문번호를 확인하는 것이 가장 확실한 방법입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u5-4" data-qid="u5-4">
+                    <button class="font-btn" onclick="resetAnswer('u5-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 새 프로젝트를 만들 때 프로젝트 이름을 짓는 좋은 방법은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, '설비명·라인명을 포함해서 짓는다')">설비명·라인명을 포함해서 짓는다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, '설비명·라인명을 포함해서 짓는다')">숫자만 사용한다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, '설비명·라인명을 포함해서 짓는다')">항상 'New Project'로 둔다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u5-4', this, '설비명·라인명을 포함해서 짓는다')">이름은 중요하지 않다</button>
+                    </div>
+                    <div id="q-result-u5-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u5-4" class="note" style="display:none;">💡 해설: 여러 프로젝트를 구분하기 쉽도록 설비명·라인명을 포함해 이름을 짓는 것이 실무에서 유리합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -593,11 +757,19 @@
                     <p style="font-weight:700; margin:0 0 6px 0;">2. FC와 FB의 차이</p>
                     <div style="margin:0; line-height:1.7;">FC는 매번 새로 계산만 하고 끝나는 '계산기' 같은 존재이고, FB는 자신만의 <span class='red'>인스턴스 DB</span>를 가지고 있어 이전 스캔의 상태(예: 타이머 경과시간)를 기억할 수 있다.</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 다른 종류의 OB도 있다</p>
+                    <div style="margin:0; line-height:1.7;">OB1 외에도 <span class='blue'>OB100(시작 OB, PLC가 STOP→RUN될 때 한 번만 실행)</span>, <span class='blue'>OB35(주기적 인터럽트 OB, 일정 시간마다 실행)</span>, 에러 처리용 OB 등 다양한 종류가 있다. 초급 단계에서는 OB1만 알아도 충분하지만, 시작 시 한 번만 할 일이 있다면 OB100을 활용할 수 있다는 것 정도는 알아두면 좋다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 글로벌 DB와 인스턴스 DB</p>
+                    <div style="margin:0; line-height:1.7;"><b>글로벌 DB</b>는 특정 블록에 종속되지 않고 프로그램 어디서든 접근 가능한 데이터 저장소이고, <b>인스턴스 DB</b>는 특정 FB 호출 하나에 전용으로 딸려있는 데이터 저장소다. 예를 들어 같은 FB를 3번 호출하면 인스턴스 DB도 3개가 생겨 서로 독립적으로 상태를 유지한다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-6">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-6">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-6" data-scoreboard="true">
 <div class="box quiz-box" id="box-u6-1" data-qid="u6-1">
                     <button class="font-btn" onclick="resetAnswer('u6-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -622,6 +794,30 @@
                     </div>
                     <div id="q-result-u6-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u6-2" class="note" style="display:none;">💡 해설: OB1은 PLC가 전원이 켜진 뒤 반복 실행하는 메인 프로그램(Organization Block)입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u6-3" data-qid="u6-3">
+                    <button class="font-btn" onclick="resetAnswer('u6-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. PLC가 STOP에서 RUN으로 전환될 때 딱 한 번만 실행되는 OB는?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, 'OB100 (시작 OB)')">OB100 (시작 OB)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, 'OB100 (시작 OB)')">OB1</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, 'OB100 (시작 OB)')">OB35</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-3', this, 'OB100 (시작 OB)')">존재하지 않는다</button>
+                    </div>
+                    <div id="q-result-u6-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-3" class="note" style="display:none;">💡 해설: OB100은 시작(Startup) OB로, PLC가 STOP에서 RUN으로 바뀔 때 한 번만 실행됩니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u6-4" data-qid="u6-4">
+                    <button class="font-btn" onclick="resetAnswer('u6-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 같은 FB를 3번 호출하면 인스턴스 DB는 몇 개 생기는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '3개')">3개</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '3개')">1개</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '3개')">0개</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u6-4', this, '3개')">항상 하나로 공유됨</button>
+                    </div>
+                    <div id="q-result-u6-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u6-4" class="note" style="display:none;">💡 해설: 각 FB 호출마다 전용 인스턴스 DB가 별도로 생성되어 서로 독립적으로 상태를 유지합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -657,14 +853,22 @@
                     <div style="margin:0; line-height:1.7;">컴파일이 성공하면 <span class='red'>다운로드(Download)</span>로 실제 CPU(또는 PLCSIM)에 프로그램을 전송한다. 온라인 액세스에서 올바른 네트워크 어댑터가 선택되어 있어야 한다.</div>
                 </div>
 <div class="highlight-box">
-                    <p style="font-weight:700; margin:0 0 6px 0;">3. 온라인 모니터링</p>
+                    <p style="font-weight:700; margin:0 0 6px 0;">3. 다운로드 대화상자에서 확인할 점</p>
+                    <div style="margin:0; line-height:1.7;">다운로드 진행 중 나타나는 대화상자에서는 <span class='blue'>연결된 CPU의 주소·모델·현재 동작 상태</span>가 표시된다. 잘못된 CPU에 실수로 다운로드하지 않도록 이 정보를 꼭 확인하는 습관이 중요하다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 온라인 모니터링</p>
                     <div style="margin:0; line-height:1.7;">다운로드 후 <span class='blue'>모니터링 켜기(Monitoring on/off)</span> 버튼을 누르면 실제 접점·코일의 통전 상태를 색상(보통 초록색)으로 실시간 확인할 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. RUN/STOP 전환</p>
+                    <div style="margin:0; line-height:1.7;">CPU를 <span class='red'>RUN 모드</span>로 전환해야 실제로 로직이 반복 실행된다. STOP 모드에서는 프로그램이 실행되지 않으므로, 다운로드 후 RUN으로 전환하는 것을 잊지 않아야 한다.</div>
                 </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-7">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-7">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-7" data-scoreboard="true">
 <div class="box quiz-box" id="box-u7-1" data-qid="u7-1">
                     <button class="font-btn" onclick="resetAnswer('u7-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -687,6 +891,30 @@
                     </div>
                     <div id="q-result-u7-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u7-2" class="note" style="display:none;">💡 해설: 온라인 모니터링에서는 통전(참) 상태의 접점·코일이 보통 초록색으로 강조 표시됩니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u7-3" data-qid="u7-3">
+                    <button class="font-btn" onclick="resetAnswer('u7-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 다운로드 후 실제로 로직이 반복 실행되게 하려면 CPU를 어떤 모드로 전환해야 하는가?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, 'RUN 모드')">RUN 모드</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, 'RUN 모드')">STOP 모드</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, 'RUN 모드')">OFFLINE 모드</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-3', this, 'RUN 모드')">전환할 필요 없음</button>
+                    </div>
+                    <div id="q-result-u7-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-3" class="note" style="display:none;">💡 해설: STOP 모드에서는 프로그램이 실행되지 않으므로, 다운로드 후 RUN 모드로 전환해야 합니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u7-4" data-qid="u7-4">
+                    <button class="font-btn" onclick="resetAnswer('u7-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 다운로드 대화상자에서 확인해야 할 정보로 가장 적절한 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '연결된 CPU의 주소·모델·동작 상태')">연결된 CPU의 주소·모델·동작 상태</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '연결된 CPU의 주소·모델·동작 상태')">화면 배경색</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '연결된 CPU의 주소·모델·동작 상태')">프로젝트 폰트</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u7-4', this, '연결된 CPU의 주소·모델·동작 상태')">저장 용량</button>
+                    </div>
+                    <div id="q-result-u7-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u7-4" class="note" style="display:none;">💡 해설: 잘못된 CPU에 다운로드하는 실수를 막기 위해 연결된 CPU의 정보를 꼭 확인해야 합니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -719,17 +947,25 @@
                 </div>
 <div class="highlight-box">
                     <p style="font-weight:700; margin:0 0 6px 0;">2. 버전관리 팁</p>
-                    <div style="margin:0; line-height:1.7;">정기적으로 아카이브 파일을 날짜별로 백업해두면, 문제가 생겼을 때 이전 버전으로 되돌릴 수 있어 실무에서 매우 중요한 습관이다.</div>
+                    <div style="margin:0; line-height:1.7;">정기적으로 아카이브 파일을 날짜별로 백업해두면, 문제가 생겼을 때 이전 버전으로 되돌릴 수 있어 실무에서 매우 중요한 습관이다. 파일명에 날짜와 간단한 변경 내용을 함께 적어두면(예: 20260101_모터로직수정.zap) 나중에 찾기 쉽다.</div>
                 </div>
 <div class="highlight-box">
                     <p style="font-weight:700; margin:0 0 6px 0;">3. 팀 협업 - Multiuser Engineering</p>
                     <div style="margin:0; line-height:1.7;">TIA Portal의 옵션 기능인 <span class='blue'>Multiuser Engineering</span>을 사용하면 여러 엔지니어가 같은 프로젝트의 서로 다른 부분을 동시에 작업할 수 있다(대규모 프로젝트에서 유용).</div>
                 </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">4. 프로젝트 비교 기능</p>
+                    <div style="margin:0; line-height:1.7;">두 버전의 프로젝트에서 무엇이 달라졌는지 비교해주는 <span class='red'>버전 비교(Compare)</span> 기능도 제공되어, 여러 사람이 수정한 내용을 검토할 때 유용하게 쓸 수 있다.</div>
+                </div>
+<div class="highlight-box">
+                    <p style="font-weight:700; margin:0 0 6px 0;">5. 문서화 습관</p>
+                    <div style="margin:0; line-height:1.7;">프로그램 안에 <span class='blue'>주석(Comment)</span>을 충실히 남기고, 태그 이름도 의미를 알 수 있게(예: I0.0 대신 '기동버튼_라인1') 지어두면, 나중에 다른 사람이 유지보수할 때 훨씬 수월해진다.</div>
+                </div>
 
                     <div class="quiz-sec-header">
-                        <span class="quiz-sec-title">✏️ 단원 확인문제 (2문제)</span>
+                        <span class="quiz-sec-title">✏️ 단원 확인문제 (4문제)</span>
                     </div>
-                    <div class="score-board"><span id="score-unit-quiz-8">점수: 0 / 100점 (정답 0 / 2문제)</span></div>
+                    <div class="score-board"><span id="score-unit-quiz-8">점수: 0 / 100점 (정답 0 / 4문제)</span></div>
                     <div id="unit-quiz-8" data-scoreboard="true">
 <div class="box quiz-box" id="box-u8-1" data-qid="u8-1">
                     <button class="font-btn" onclick="resetAnswer('u8-1')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
@@ -754,6 +990,30 @@
                     </div>
                     <div id="q-result-u8-2" style="margin-top:10px; font-weight:bold; display:none;"></div>
                     <div id="q-expl-u8-2" class="note" style="display:none;">💡 해설: Multiuser Engineering은 여러 사용자가 동시에 하나의 프로젝트를 나누어 작업할 수 있게 해주는 옵션 기능입니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u8-3" data-qid="u8-3">
+                    <button class="font-btn" onclick="resetAnswer('u8-3')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q3. 두 버전의 프로젝트에서 달라진 부분을 확인할 때 사용하는 기능은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '버전 비교(Compare)')">버전 비교(Compare)</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '버전 비교(Compare)')">아카이브</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '버전 비교(Compare)')">라이브러리</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-3', this, '버전 비교(Compare)')">온라인 진단</button>
+                    </div>
+                    <div id="q-result-u8-3" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-3" class="note" style="display:none;">💡 해설: 버전 비교(Compare) 기능으로 두 프로젝트 버전 사이의 차이점을 확인할 수 있습니다.</div>
+                </div>
+<div class="box quiz-box" id="box-u8-4" data-qid="u8-4">
+                    <button class="font-btn" onclick="resetAnswer('u8-4')" style="float:right; font-size:0.75em; padding:4px 8px;">🔄 초기화</button>
+                    <p class="quiz-q-title" style="font-weight:bold; margin-top:0;">Q4. 유지보수를 쉽게 하기 위한 좋은 습관으로 가장 적절한 것은?</p>
+                    <div class="quiz-opt-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0;">
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '태그 이름을 의미 있게 짓고 주석을 남긴다')">태그 이름을 의미 있게 짓고 주석을 남긴다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '태그 이름을 의미 있게 짓고 주석을 남긴다')">태그 이름은 짧을수록 무조건 좋다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '태그 이름을 의미 있게 짓고 주석을 남긴다')">주석은 생략해도 무방하다</button>
+<button class="font-btn opt-btn" onclick="checkAnswerByText('u8-4', this, '태그 이름을 의미 있게 짓고 주석을 남긴다')">문서화는 불필요하다</button>
+                    </div>
+                    <div id="q-result-u8-4" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                    <div id="q-expl-u8-4" class="note" style="display:none;">💡 해설: 의미 있는 태그 이름과 충실한 주석은 다른 사람이 나중에 프로그램을 이해하고 유지보수하는 데 큰 도움이 됩니다.</div>
                 </div>
                     </div>
                     <div style="text-align:center; margin:10px 0 20px 0; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
@@ -780,10 +1040,10 @@
             <h1>지멘스 PLC 기초강좌 - <br>🎲 랜덤 모의고사</h1>
             <div id="exam-select" class="box" style="text-align:center;">
                 <p style="font-weight:700; margin-top:0;">몇 문제를 랜덤으로 뽑을까요?</p>
-                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 16문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
+                <p style="font-size:0.82em; color:var(--text-sub); margin-bottom:16px;">전체 32문제(1~8단원) 중에서 매번 다른 조합으로 출제돼요.</p>
                 <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
                     <button class="font-btn" onclick="startRandomExam(8)" style="padding:10px 18px;">8문제</button>
-                    <button class="font-btn" onclick="startRandomExam(16)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">16문제(전체)</button>
+                    <button class="font-btn" onclick="startRandomExam(32)" style="padding:10px 18px; background-color: var(--primary); color:#ffffff;">32문제(전체)</button>
                 </div>
             </div>
 
